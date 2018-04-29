@@ -1,0 +1,98 @@
+#+OPTIONS: html-link-use-abs-url:nil
+#+OPTIONS: html-preamble:t html-scripts:t html-style:t
+#+OPTIONS: html5-fancy:nil
+#+HTML_DOCTYPE: xhtml-strict
+#+HTML_CONTAINER: div
+#+DESCRIPTION:
+#+KEYWORDS:
+#+HTML_LINK_HOME:
+#+HTML_LINK_UP:
+#+HTML_MATHJAX:
+#+SUBTITLE:
+#+INFOJS_OPT:
+#+LATEX_HEADER:
+#+LANGUAGE: en
+#+OPTIONS: toc:t h:3 tex:t f:t
+#+OPTIONS: prop:("VERSION")
+#+HTML_DOCTYPE: <!DOCTYPE html>
+
+#+TITLE: R resources
+#+DATE: {{{time(%B %d\, %Y)}}}
+#+AUTHOR: Marie-Hélène Burle
+#+EMAIL: msb2@sfu.ca
+#+HTML: <br>
+
+R is a fast evolving and increasingly popular language. It started as a statistical analysis and graphing language, but its capabilities expended widely beyond this. One of the benefits of R is its large and active on-line community. There are amazing resources freely available to learn, get help, and connect with other R users. This document lists some of these high quality resources.
+
+* Learning R
+
+** Beginners
+
+An amazing starting place to learn R is the book by Garrett Grolemund and Hadley Wickham "R for Data Science". This is also a great resource for R users who aren't familiar with the tidyverse. It is freely available [[http://r4ds.had.co.nz/index.html][on-line]], but also exists in a book format.
+
+[[https://software-carpentry.org/][Software Carpentry]] and [[http://www.datacarpentry.org/][Data Carpentry]], now merged under [[http://carpentries.org/][the Carpentries]]
+
+[[http://sciprog.ca/][SciProg]] is 
+
+For students in the department of biology, 
+
+[[link: where is the link??? I can't find it... Maybe R support should be better advertised :) ][Research Commons R peers].
+
+** Intermediates
+
+For intermediate users willing to understand the language better, or for people new to R but already familiar with other languages, a great resource is another book by Hadley Wickham, "Advanced R". It is also freely accessible [[http://adv-r.had.co.nz/][on-line]].
+
+** Advanced users
+
+Hadley also wrote a book on how to write your own packages. This one too, is available [[http://r-pkgs.had.co.nz/][on-line]].
+
+** GIS in R
+
+R can also be used to map data and conduct spacial data analysis. [[https://data.cdrc.ac.uk/tutorial/an-introduction-to-spatial-data-analysis-and-visualisation-in-r][This series of tutorials]] by Guy Lansley and James Cheshire and [[https://geocompr.robinlovelace.net/][the book "Geocomputation with R"]] by Robin Lovelace, Jakub Nowosad, and Jannes Muenchow are good on-line resources to get started on this.
+
+* Formatting code
+
+http://adv-r.had.co.nz/Style.html
+
+https://google.github.io/styleguide/Rguide.xml
+
+[[http://style.tidyverse.org/][the tidyverse style guide]]
+
+* Getting help with R
+
+The best way to get help with R is to make a minimal reproducible example: https://www.tidyverse.org/help/#where-to-ask
+
+ ("reprex" in R jargon).
+[[https://stackoverflow.com/questions/tagged/r][Stack Overflow]]
+
+[[https://stackoverflow.com/help/tagging][tags]]
+
+Hadley Wickham [[http://adv-r.had.co.nz/Reproducibility.html][How to write a reproducible example]] 
+Stack Overflow [[https://stackoverflow.com/questions/5963269/how-to-make-a-great-r-reproducible-example][How to make a great R reproducible example?]]
+
+https://community.rstudio.com/t/welcome-to-the-rstudio-community/8
+
+https://community.rstudio.com/guidelines
+
+https://support.rstudio.com/hc/en-us/articles/200552336
+
+* Getting involved in the R community
+
+[[https://ropensci.org/blog/][rOpenSci]]
+
+
+[[https://rladies.org/][R Ladies]], an organization promoting gender diversity in the R community, recently opened [[https://www.meetup.com/R-Ladies-Vancouver/][a new chapter in Vancouver]].
+
+** Answering questions
+
+Obviously, 
+
+** Contributing code
+
+*** Filling issues and submitting pull request
+
+[[https://github.com/][GitHub]]
+
+*** Submitting packages
+
+@@html:<div style="font-size: 90%; background-color: #eee8d5; border: 1pt solid #93a1a1">@@This page was created using a modified version of a css style by Thomas Frössman (itself based on the solarized color theme from Ethan Schoonover), as well as parts of a modified version of the worg css stylesheet for the table of contents@@html:</div>@@
