@@ -3,561 +3,534 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2018-03-24 Sat 01:57 -->
+<!-- 2018-04-29 Sun 14:04 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>R resources</title>
 <meta name="generator" content="Org mode" />
 <meta name="author" content="Marie-Hélène Burle" />
 <style type="text/css">
- <!--/*--><![CDATA[/*><!--*/
-  .title  { text-align: center;
-             margin-bottom: .2em; }
-  .subtitle { text-align: center;
-              font-size: medium;
-              font-weight: bold;
-              margin-top:0; }
-  .todo   { font-family: monospace; color: red; }
-  .done   { font-family: monospace; color: green; }
-  .priority { font-family: monospace; color: orange; }
-  .tag    { background-color: #eee; font-family: monospace;
-            padding: 2px; font-size: 80%; font-weight: normal; }
-  .timestamp { color: #bebebe; }
-  .timestamp-kwd { color: #5f9ea0; }
-  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
-  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
-  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
-  .underline { text-decoration: underline; }
-  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
-  p.verse { margin-left: 3%; }
-  pre {
-    border: 1px solid #ccc;
-    box-shadow: 3px 3px 3px #eee;
-    padding: 8pt;
-    font-family: monospace;
-    overflow: auto;
-    margin: 1.2em;
-  }
-  pre.src {
-    position: relative;
-    overflow: visible;
-    padding-top: 1.2em;
-  }
-  pre.src:before {
-    display: none;
-    position: absolute;
-    background-color: white;
-    top: -10px;
-    right: 10px;
-    padding: 3px;
-    border: 1px solid black;
-  }
-  pre.src:hover:before { display: inline;}
-  /* Languages per Org manual */
-  pre.src-asymptote:before { content: 'Asymptote'; }
-  pre.src-awk:before { content: 'Awk'; }
-  pre.src-C:before { content: 'C'; }
-  /* pre.src-C++ doesn't work in CSS */
-  pre.src-clojure:before { content: 'Clojure'; }
-  pre.src-css:before { content: 'CSS'; }
-  pre.src-D:before { content: 'D'; }
-  pre.src-ditaa:before { content: 'ditaa'; }
-  pre.src-dot:before { content: 'Graphviz'; }
-  pre.src-calc:before { content: 'Emacs Calc'; }
-  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
-  pre.src-fortran:before { content: 'Fortran'; }
-  pre.src-gnuplot:before { content: 'gnuplot'; }
-  pre.src-haskell:before { content: 'Haskell'; }
-  pre.src-hledger:before { content: 'hledger'; }
-  pre.src-java:before { content: 'Java'; }
-  pre.src-js:before { content: 'Javascript'; }
-  pre.src-latex:before { content: 'LaTeX'; }
-  pre.src-ledger:before { content: 'Ledger'; }
-  pre.src-lisp:before { content: 'Lisp'; }
-  pre.src-lilypond:before { content: 'Lilypond'; }
-  pre.src-lua:before { content: 'Lua'; }
-  pre.src-matlab:before { content: 'MATLAB'; }
-  pre.src-mscgen:before { content: 'Mscgen'; }
-  pre.src-ocaml:before { content: 'Objective Caml'; }
-  pre.src-octave:before { content: 'Octave'; }
-  pre.src-org:before { content: 'Org mode'; }
-  pre.src-oz:before { content: 'OZ'; }
-  pre.src-plantuml:before { content: 'Plantuml'; }
-  pre.src-processing:before { content: 'Processing.js'; }
-  pre.src-python:before { content: 'Python'; }
-  pre.src-R:before { content: 'R'; }
-  pre.src-ruby:before { content: 'Ruby'; }
-  pre.src-sass:before { content: 'Sass'; }
-  pre.src-scheme:before { content: 'Scheme'; }
-  pre.src-screen:before { content: 'Gnu Screen'; }
-  pre.src-sed:before { content: 'Sed'; }
-  pre.src-sh:before { content: 'shell'; }
-  pre.src-sql:before { content: 'SQL'; }
-  pre.src-sqlite:before { content: 'SQLite'; }
-  /* additional languages in org.el's org-babel-load-languages alist */
-  pre.src-forth:before { content: 'Forth'; }
-  pre.src-io:before { content: 'IO'; }
-  pre.src-J:before { content: 'J'; }
-  pre.src-makefile:before { content: 'Makefile'; }
-  pre.src-maxima:before { content: 'Maxima'; }
-  pre.src-perl:before { content: 'Perl'; }
-  pre.src-picolisp:before { content: 'Pico Lisp'; }
-  pre.src-scala:before { content: 'Scala'; }
-  pre.src-shell:before { content: 'Shell Script'; }
-  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
-  /* additional language identifiers per "defun org-babel-execute"
-       in ob-*.el */
-  pre.src-cpp:before  { content: 'C++'; }
-  pre.src-abc:before  { content: 'ABC'; }
-  pre.src-coq:before  { content: 'Coq'; }
-  pre.src-groovy:before  { content: 'Groovy'; }
-  /* additional language identifiers from org-babel-shell-names in
-     ob-shell.el: ob-shell is the only babel language using a lambda to put
-     the execution function name together. */
-  pre.src-bash:before  { content: 'bash'; }
-  pre.src-csh:before  { content: 'csh'; }
-  pre.src-ash:before  { content: 'ash'; }
-  pre.src-dash:before  { content: 'dash'; }
-  pre.src-ksh:before  { content: 'ksh'; }
-  pre.src-mksh:before  { content: 'mksh'; }
-  pre.src-posh:before  { content: 'posh'; }
-  /* Additional Emacs modes also supported by the LaTeX listings package */
-  pre.src-ada:before { content: 'Ada'; }
-  pre.src-asm:before { content: 'Assembler'; }
-  pre.src-caml:before { content: 'Caml'; }
-  pre.src-delphi:before { content: 'Delphi'; }
-  pre.src-html:before { content: 'HTML'; }
-  pre.src-idl:before { content: 'IDL'; }
-  pre.src-mercury:before { content: 'Mercury'; }
-  pre.src-metapost:before { content: 'MetaPost'; }
-  pre.src-modula-2:before { content: 'Modula-2'; }
-  pre.src-pascal:before { content: 'Pascal'; }
-  pre.src-ps:before { content: 'PostScript'; }
-  pre.src-prolog:before { content: 'Prolog'; }
-  pre.src-simula:before { content: 'Simula'; }
-  pre.src-tcl:before { content: 'tcl'; }
-  pre.src-tex:before { content: 'TeX'; }
-  pre.src-plain-tex:before { content: 'Plain TeX'; }
-  pre.src-verilog:before { content: 'Verilog'; }
-  pre.src-vhdl:before { content: 'VHDL'; }
-  pre.src-xml:before { content: 'XML'; }
-  pre.src-nxml:before { content: 'XML'; }
-  /* add a generic configuration mode; LaTeX export needs an additional
-     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
-  pre.src-conf:before { content: 'Configuration File'; }
-
-  table { border-collapse:collapse; }
-  caption.t-above { caption-side: top; }
-  caption.t-bottom { caption-side: bottom; }
-  td, th { vertical-align:top;  }
-  th.org-right  { text-align: center;  }
-  th.org-left   { text-align: center;   }
-  th.org-center { text-align: center; }
-  td.org-right  { text-align: right;  }
-  td.org-left   { text-align: left;   }
-  td.org-center { text-align: center; }
-  dt { font-weight: bold; }
-  .footpara { display: inline; }
-  .footdef  { margin-bottom: 1em; }
-  .figure { padding: 1em; }
-  .figure p { text-align: center; }
-  .inlinetask {
-    padding: 10px;
-    border: 2px solid gray;
-    margin: 10px;
-    background: #ffffcc;
-  }
-  #org-div-home-and-up
-   { text-align: right; font-size: 70%; white-space: nowrap; }
-  textarea { overflow-x: auto; }
-  .linenr { font-size: smaller }
-  .code-highlighted { background-color: #ffff00; }
-  .org-info-js_info-navigation { border-style: none; }
-  #org-info-js_console-label
-    { font-size: 10px; font-weight: bold; white-space: nowrap; }
-  .org-info-js_search-highlight
-    { background-color: #ffff00; color: #000000; font-weight: bold; }
-  .org-svg { width: 90%; }
-  /*]]>*/-->
-</style>
-<style type="text/css">
 <!--/*--><![CDATA[/*><!--*/
 @media all
 {
-/* @import url(http://fonts.googleapis.com/css?family=Inconsolata); */
-/* @import url(http://fonts.googleapis.com/css?family=PT+Sans); */
-/* @import url(http://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700); */
-article,
-aside,
-details,
-figcaption,
-figure,
-footer,
-header,
-hgroup,
-nav,
-section,
-summary {
-  display: block;
-}
-audio,
-canvas,
-video {
-  display: inline-block;
-}
-audio:not([controls]) {
-  display: none;
-  height: 0;
-}
-[hidden] {
-  display: none;
-}
-html {
-  font-family: sans-serif;
-  -webkit-text-size-adjust: 95%;
-  -ms-text-size-adjust: 95%;
-}
-body {
-  margin: 0;
-}
-a:focus {
-  outline: thin dotted;
-}
-a:active,
-a:hover {
-  outline: 0;
-}
-}
-abbr[title] {
-  border-bottom: 1px dotted;
-}
-b,
-strong {
-  font-weight: bold;
-}
-dfn {
-  font-style: italic;
-}
-mark {
-  background: #ff0;
-  color: #000;
-}
-code,
-kbd,
-pre,
-samp {
-  font-family: monospace, serif;
-  font-size: 1em;
-}
-pre {
-  white-space: pre-wrap;
-  word-wrap: break-word;
-}
-q {
-  quotes: "\201C" "\201D" "\2018" "\2019";
-}
-small {
-  font-size: 80%;
-}
-sub,
-sup {
-  font-size: 75%;
-  line-height: 0;
-  position: relative;
-  vertical-align: baseline;
-}
-sup {
-  top: -0.5em;
-}
-sub {
-  bottom: -0.25em;
-}
-img {
-  border: 0;
-}
-svg:not(:root) {
-  overflow: hidden;
-}
-figure {
-  margin: 0;
-}
-fieldset {
-  border: 1px solid #c0c0c0;
-  margin: 0 2px;
-  padding: 0.35em 0.625em 0.75em;
-}
-legend {
-  border: 0;
-  padding: 0;
-}
-button,
-input,
-select,
-textarea {
-  font-family: inherit;
-  font-size: 100%;
-  margin: 0;
-}
-button,
-input {
-  line-height: normal;
-}
-button,
-html input[type="button"],
-input[type="reset"],
-input[type="submit"] {
-  -webkit-appearance: button;
-  cursor: pointer;
-}
-button[disabled],
-input[disabled] {
-  cursor: default;
-}
-input[type="checkbox"],
-input[type="radio"] {
-  box-sizing: border-box;
-  padding: 0;
-}
-input[type="search"] {
-  -webkit-appearance: textfield;
-  -moz-box-sizing: content-box;
-  -webkit-box-sizing: content-box;
-  box-sizing: content-box;
-}
-input[type="search"]::-webkit-search-cancel-button,
-input[type="search"]::-webkit-search-decoration {
-  -webkit-appearance: none;
-}
-button::-moz-focus-inner,
-input::-moz-focus-inner {
-  border: 0;
-  padding: 0;
-}
-textarea {
-  overflow: auto;
-  vertical-align: top;
-}
-table {
-  border-collapse: collapse;
-  border-spacing: 0;
-}
-html {
-  font-family: 'Open Sans Regular', sans-serif;
-}
-pre,
-code {
-  font-family: 'consolas', sans-serif;
-}
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: 'Open Sans Condensed Light', sans-serif;
-  font-weight: 700;
-}
-html {
-  background-color: #eee8d5;
-  color: #242b2f;
-  margin: 1em;
-  line-height: 24px;
-}
-body {
-  background-color: #faf9f1;
-  margin: 0 auto;
-  max-width: 22cm;
-  border: 1pt solid #93a1a1;
-  padding: 1em;
-}
-code {
-  background-color: #eee8d5;
-  padding: 2px;
-}
-a {
-  color: #b58900;
-}
-a:visited {
-  color: #cb4b16;
-}
-a:hover {
-  color: #e65719;
-}
-h1 {
-  color: #890c0c;
-}
-h2 {
-  color: #094043;
-}
-h3 {
-  color: #0f6b70;
-}
-h4 {
-  color: #13866c;
-}
-h5 {
-  color: #528d25;
-}
-h6 {
-  color: #9d9d15;
-}
-pre {
-  background-color: #f0efef;
-  color: #262626;
-  padding: 1em;
-  font-family: 'Courier New';
-  font-size: 95%;
-  line-height: 22px;
-  /* border: 1pt solid #000000; */
-  /* box-shadow: 5pt 5pt 8pt #eee8d5; */
-  /* letter-spacing: 1.1px; */
-}
-.org-ess-numbers {
-    color: #e28200;
-}
-.org-comment-delimiter {
+  @import url(http://fonts.googleapis.com/css?family=Inconsolata);
+  @import url(http://fonts.googleapis.com/css?family=Lato);
+  @import url(http://fonts.googleapis.com/css?family=Linden+Hill);
+  @import url(http://fonts.googleapis.com/css?family=Roboto+Slab+Thin);
+  @import url(http://fonts.googleapis.com/css?family=Montez);
+  @import url(http://fonts.googleapis.com/css?family=IM+Fell+English);
+  @import url(http://fonts.googleapis.com/css?family=Rokkitt);  
+  /* @import url(http://fonts.googleapis.com/css?family=Anonymous+Pro);   */
+  article,
+  aside,
+  details,
+  figcaption,
+  figure,
+  footer,
+  header,
+  hgroup,
+  nav,
+  section,
+  summary {
+    display: block;
+  }
+  audio,
+  canvas,
+  video {
+    display: inline-block;
+  }
+  audio:not([controls]) {
+    display: none;
+    height: 0;
+  }
+  [hidden] {
+    display: none;
+  }
+  html {
+    font-family: sans-serif;
+    -webkit-text-size-adjust: 95%;
+    -ms-text-size-adjust: 95%;
+  }
+  body {
+    margin: 0;
+  }
+  a:focus {
+    outline: thin dotted;
+  }
+  a:active,
+  a:hover {
+    outline: 0;
+  }
+  abbr[title] {
+    border-bottom: 1px dotted;
+  }
+  b,
+  strong {
+    font-weight: bold;
+  }
+  dfn {
+    font-style: italic;
+  }
+  mark {
+    background: #ff0;
+    color: #000;
+  }
+  code,
+  kbd,
+  pre,
+  samp {
+    font-family: monospace, serif;
+    font-size: 1em;
+  }
+  pre,
+  code {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+  }
+  q {
+    quotes: "\201C" "\201D" "\2018" "\2019";
+  }
+  small {
+    font-size: 80%; 
+  }
+  sub,
+  sup {
+    font-size: 75%;
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline;
+  }
+  sup {
+    top: -0.5em;
+  }
+  sub {
+    bottom: -0.25em;
+  }
+  img {
+    border: 0;
+  }
+  svg:not(:root) {
+    overflow: hidden;
+  }
+  figure {
+    margin: 0;
+  }
+  fieldset {
+    border: 1px solid #c0c0c0;
+    margin: 0 2px;
+    padding: 0.35em 0.625em 0.75em;
+  }
+  legend {
+    border: 0;
+    padding: 0;
+  }
+  button,
+  input,
+  select,
+  textarea {
+    font-family: inherit;
+    font-size: 100%;
+    margin: 0;
+  }
+  button,
+  input {
+    line-height: normal;
+  }
+  button,
+  html input[type="button"],
+  input[type="reset"],
+  input[type="submit"] {
+    -webkit-appearance: button;
+    cursor: pointer;
+  }
+  button[disabled],
+  input[disabled] {
+    cursor: default;
+  }
+  input[type="checkbox"],
+  input[type="radio"] {
+    box-sizing: border-box;
+    padding: 0;
+  }
+  input[type="search"] {
+    -webkit-appearance: textfield;
+    -moz-box-sizing: content-box;
+    -webkit-box-sizing: content-box;
+    box-sizing: content-box;
+  }
+  input[type="search"]::-webkit-search-cancel-button,
+  input[type="search"]::-webkit-search-decoration {
+    -webkit-appearance: none;
+  }
+  button::-moz-focus-inner,
+  input::-moz-focus-inner {
+    border: 0;
+    padding: 0;
+  }
+  textarea {
+    overflow: auto;
+    vertical-align: top;
+  }
+  table {
+    border-collapse: collapse;
+    border-spacing: 0;
+  }
+  html {
+    font-family: 'Lato', sans-serif;
+    font-size: 110%;
+  }
+  pre,
+  code {
+    font-family: 'Inconsolata', sans-serif;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: 'Lato', sans-serif;
+    font-weight: 700;
+  }
+  h1 {
+    line-height: 50px;
+    padding: 20px 0px 10px 0px;
+  }
+  h2 {
+    line-height: 35px;
+    padding: 20px 0px 0px 0px;
+  }
+  h3 {
+    line-height: 31px;
+    padding: 15px 0px 0px 0px;
+  }
+  h4 {
+    line-height: 25px;
+  }
+  h5 {
+    line-height: 20px;    
+  }
+  h6 {
+    line-height: 15px;
+  }
+  html {
+    background-color: #faf9f1;
+    color: #242b2f;
+    margin: 1em;
+    line-height: 24px;
+  }
+  body {
+    background-color: #faf9f1;
+    margin: 0px auto 0px 150px;
+    max-width: 21.5cm;
+    /* border: 1pt solid #93a1a1; */
+    /* border: 1pt solid #d9d9d9; */
+    /* border: 1pt solid #c9cfcf; */
+    /* border-radius: 10px; */
+    padding: 1em;
+  } 
+  a {
+    color: #b58900;
+  }
+  a:visited {
+    color: #cb4b16;
+  }
+  a:hover {
+    color: #e65719;
+  }
+  h1 {
+    color: #890c0c;
+  }
+  h2 {
+    color: #19334d;
+  }
+  h3 {
+    color: #336699;
+  }
+  h4 {
+    color: #6699cc;
+  }
+  h5 {
+    color: #666666;
+  }
+  h6 {
+    color: #808080;
+  }
+  pre[class="src src-R"] {	/*for blocks src R*/
+    background-color: #f1f1f1;
+    color: #262626;
+    padding: 0.8em;
+    font-size: 95%;
+    line-height: 22px;
+    border: 0.5pt solid #d9d9d9;
+    border-radius: 5px;
+    box-shadow: 0pt 0pt 0pt #eee8d5;
+  }
+  .accordion {			/*for the button of the box that can hide/appear*/
+    background-color: #c2d6d6;
+    color: #262626;
+    padding: 0;
+    text-align: center;
+    font-size: 95%;
+    line-height: 22px;
+    border: 0.5pt solid #b3cccc;
+    border-radius: 5px;
+    box-shadow: 0pt 0pt 0pt #eee8d5;
+    transition: 0.4s;
+    cursor: pointer;
+    padding: 0;
+    outline: none;
+  }
+  .active, .accordion:hover {	/*for the button of the box while hover*/
+    background-color: #94b8b8;
+    border: 0.5pt solid #85adad;
+    /* color: white; */
+  }
+  .panel {			/*for the box that can hide/appear*/
+    padding: 0em 1em;
+    margin: 0.7em 0 0 0;
+    background-color: #c2d6d6;
+    /* border: 0.5pt solid #d9d9d9; */
+    border-radius: 5px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+  }
+  code {			/*for inline code*/
+    background-color: #f1f1f1;
+    color: #262626;
+    padding: 0em 0.2em 0em 0.2em;
+    font-size: 95%;
+    line-height: 22px;
+    border: 0.5pt solid #e6e6e6;
+    border-radius: 3px;
+    box-shadow: 0pt 0pt 0pt #eee8d5;
+  }
+  blockquote {			/*for block quote*/
+    /* font: 14px/22px normal helvetica, sans-serif; /\*original line*\/ */
+    line-height: 22px;
+    font-style: italic;
+    margin: 30px 0px 30px 50px;
+    padding-left: 15px;
+    border-left: 3px solid #ccc;
+  }
+  pre[class="example"] {	/*for block example*/
+    background-color: #f0efe7;
+    font-family: 'Rokkitt';
+    width: max-content;
+    color: #3e3e3e;
+    padding: 0.6em 0.8em 0.6em 0.8em;
+    /* font-size: 95%; */
+    line-height: 22px;
+    border: 0.5pt solid #ebeae0;
+    border-radius: 5px;
+    box-shadow: 0pt 0pts 0pt #eee8d5;
+  }
+  p[class="verse"] {		/*for block verse*/
+    color: #262626;
+    font-family: 'IM Fell English';
+    font-size: 110%;
+    font-style: italic;
+    /* margin-left: 30px;		/\*keep this line to have the verses indented*\/ */
+    line-height: 25px;
+  }
+  div[class="org-center"] {	/*for block center*/
+    margin: auto;
+    line-height: 22px;
+    width: max-content;
+  }
+  div[class="HAND"] {		/*for block ascii*/
+    font-family: 'Montez';
+    line-height: 26px;
+    font-size: 130%;
+  }
+  div[class="MONO"] {	/*for block verbatim*/
+    /* font-family: 'Anonymous Pro'; */
+    font-family: 'Roboto Slab Thin';
+    margin: auto;
+    width: max-content;
+    color: #000000;
+    padding: 0.3 0.8em 0.3 0.8em;
+    font-size: 95%;
+    line-height: 20px;
+    /* margin: 0 0 0 5px; */
+    /* border: 0.5pt solid #d9d9d9; */
+    /* border-radius: 5px; */
+    /* font-size: 95%; */
+  }
+  div[class="VERBATIM"] {	/*for block verbatim*/
+    /* background-color: #f4faff; */
+    line-height: 27px;
+    font-family: 'Linden Hill';
+    /* font-weight: bold; */
+    margin: 45px 50px 45px 100px;
+    /* padding-left: 10px; */
+    /* border-left: 3px solid #890c0c; */
+    font-size: 120%;
+    color: #303b52;
+    padding: 0 0 0 15px;
+    border-left: 0.5px solid #425170;
+    width: max-content;
+  }
+  div[class="EMPHASIS"] {	/*for block verbatim*/
+    line-height: 27px;
+    /* font-weight: bold; */
+    margin: 45px 0px 45px 150px;
+    /* padding-left: 10px; */
+    /* border-left: 3px solid #890c0c; */
+    font-size: 135%;
+    color: #7c6262;
+  }
+  .org-ess-numbers {
+    color: #e28200; 
+  }
+  .org-comment-delimiter {
     color: #8c8c8c;
-}
-.org-comment {
+  }
+  .org-comment {
     color: #8c8c8c;
-}
-.org-string {
+  }
+  .org-string {
     color: #013b6d;
-}
-.org-ess-function-call {
+  }
+  .org-ess-function-call {
     color: #bf4040;
-    font-weight: bolder;
-}
-.org-ess-operator {
+    /* font-weight: bolder; */
+  }
+  .org-ess-operator {
     color: #0b5e56;
-}
-.org-ess-assignment {
+  }
+  .org-ess-assignment {
     color: #0b5e56;
-}
-.org-ess-paren {
+  }
+  .org-ess-paren {
     color: #0b5e56;
-}
-.org-ess-XopX {
+  }
+  .org-ess-XopX {
     color: #0b5e56;
-}
-pre code {
-  background-color: #faf9f1;
-}
-h1 {
-  font-size: 2.7em;
-  text-align: center;
-}
-h2 {
-  font-size: 1.8em;
-}
-h3 {
-  font-size: 1.6em;
-}
-h4 {
-  font-size: 1.4em;
-}
-h5 {
-  font-size: 1.3em;
-}
-h6 {
-  font-size: 1.2em;
-}
-.tag {
-  background-color: #eee8d5;
-  color: #d33682;
-  padding: 0 0.2em;
-}
-.todo,
-.next,
-.done {
-  color: #faf9f1;
-  background-color: #dc322f;
-  padding: 0 0.2em;
-}
-.tag {
-  -webkit-border-radius: 0.35em;
-  -moz-border-radius: 0.35em;
-  border-radius: 0.35em;
-}
-.TODO {
-  -webkit-border-radius: 0.2em;
-  -moz-border-radius: 0.2em;
-  border-radius: 0.2em;
-  background-color: #2aa198;
-}
-.NEXT {
-  -webkit-border-radius: 0.2em;
-  -moz-border-radius: 0.2em;
-  border-radius: 0.2em;
-  background-color: #268bd2;
-}
-.ACTIVE {
-  -webkit-border-radius: 0.2em;
-  -moz-border-radius: 0.2em;
-  border-radius: 0.2em;
-  background-color: #268bd2;
-}
-.DONE {
-  -webkit-border-radius: 0.2em;
-  -moz-border-radius: 0.2em;
-  border-radius: 0.2em;
-  background-color: #859900;
-}
-.WAITING {
-  -webkit-border-radius: 0.2em;
-  -moz-border-radius: 0.2em;
-  border-radius: 0.2em;
-  background-color: #cb4b16;
-}
-.HOLD {
-  -webkit-border-radius: 0.2em;
-  -moz-border-radius: 0.2em;
-  border-radius: 0.2em;
-  background-color: #d33682;
-}
-.NOTE {
-  -webkit-border-radius: 0.2em;
-  -moz-border-radius: 0.2em;
-  border-radius: 0.2em;
-  background-color: #d33682;
-}
-.CANCELLED {
-  -webkit-border-radius: 0.2em;
-  -moz-border-radius: 0.2em;
-  border-radius: 0.2em;
-  background-color: #859900;
-}
-
- /* TOC inspired by http://jashkenas.github.com/coffee-script */
+  }  
+  h1 {
+    font-size: 2.2em;
+    text-align: center;
+  }
+  h2 {
+    font-size: 1.6em;
+  }
+  h3 {
+    font-size: 1.5em;
+  }
+  h4 {
+    font-size: 1.4em;
+  }
+  h5 {
+    font-size: 1.3em;
+  }
+  h6 {
+    font-size: 1.2em;
+  }
+  .tag {
+    background-color: #eee8d5;
+    color: #d33682;
+    padding: 0 0.2em;
+  }
+  .todo,
+  .next,
+  .done {
+    color: #faf9f1;
+    background-color: #dc322f;
+    padding: 0 0.2em;
+  }
+  .tag {
+    -webkit-border-radius: 0.35em;
+    -moz-border-radius: 0.35em;
+    border-radius: 0.35em;
+  }
+  .TODO {
+    -webkit-border-radius: 0.2em;
+    -moz-border-radius: 0.2em;
+    border-radius: 0.2em;
+    background-color: #2aa198;
+  }
+  .NEXT {
+    -webkit-border-radius: 0.2em;
+    -moz-border-radius: 0.2em;
+    border-radius: 0.2em;
+    background-color: #268bd2;
+  }
+  .ACTIVE {
+    -webkit-border-radius: 0.2em;
+    -moz-border-radius: 0.2em;
+    border-radius: 0.2em;
+    background-color: #268bd2;
+  }
+  .DONE {
+    -webkit-border-radius: 0.2em;
+    -moz-border-radius: 0.2em;
+    border-radius: 0.2em;
+    background-color: #859900;
+  }
+  .WAITING {
+    -webkit-border-radius: 0.2em;
+    -moz-border-radius: 0.2em;
+    border-radius: 0.2em;
+    background-color: #cb4b16;
+  }
+  .HOLD {
+    -webkit-border-radius: 0.2em;
+    -moz-border-radius: 0.2em;
+    border-radius: 0.2em;
+    background-color: #d33682;
+  }
+  .NOTE {
+    -webkit-border-radius: 0.2em;
+    -moz-border-radius: 0.2em;
+    border-radius: 0.2em;
+    background-color: #d33682;
+  }
+  .CANCELLED {
+    -webkit-border-radius: 0.2em;
+    -moz-border-radius: 0.2em;
+    border-radius: 0.2em;
+    background-color: #859900;
+  }
+   
+  /* TOC inspired by http://jashkenas.github.com/coffee-script */
   #table-of-contents {
     font-size: 10pt;
     position: fixed;
     right: 0em;
     top: 0em;
     background: #faf9f1;
-    color: #435156;
-    -webkit-box-shadow: 0 0 1em #777777;
-    -moz-box-shadow: 0 0 1em #777777;
-    -webkit-border-bottom-left-radius: 5px;
-    -moz-border-radius-bottomleft: 5px;
+    color: #596a73;
+    /* -webkit-box-shadow: 0 0 1em #777777; */
+    /* -moz-box-shadow: 0 0 1em #777777; */
+    /* -webkit-border-bottom-left-radius: 10px; */
+    /* -moz-border-radius-bottomleft: 10px; */
     text-align: right;
     /* ensure doesn't flow off the screen when expanded */
     max-height: 80%;
-    overflow: auto; }
-    #table-of-contents h2 {
-      font-size: 10pt;
-      max-width: 8em;
-      font-weight: normal;
-      padding-left: 0.5em;
-      padding-top: 0.05em;
-      padding-bottom: 0.05em; }
-    #table-of-contents #text-table-of-contents {
-      display: none;
-      text-align: left; }
-    #table-of-contents:hover #text-table-of-contents {
-      display: block;
-      padding: 0.5em;
-      margin-top: -1.5em; }
+    overflow: auto;
+  }
+  #table-of-contents h2 {
+    font-size: 12pt;
+    max-width: 25em;
+    font-weight: bold;
+    color: #596a73;
+    padding-right: 3em;
+    padding-left: 0.8em;
+    padding-top: 1em;
+    padding-bottom: 0em;
+    text-align: left;
+  }
+  #table-of-contents #text-table-of-contents {
+    display: none;
+    text-align: left;
+  }
+  #table-of-contents:hover #text-table-of-contents {
+    display: block;
+    padding: 0.5em;
+    margin-top: -1.5em;
+  }
 
   .rss_box {}
   .rss_title, rss_title a {}
@@ -573,8 +546,8 @@ h6 {
 {
   #table-of-contents {
     float: right;
-    border: 1px solid #CCC;
-    max-width: 35%;
+    border: 0px solid #CCC;
+    max-width: 25%;
     overflow: auto;
   }
 } /* END OF @media screen */
@@ -629,7 +602,7 @@ for the JavaScript code in this tag.
 </head>
 <body>
 <div id="preamble" class="status">
-&nbsp;<b>Marie-Hélène Burle</b><br>&nbsp;March 24, 2018<hr size="1" width="210" align="left" noshade>
+<span style="color:#596a73; font-size:16px"><b>Marie-Hélène Burle</b><br>April 29, 2018</span>
 </div>
 <div id="content">
 <h1 class="title">R resources</h1>
@@ -637,115 +610,291 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orga3d8d2e">1. Learning R</a>
+<li><a href="#orgbf80bd6">List of resources</a>
 <ul>
-<li><a href="#orgef19aab">1.1. Beginners</a></li>
-<li><a href="#org14999e1">1.2. Intermediates</a></li>
-<li><a href="#org79d0913">1.3. Advanced users</a></li>
-<li><a href="#org461f817">1.4. GIS in R</a></li>
+<li><a href="#org25a38b4">Within R itself</a></li>
+<li><a href="#orgb31b422">On-line resources</a>
+<ul>
+<li><a href="#orgd7e32a6">On-line R books in bookdown</a></li>
+<li><a href="#org2f0bcc5">Blogs</a></li>
 </ul>
 </li>
-<li><a href="#org3bee2b7">2. Getting help with R</a></li>
-<li><a href="#orgfa121e2">3. Getting involved in the R community</a></li>
+<li><a href="#orge269437">On-line community</a></li>
+<li><a href="#orgd9ba698">Locally</a>
+<ul>
+<li><a href="#orgb3572bb">At SFU</a></li>
+<li><a href="#org4205991">In town</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org1722413">Where to go when and how</a>
+<ul>
+<li><a href="#org6d17df5">Learning R</a>
+<ul>
+<li><a href="#org23b6a05">Beginners</a></li>
+<li><a href="#orge8d5019">Intermediates</a></li>
+<li><a href="#org8b76de1">Advanced users</a></li>
+<li><a href="#orgac3e04f">GIS in R</a></li>
+</ul>
+</li>
+<li><a href="#orga69bffc">Formatting code</a></li>
+<li><a href="#org0fc9b2f">Getting help with R</a></li>
+<li><a href="#org8aa09ad">Getting involved in the R community</a>
+<ul>
+<li><a href="#orgc4cdbb1">Answering questions</a></li>
+<li><a href="#orgdba98a0">Contributing code</a>
+<ul>
+<li><a href="#org736e406">Filling issues and submitting pull request</a></li>
+<li><a href="#orgdd34439">Submitting packages</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 </div>
 </div>
-<br>
-
 <p>
-R is a fast evolving and increasingly popular language. It started as a statistical analysis and graphing language, but its capabilities expended widely beyond this. One of the benefits of R is its large and active on-line community. There are amazing resources freely available to learn, get help, and connect with other R users. This document list some of these high quality resources.
+R is a fast evolving and increasingly popular language. It started as a statistical analysis and graphing language, but its capabilities expended widely beyond this. One of the benefits of R is its large and active on-line community. There are amazing resources freely available to learn, get help, and connect with other R users. This document lists some of these high quality resources.<br />
 </p>
 
-<div id="outline-container-orga3d8d2e" class="outline-2">
-<h2 id="orga3d8d2e"><span class="section-number-2">1</span> Learning R</h2>
-<div class="outline-text-2" id="text-1">
+<div id="outline-container-orgbf80bd6" class="outline-2">
+<h2 id="orgbf80bd6">List of resources</h2>
+<div class="outline-text-2" id="text-orgbf80bd6">
 </div>
-<div id="outline-container-orgef19aab" class="outline-3">
-<h3 id="orgef19aab"><span class="section-number-3">1.1</span> Beginners</h3>
-<div class="outline-text-3" id="text-1-1">
-<p>
-An amazing starting place to learn R is the book by Garrett Grolemund and Hadley Wickham "R for Data Science". It is freely available <a href="http://r4ds.had.co.nz/index.html">on-line</a>, but also exists in a book format.
-</p>
+<div id="outline-container-org25a38b4" class="outline-3">
+<h3 id="org25a38b4">Within R itself</h3>
+</div>
 
-<p>
-<a href="https://software-carpentry.org/">Software Carpentry</a> and <a href="http://www.datacarpentry.org/">Data Carpentry</a>, now merged under <a href="http://carpentries.org/">the Carpentries</a>
-</p>
 
-<p>
-<a href="http://sciprog.ca/">SciProg</a> is 
-</p>
 
-<p>
-For students in the department of biology, 
-</p>
 
+
+<div id="outline-container-orgb31b422" class="outline-3">
+<h3 id="orgb31b422">On-line resources</h3>
+<div class="outline-text-3" id="text-orgb31b422">
 <p>
-[[link: where is the link??? I can't find it&#x2026; Maybe R support should be better advertised :) ][Research Commons R peers].
+Listing only free resources. Some paid options too.<br />
+</p>
+</div>
+
+<div id="outline-container-orgd7e32a6" class="outline-4">
+<h4 id="orgd7e32a6">On-line R books in bookdown</h4>
+<div class="outline-text-4" id="text-orgd7e32a6">
+<p>
+<a href="https://bookdown.org/">A list of R books written in R Markdown thanks to the package bookdown</a>.<br />
 </p>
 </div>
 </div>
 
-<div id="outline-container-org14999e1" class="outline-3">
-<h3 id="org14999e1"><span class="section-number-3">1.2</span> Intermediates</h3>
-<div class="outline-text-3" id="text-1-2">
+<div id="outline-container-org2f0bcc5" class="outline-4">
+<h4 id="org2f0bcc5">Blogs</h4>
+<div class="outline-text-4" id="text-org2f0bcc5">
 <p>
-For intermediate users willing to understand the language better, or for people new to R but already familiar with other languages, a great resource is another book by Hadley Wickham, "Advanced R". It is also freely accessible <a href="http://adv-r.had.co.nz/">on-line</a>.
-</p>
-</div>
-</div>
-
-<div id="outline-container-org79d0913" class="outline-3">
-<h3 id="org79d0913"><span class="section-number-3">1.3</span> Advanced users</h3>
-<div class="outline-text-3" id="text-1-3">
-<p>
-Hadley also wrote a book on how to write your own packages. This one too, is available <a href="http://r-pkgs.had.co.nz/">on-line</a>.
-</p>
-</div>
-</div>
-
-<div id="outline-container-org461f817" class="outline-3">
-<h3 id="org461f817"><span class="section-number-3">1.4</span> GIS in R</h3>
-<div class="outline-text-3" id="text-1-4">
-<p>
-R can also be used to map data and conduct spacial data analysis. <a href="https://data.cdrc.ac.uk/tutorial/an-introduction-to-spatial-data-analysis-and-visualisation-in-r">This series of tutorials</a> by Guy Lansley and James Cheshire and <a href="https://geocompr.robinlovelace.net/">the book "Geocomputation with R"</a> by Robin Lovelace, Jakub Nowosad, and Jannes Muenchow are good on-line resources to get started on this.
+Rblogger<br />
 </p>
 </div>
 </div>
 </div>
 
-<div id="outline-container-org3bee2b7" class="outline-2">
-<h2 id="org3bee2b7"><span class="section-number-2">2</span> Getting help with R</h2>
-<div class="outline-text-2" id="text-2">
+<div id="outline-container-orge269437" class="outline-3">
+<h3 id="orge269437">On-line community</h3>
+<div class="outline-text-3" id="text-orge269437">
+<ul class="org-ul">
+<li>so<br /></li>
+<li>rsc<br /></li>
+<li>twitter<br /></li>
+<li>slack r4ds<br /></li>
+<li>mailing lists<br /></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgd9ba698" class="outline-3">
+<h3 id="orgd9ba698">Locally</h3>
+<div class="outline-text-3" id="text-orgd9ba698">
+</div>
+<div id="outline-container-orgb3572bb" class="outline-4">
+<h4 id="orgb3572bb">At SFU</h4>
+<div class="outline-text-4" id="text-orgb3572bb">
+<ul class="org-ul">
+<li>rc service<br /></li>
+<li>workshops<br /></li>
+<li>books<br /></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org4205991" class="outline-4">
+<h4 id="org4205991">In town</h4>
+<div class="outline-text-4" id="text-org4205991">
 <p>
-<a href="https://stackoverflow.com/questions/tagged/r">Stack Overflow</a>
+R Ladies new chapter<br />
+</p>
+</div>
+</div>
+</div>
+</div>
+
+
+
+
+
+
+<div id="outline-container-org1722413" class="outline-2">
+<h2 id="org1722413">Where to go when and how</h2>
+<div class="outline-text-2" id="text-org1722413">
+</div>
+<div id="outline-container-org6d17df5" class="outline-3">
+<h3 id="org6d17df5">Learning R</h3>
+<div class="outline-text-3" id="text-org6d17df5">
+</div>
+<div id="outline-container-org23b6a05" class="outline-4">
+<h4 id="org23b6a05">Beginners</h4>
+<div class="outline-text-4" id="text-org23b6a05">
+<p>
+An amazing starting place to learn R is the book by Garrett Grolemund and Hadley Wickham "R for Data Science". This is also a great resource for R users who aren't familiar with the tidyverse. It is freely available <a href="http://r4ds.had.co.nz/index.html">on-line</a>, but also exists in a book format.<br />
 </p>
 
 <p>
-Hadley Wickham <a href="http://adv-r.had.co.nz/Reproducibility.html">How to write a reproducible example</a> 
-Stack Overflow <a href="https://stackoverflow.com/questions/5963269/how-to-make-a-great-r-reproducible-example">How to make a great R reproducible example?</a>
+<a href="https://software-carpentry.org/">Software Carpentry</a> and <a href="http://www.datacarpentry.org/">Data Carpentry</a>, now merged under <a href="http://carpentries.org/">the Carpentries</a><br />
+</p>
+
+<p>
+<a href="http://sciprog.ca/">SciProg</a> is<br />
+</p>
+
+<p>
+For students in the department of biology,<br />
+</p>
+
+<p>
+[[link: where is the link??? I can't find it&#x2026; Maybe R support should be better advertised :) ][Research Commons R peers].<br />
 </p>
 </div>
 </div>
 
-<div id="outline-container-orgfa121e2" class="outline-2">
-<h2 id="orgfa121e2"><span class="section-number-2">3</span> Getting involved in the R community</h2>
-<div class="outline-text-2" id="text-3">
+<div id="outline-container-orge8d5019" class="outline-4">
+<h4 id="orge8d5019">Intermediates</h4>
+<div class="outline-text-4" id="text-orge8d5019">
 <p>
-<a href="https://ropensci.org/blog/">rOpenSci</a>
+For intermediate users willing to understand the language better, or for people new to R but already familiar with other languages, a great resource is another book by Hadley Wickham, "Advanced R". It is also freely accessible <a href="http://adv-r.had.co.nz/">on-line</a>.<br />
+</p>
+</div>
+</div>
+
+<div id="outline-container-org8b76de1" class="outline-4">
+<h4 id="org8b76de1">Advanced users</h4>
+<div class="outline-text-4" id="text-org8b76de1">
+<p>
+Hadley also wrote a book on how to write your own packages. This one too, is available <a href="http://r-pkgs.had.co.nz/">on-line</a>.<br />
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgac3e04f" class="outline-4">
+<h4 id="orgac3e04f">GIS in R</h4>
+<div class="outline-text-4" id="text-orgac3e04f">
+<p>
+R can also be used to map data and conduct spacial data analysis. <a href="https://data.cdrc.ac.uk/tutorial/an-introduction-to-spatial-data-analysis-and-visualisation-in-r">This series of tutorials</a> by Guy Lansley and James Cheshire and <a href="https://geocompr.robinlovelace.net/">the book "Geocomputation with R"</a> by Robin Lovelace, Jakub Nowosad, and Jannes Muenchow are good on-line resources to get started on this.<br />
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orga69bffc" class="outline-3">
+<h3 id="orga69bffc">Formatting code</h3>
+<div class="outline-text-3" id="text-orga69bffc">
+<p>
+<a href="http://adv-r.had.co.nz/Style.html">http://adv-r.had.co.nz/Style.html</a><br />
 </p>
 
 <p>
-<a href="https://github.com/">GitHub</a>
+<a href="https://google.github.io/styleguide/Rguide.xml">https://google.github.io/styleguide/Rguide.xml</a><br />
 </p>
 
 <p>
-<a href="https://rladies.org/">R Ladies</a>, an organization promoting gender diversity in the R community, recently opened <a href="https://www.meetup.com/R-Ladies-Vancouver/">a new chapter in Vancouver</a>.
+<a href="http://style.tidyverse.org/">the tidyverse style guide</a><br />
+</p>
+</div>
+</div>
+
+<div id="outline-container-org0fc9b2f" class="outline-3">
+<h3 id="org0fc9b2f">Getting help with R</h3>
+<div class="outline-text-3" id="text-org0fc9b2f">
+<p>
+The best way to get help with R is to make a minimal reproducible example: <a href="https://www.tidyverse.org/help/#where-to-ask">https://www.tidyverse.org/help/#where-to-ask</a><br />
+</p>
+
+<p>
+("reprex" in R jargon).<br />
+<a href="https://stackoverflow.com/questions/tagged/r">Stack Overflow</a><br />
+</p>
+
+<p>
+<a href="https://stackoverflow.com/help/tagging">tags</a><br />
+</p>
+
+<p>
+Hadley Wickham <a href="http://adv-r.had.co.nz/Reproducibility.html">How to write a reproducible example</a> <br />
+Stack Overflow <a href="https://stackoverflow.com/questions/5963269/how-to-make-a-great-r-reproducible-example">How to make a great R reproducible example?</a><br />
+</p>
+
+<p>
+<a href="https://community.rstudio.com/t/welcome-to-the-rstudio-community/8">https://community.rstudio.com/t/welcome-to-the-rstudio-community/8</a><br />
+</p>
+
+<p>
+<a href="https://community.rstudio.com/guidelines">https://community.rstudio.com/guidelines</a><br />
+</p>
+
+<p>
+<a href="https://support.rstudio.com/hc/en-us/articles/200552336">https://support.rstudio.com/hc/en-us/articles/200552336</a><br />
+</p>
+</div>
+</div>
+
+<div id="outline-container-org8aa09ad" class="outline-3">
+<h3 id="org8aa09ad">Getting involved in the R community</h3>
+<div class="outline-text-3" id="text-org8aa09ad">
+<p>
+<a href="https://ropensci.org/blog/">rOpenSci</a><br />
 </p>
 
 
 <p>
-<div style="font-size: 90%; background-color: #eee8d5; border: 1pt solid #93a1a1">This page was created using a modified version of a css style by Thomas Frössman (itself based on the solarized color theme from Ethan Schoonover), as well as parts of a modified version of the worg css stylesheet for the table of contents</div>
+<a href="https://rladies.org/">R Ladies</a>, an organization promoting gender diversity in the R community, recently opened <a href="https://www.meetup.com/R-Ladies-Vancouver/">a new chapter in Vancouver</a>.<br />
 </p>
+</div>
+
+<div id="outline-container-orgc4cdbb1" class="outline-4">
+<h4 id="orgc4cdbb1">Answering questions</h4>
+<div class="outline-text-4" id="text-orgc4cdbb1">
+<p>
+Obviously,<br />
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgdba98a0" class="outline-4">
+<h4 id="orgdba98a0">Contributing code</h4>
+<div class="outline-text-4" id="text-orgdba98a0">
+</div>
+<div id="outline-container-org736e406" class="outline-5">
+<h5 id="org736e406">Filling issues and submitting pull request</h5>
+<div class="outline-text-5" id="text-org736e406">
+<p>
+<a href="https://github.com/">GitHub</a><br />
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgdd34439" class="outline-5">
+<h5 id="orgdd34439">Submitting packages</h5>
+</div>
+</div>
 </div>
 </div>
 </div>
