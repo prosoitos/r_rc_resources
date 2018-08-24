@@ -1,0 +1,458 @@
+#+OPTIONS: title:t date:t author:t email:t
+#+OPTIONS: toc:t h:6 num:nil |:t todo:nil
+#+OPTIONS: *:t -:t ::t <:t \n:t e:t creator:nil
+#+OPTIONS: f:t inline:t tasks:t tex:t timestamp:t
+#+OPTIONS: html-preamble:t html-postamble:nil
+
+#+PROPERTY: header-args:R :session R:purrr :eval no :exports code :tangle yes :comments link
+
+#+TITLE:   Functional programming in R (with /purrr/)
+#+DATE:	   {{{time(%B %d\, %Y)}}}
+#+AUTHOR:  Marie-Hélène Burle
+#+EMAIL:   msb2@sfu.ca
+
+* Introduction
+
+** What is functional programming?
+
+It is a programming paradigm based on the evaluation of functions. This is opposed to /imperative  programming/. While some languages are based strictly on functional programming (e.g. Haskell), R allows both imperative code (e.g. loops) and functional code (e.g. many base functions, the src_R[:eval no]{apply()} family, src_R[:eval no]{purrr}).
+
+** Iterations
+
+Iterations are the repetition of a process (e.g. applying the same function to several variables, several datasets, or several files).
+
+The classic methods in R are:
+
+- loops
+- src_R[:eval no]{apply()} functions family
+
+** The purrr package
+
+One of the src_R[:eval no]{tidyverse} core packages, src_R[:eval no]{purrr} was written in 2015 by [[https://github.com/lionel-][Lionel Henry]] (also the maintainer), [[http://hadley.nz/][Hadley Wickham]], and [[https://www.rstudio.com/][RStudio inc.]] 
+
+*** Goal
+
+src_R[:eval no]{Purrr} is a set of tools allowing consistent functional programming in R in a src_R[:eval no]{tidyverse} style (using src_R[:eval no]{magrittr} pipes and following the same naming conventions found in other src_R[:eval no]{tidyverse} packages).
+
+As Hadley Wickham says, in many ways, src_R[:eval no]{purrr} is the equivalent of the src_R[:eval no]{dplyr}, but while src_R[:eval no]{dplyr} focuses on data frames, src_R[:eval no]{purrr} works on vectors: it works on the elements of atomic vectors, lists, and data frames. Since R's most basic data structure is the vector, this makes src_R[:eval no]{purrr} extremely powerful and flexible.
+
+*** Logistics
+
+Install it with:
+
+#+BEGIN_SRC R
+install.packages("tidyverse")
+## or
+install.packages("purrr")
+#+END_SRC
+
+Load it with:
+
+#+BEGIN_SRC R
+library(tidyverse)
+## or
+library(purrr)
+#+END_SRC
+
+As always, once the package is loaded, you can get information on the package with:
+
+#+BEGIN_SRC R
+?purrr
+#+END_SRC
+
+and on any of its functions with:
+
+#+BEGIN_SRC R
+?function
+## e.g. for the map function
+?map
+#+END_SRC
+
+* Let's dive in
+
+** Load packages
+
+First, let's load the packages that we will use. It is always a good idea to write all the packages that you will be using at the top of the script. This will help others, using your script, to know what is required to run it.
+
+#+BEGIN_SRC R
+library(tidyverse)   # we will use purrr and other core packages
+library(magrittr)    # we will use several types of pipes
+#+END_SRC
+
+** Create some fake banding data
+
+Let's create some imaginary bird banding data:
+
+#+BEGIN_SRC R
+banding <- tibble(
+  bird = paste0("bird", 1:50),
+  sex = sample(c("F", "M"), 50, replace = T),
+  population = sample(LETTERS[1:3], 50, replace = T),
+  mass = rnorm(50, 43, 4) %>% round(1),
+  tarsus = rnorm(50, 27, 1) %>% round(1),
+  wing = rnorm(50, 112, 3) %>% round(0)
+)
+
+banding
+#+END_SRC
+
+** Map: apply functions to elements of a list
+
+Imagine that you want to calculate the mean for each of the morphometric measurements (mass, tarsus, and wing).
+
+#+BEGIN_VERBATIM
+How would you usually do this?
+Spend 5 minutes writing code you would usually use.
+#+END_VERBATIM
+
+To apply functions to elements of a list, you can use src_R[:eval no]{map}, one of the key function of the src_R[:eval no]{purrr} package.
+
+*** Usage
+
+#+BEGIN_SRC R
+map(.x, .f, ...)
+#+END_SRC
+
+#+BEGIN_EXAMPLE
+.x     a list or atomic vector
+.f     a function, formula, or atomic vector
+...     additional arguments passed to .f
+#+END_EXAMPLE
+
+For every element of src_R[:eval no]{.x}, apply src_R[:eval no]{.f}.
+
+What we have, in the simplest case, is:
+
+#+BEGIN_SRC R
+map(list, function)
+#+END_SRC
+
+*** In our example
+
+#+BEGIN_VERBATIM
+How could we use src_R[:eval no]{map()} to calculate the means of all 3 measurement types?
+#+END_VERBATIM
+
+#+BEGIN_RED
+A data frame is a list! It is a list of vectors.
+
+Without running it in your computer, try to guess what the result of the following will be:
+
+#+BEGIN_SRC R
+length(banding)
+#+END_SRC
+
+Now, run it. What do you get? Why?
+#+END_RED
+
+So, back to our example, we do have a list: a list of vectors. That's what our banding data frame is! So no problem about applying src_R[:eval no]{map()} to it.
+
+However, the output of src_R[:eval no]{map()} is always a list. And a list as output is not really convenient here. There are other map functions which have vector or data frame outputs. To get a numeric vector as the output, we use src_R[:eval no]{map_dbl()}:
+
+Similarly, you can calculate the variance, the sum, look for the largest value, or apply any other function to our data.
+
+#+BEGIN_VERBATIM
+Spend 2 min writing codes for these.
+#+END_VERBATIM
+
+*** Stepping things up
+
+Now, imagine that you would like to plot the relationship between tarsus and mass for each population.
+
+#+BEGIN_VERBATIM
+How would you usually do that?
+Spend 5 min writing code for this.
+And feel free to chat.
+#+END_VERBATIM
+
+*** Formulas
+
+#+BEGIN_RED
+Formulas = a shorter notation for anonymous functions
+#+END_RED
+
+**** With one element
+
+The code:
+
+#+BEGIN_SRC R
+map(function(x) x + 3)
+#+END_SRC
+
+which contains the anonymous function src_R[:eval no]{function(x) x + 3} can be written as:
+
+#+BEGIN_SRC R
+map(~ . + 3)
+#+END_SRC
+
+This code abbreviation is called a "formula".
+
+#+BEGIN_VERBATIM
+Your turn: write the following anonymous function as a formula.
+#+END_VERBATIM
+
+#+BEGIN_SRC R
+map(function(x) mean(x) + 3)
+#+END_SRC
+
+**** With 2 elements
+
+The code:
+
+#+BEGIN_SRC R
+map2(function(x, y) x + y)
+#+END_SRC
+
+can be shortened to:
+
+#+BEGIN_SRC R
+map2(~ .x + .y)
+#+END_SRC
+
+**** Referring to elements
+
+| 1st element |   | 2nd element |   | 3rd element |
+|-------------+---+-------------+---+-------------|
+| =.=         |   |             |   |             |
+| =.x=        |   | =.y=        |   |             |
+| =..1=       |   | =..2=       |   | =..3=       |
+
+etc.
+
+#+BEGIN_VERBATIM
+Your turn: write the following anonymous function as a formula.
+#+END_VERBATIM
+
+#+BEGIN_SRC R
+pmap(function(x1, x2, y) lm(y ~ x1 + x2))
+#+END_SRC
+
+** src_R[:eval no]{map_if}/src_R[:eval no]{modify_if} and src_R[:eval no]{map_at}/src_R[:eval no]{modify_at}
+
+We built our data frame with src_R[:eval no]{tibble()} which, as is the norm in the src_R[:eval no]{tidyverse}, does not transform strings into factors:
+
+#+BEGIN_SRC R
+banding <-
+  tibble(
+    bird = paste0("bird", 1:50),
+    sex = sample(c("F", "M"), 50, replace = T),
+    population = sample(LETTERS[1:3], 50, replace = T),
+    mass = rnorm(50, 43, 4) %>% round(1),
+    tarsus = rnorm(50, 27, 1) %>% round(1),
+    wing = rnorm(50, 112, 3) %>% round(0)
+  ) %T>% 
+  str()
+#+END_SRC
+
+Several base R functions however, do.
+
+Let's build the same data with the base R function src_R[:eval no]{data.frame()}:
+
+#+BEGIN_SRC R
+banding <-
+  data.frame(
+    bird = paste0("bird", 1:50),
+    sex = sample(c("F", "M"), 50, replace = T),
+    population = sample(LETTERS[1:3], 50, replace = T),
+    mass = rnorm(50, 43, 4) %>% round(1),
+    tarsus = rnorm(50, 27, 1) %>% round(1),
+    wing = rnorm(50, 112, 3) %>% round(0)
+  ) %T>% 
+  str()
+#+END_SRC
+
+#+BEGIN_RED
+The reason several base R functions transform strings into factors is historic. This used to be essential to save space. But this is not relevant anymore and has become somewhat of an annoyance.
+#+END_RED
+
+If you have such a data frame, you may wish to transform the factors into characters.
+
+#+BEGIN_VERBATIM
+How can you do this?
+#+END_VERBATIM
+
+src_R[:eval no]{map()} has the derivatives src_R[:eval no]{map_if()} and src_R[:eval no]{map_at()} which allow to apply functions when conditions are met or at certain locations. Here, we can use src_R[:eval no]{map_if()}:
+
+#+BEGIN_SRC R
+banding %>%
+  map_if(is.factor, as.character) %T>% 
+  str()
+#+END_SRC
+
+However, src_R[:eval no]{map_if} and src_R[:eval no]{map_at} always return lists. If you want the output to be of the same type of the input, use src_R[:eval no]{modify_if} and src_R[:eval no]{modify_at} instead.
+
+#+BEGIN_SRC R
+banding <-
+  data.frame(
+    bird = paste0("bird", 1:50),
+    sex = sample(c("F", "M"), 50, replace = T),
+    population = sample(LETTERS[1:3], 50, replace = T),
+    mass = rnorm(50, 43, 4) %>% round(1),
+    tarsus = rnorm(50, 27, 1) %>% round(1),
+    wing = rnorm(50, 112, 3) %>% round(0)
+  )
+
+banding %>%
+  modify_if(is.factor, as.character) %>%
+  head() %T>% 
+  str()
+#+END_SRC
+
+#+BEGIN_RED
+This could also be accomplished with src_R[:eval no]{mutate_if()}:
+
+#+BEGIN_SRC R
+banding %>% mutate_if(is.factor, as.character)
+#+END_SRC
+
+But the src_R[:eval no]{map()} functions also work with lists and are more flexible than src_R[:eval no]{mutate()} and its derivatives.
+#+END_RED
+
+*** Usage
+
+#+BEGIN_SRC R
+modify(.x, .f, ...)
+modify_if(.x, .p, .f, ...)
+modify_at(.x, .at, .f, ...)
+#+END_SRC
+
+#+BEGIN_EXAMPLE
+.x     a list or atomic vector
+.f     a function, formula, or atomic vector
+...    additional arguments passed to .f
+.p     a predicate function.
+       Only the elements for which .p evaluates to TRUE will be modified
+.at    a character vector of names or a numeric vector of positions.
+       Only the elements corresponding to .at will be modified
+#+END_EXAMPLE
+
+For every element of src_R[:eval no]{.x}, apply src_R[:eval no]{.f}, and return a modified version of src_R[:eval no]{.x}.
+
+So basically, in its simplest form, we have:
+
+#+BEGIN_SRC R
+modify(list, function)
+#+END_SRC
+
+** Walk: apply side effects to elements of a list
+
+Now, we want to save the 3 graphs we previously drew into 3 files.
+
+#+BEGIN_VERBATIM
+How would you do this?
+Spend 5 minutes writing code you would usually use.
+#+END_VERBATIM
+
+To apply side effects to elements of a list, we use the src_R[:eval no]{walk} functions family.
+
+*** Usage
+
+#+BEGIN_SRC R
+walk(.x, .f, ...)
+#+END_SRC
+
+#+BEGIN_EXAMPLE
+.x     a list or atomic vector
+.f     a function, formula, or atomic vector
+...     additional arguments passed to .f
+#+END_EXAMPLE
+
+*** Apply to our example
+
+We already have a list of graphs: src_R[:eval no]{graphs}. Now, we can create a list of paths where we want to save them:
+
+#+BEGIN_SRC R
+paths <- paste0("population_", names(graphs), ".png")
+#+END_SRC
+
+So we want to save each element of src_R[:eval no]{graphs} into an element of src_R[:eval no]{paths}. The function we will use is src_R[:eval no]{ggsave}. To apply it to all of our elements, instead of using src_R[:eval no]{map}, we will use src_R[:eval no]{walk} because we are not trying to create a new object.
+
+The problem is that we have 2 lists to deal with. src_R[:eval no]{Map} and src_R[:eval no]{walk} only allow to deal with one list. But src_R[:eval no]{map2} and src_R[:eval no]{walk2} allow to deal with 2 lists (src_R[:eval no]{pmap} and src_R[:eval no]{pwalk} allow to deal with any number of lists).
+
+Here is how src_R[:eval no]{walk2} works (it is the same for src_R[:eval no]{map2}):
+
+#+BEGIN_SRC R
+walk2(.x, .y, .f, ...)
+#+END_SRC
+
+#+BEGIN_EXAMPLE
+.x, .y   vectors of the same length.
+         A vector of length 1 will be recycled.
+.f       a function, formula, or atomic vector
+...       additional arguments passed to .f
+#+END_EXAMPLE
+
+#+BEGIN_VERBATIM
+Give it a try:
+use src_R[:eval no]{walk2} to save the elements of src_R[:eval no]{graphs} into the elements of src_R[:eval no]{paths} using src_R[:eval no]{ggsave}.
+Don't hesitate to look up the help file for src_R[:eval no]{ggsave} with src_R[:eval no]{?ggsave} if you don't remember how to use it!
+#+END_VERBATIM
+
+* Summary of the map and walk functions family
+
+We will use different src_R[:eval no]{map} (or src_R[:eval no]{walk}, if we want the side effects) function depending on:
+
+#+BEGIN_VERSE
+- How many lists we are using in the input
+#+END_VERSE
+
+| number of arguments in input |   |   | purrr function    |
+|------------------------------+---+---+-------------------|
+|                            1 |   |   | =map= or =walk=   |
+|                            2 |   |   | =map2= or =walk2= |
+|                         more |   |   | =pmap= or =pwalk= |
+
+#+HTML: <br>
+
+#+BEGIN_VERSE
+- The class of the output we want
+#+END_VERSE
+
+| class we want for the output   |   |   | purrr function |
+|--------------------------------+---+---+----------------|
+| nothing*                       |   |   | =walk=         |
+| list*                          |   |   | =map=          |
+| double                         |   |   | =map_dbl=      |
+| integer                        |   |   | =map_int=      |
+| character                      |   |   | =map_chr=      |
+| logical                        |   |   | =map_lgl=      |
+| data frame (by row-binding)    |   |   | =map_dfr=      |
+| data frame (by column-binding) |   |   | =map_dfc=      |
+
+#+HTML: <br>
+
+Results are returned predictably and consistently, which is [[https://blog.rstudio.com/2016/01/06/purrr-0-2-0/][not the case]] of src_R[:eval no]{sapply()}.
+
+*As [[https://github.com/jennybc][Jenny Bryan]] said [[https://speakerdeck.com/jennybc/data-rectangling][nicely]]:
+
+#+BEGIN_QUOTE
+"src_R[:eval no]{walk()} can be thought of as src_R[:eval no]{map_nothing()}
+
+src_R[:eval no]{map()} can be thought of as src_R[:eval no]{map_list()}"
+#+END_QUOTE
+
+#+HTML: <br>
+
+#+BEGIN_VERSE
+- How we want to select the input
+#+END_VERSE
+
+| selecting input based on |   |   | purrr function |
+|--------------------------+---+---+----------------|
+| condition                |   |   | =map_if=       |
+| location                 |   |   | =map_at=       |
+
+* Conclusion
+
+These are some of the most important src_R[:eval no]{purrr} functions. But there are many others and I encourage you to explore them by yourself.
+
+Great resources for this are:
+
+- The [[http://r4ds.had.co.nz/iteration.html][iteration chapter]] of [[http://hadley.nz/][Hadley Wickham]]'s book [[http://r4ds.had.co.nz/index.html][R for data science]]
+- The [[https://github.com/rstudio/cheatsheets/raw/master/purrr.pdf][purrr cheatsheet]]
+- The [[https://cran.r-project.org/web/packages/purrr/purrr.pdf][purrr CRAN manual]]
+- The vignettes and help files for the many purrr functions
+
+Have fun!!!
+
+#+HTML: <script>; var acc = document.getElementsByClassName("accordion"); var i; for (i = 0; i < acc.length; i++) {; acc[i].addEventListener("click", function() {; this.classList.toggle("active"); var panel = this.nextElementSibling; if (panel.style.maxHeight){; panel.style.maxHeight = null; } else {; panel.style.maxHeight = panel.scrollHeight + "px"; }; }); }; </script>
