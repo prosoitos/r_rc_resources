@@ -1,0 +1,946 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2018-08-23 Thu 17:50 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Tips on best practices in R</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="Marie-Hélène Burle" />
+<style type="text/css">
+<!--/*--><![CDATA[/*><!--*/
+@media all
+{
+  @import url(http://fonts.googleapis.com/css?family=Inconsolata);
+  @import url(http://fonts.googleapis.com/css?family=Lato);
+  @import url(http://fonts.googleapis.com/css?family=Linden+Hill);
+  @import url(http://fonts.googleapis.com/css?family=Roboto+Slab+Thin);
+  @import url(http://fonts.googleapis.com/css?family=Montez);
+  @import url(http://fonts.googleapis.com/css?family=IM+Fell+English);
+  @import url(http://fonts.googleapis.com/css?family=Rokkitt);  
+  /* @import url(http://fonts.googleapis.com/css?family=Anonymous+Pro);   */
+  article,
+  aside,
+  details,
+  figcaption,
+  figure,
+  footer,
+  header,
+  hgroup,
+  nav,
+  section,
+  summary {
+    display: block;
+  }
+  audio,
+  canvas,
+  video {
+    display: inline-block;
+  }
+  audio:not([controls]) {
+    display: none;
+    height: 0;
+  }
+  [hidden] {
+    display: none;
+  }
+  html {
+    font-family: sans-serif;
+    -webkit-text-size-adjust: 95%;
+    -ms-text-size-adjust: 95%;
+  }
+  body {
+    margin: 0;
+  }
+  a:focus {
+    outline: thin dotted;
+  }
+  a:active,
+  a:hover {
+    outline: 0;
+  }
+  abbr[title] {
+    border-bottom: 1px dotted;
+  }
+  b,
+  strong {
+    font-weight: bold;
+  }
+  dfn {
+    font-style: italic;
+  }
+  mark {
+    background: #ff0;
+    color: #000;
+  }
+  code,
+  kbd,
+  pre,
+  samp {
+    font-family: monospace, serif;
+    font-size: 1em;
+  }
+  pre,
+  code {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+  }
+  q {
+    quotes: "\201C" "\201D" "\2018" "\2019";
+  }
+  small {
+    font-size: 80%; 
+  }
+  sub,
+  sup {
+    font-size: 75%;
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline;
+  }
+  sup {
+    top: -0.5em;
+  }
+  sub {
+    bottom: -0.25em;
+  }
+  img {
+    border: 0;
+  }
+  svg:not(:root) {
+    overflow: hidden;
+  }
+  figure {
+    margin: 0;
+  }
+  fieldset {
+    border: 1px solid #c0c0c0;
+    margin: 0 2px;
+    padding: 0.35em 0.625em 0.75em;
+  }
+  legend {
+    border: 0;
+    padding: 0;
+  }
+  button,
+  input,
+  select,
+  textarea {
+    font-family: inherit;
+    font-size: 100%;
+    margin: 0;
+  }
+  button,
+  input {
+    line-height: normal;
+  }
+  button,
+  html input[type="button"],
+  input[type="reset"],
+  input[type="submit"] {
+    -webkit-appearance: button;
+    cursor: pointer;
+  }
+  button[disabled],
+  input[disabled] {
+    cursor: default;
+  }
+  input[type="checkbox"],
+  input[type="radio"] {
+    box-sizing: border-box;
+    padding: 0;
+  }
+  input[type="search"] {
+    -webkit-appearance: textfield;
+    -moz-box-sizing: content-box;
+    -webkit-box-sizing: content-box;
+    box-sizing: content-box;
+  }
+  input[type="search"]::-webkit-search-cancel-button,
+  input[type="search"]::-webkit-search-decoration {
+    -webkit-appearance: none;
+  }
+  button::-moz-focus-inner,
+  input::-moz-focus-inner {
+    border: 0;
+    padding: 0;
+  }
+  textarea {
+    overflow: auto;
+    vertical-align: top;
+  }
+  table {
+    border-collapse: collapse;
+    border-spacing: 0;
+  }
+  html {
+    font-family: 'Lato', sans-serif;
+    font-size: 110%;
+  }
+  pre,
+  code {
+    font-family: 'Inconsolata', sans-serif;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: 'Lato', sans-serif;
+    font-weight: 700;
+  }
+  h1 {
+    line-height: 50px;
+    padding: 20px 0px 10px 0px;
+  }
+  h2 {
+    line-height: 35px;
+    padding: 20px 0px 0px 0px;
+  }
+  h3 {
+    line-height: 31px;
+    padding: 15px 0px 0px 0px;
+  }
+  h4 {
+    line-height: 25px;
+  }
+  h5 {
+    line-height: 20px;    
+  }
+  h6 {
+    line-height: 15px;
+  }
+  html {
+    background-color: #faf9f1;
+    color: #242b2f;
+    margin: 1em;
+    line-height: 24px;
+  }
+  body {
+    background-color: #faf9f1;
+    margin: 0px auto 0px 150px;
+    max-width: 21.5cm;
+    /* border: 1pt solid #93a1a1; */
+    /* border: 1pt solid #d9d9d9; */
+    /* border: 1pt solid #c9cfcf; */
+    /* border-radius: 10px; */
+    padding: 1em;
+  } 
+  a {
+    color: #b58900;
+  }
+  a:visited {
+    color: #cb4b16;
+  }
+  a:hover {
+    color: #e65719;
+  }
+  h1 {
+    color: #890c0c;
+  }
+  h2 {
+    color: #19334d;
+  }
+  h3 {
+    color: #336699;
+  }
+  h4 {
+    color: #6699cc;
+  }
+  h5 {
+    color: #666666;
+  }
+  h6 {
+    color: #808080;
+  }
+  pre[class="src src-R"] {	/*for blocks src R*/
+    background-color: #f1f1f1;
+    color: #262626;
+    padding: 0.8em;
+    font-size: 95%;
+    line-height: 22px;
+    border: 0.5pt solid #d9d9d9;
+    border-radius: 5px;
+    box-shadow: 0pt 0pt 0pt #eee8d5;
+  }
+  pre[class="src src-sh"] {	/*for blocks src sh*/
+    background-color: #f1f1f1;
+    color: #262626;
+    padding: 0.8em;
+    font-size: 95%;
+    line-height: 22px;
+    border: 0.5pt solid #d9d9d9;
+    border-radius: 5px;
+    box-shadow: 0pt 0pt 0pt #eee8d5;
+  }
+  .accordion {			/*for the button of the box that can hide/appear*/
+    background-color: #c2d6d6;
+    color: #262626;
+    padding: 0 0.8em;
+    font-size: 95%;
+    line-height: 22px;
+    border: 0.5pt solid #b3cccc;
+    border-radius: 5px;
+    box-shadow: 0pt 0pt 0pt #eee8d5;
+    transition: 0.4s;
+    cursor: pointer;
+    outline: none;
+  }
+  .active, .accordion:hover {	/*for the button of the box while hover*/
+    background-color: #94b8b8;
+    border: 0.5pt solid #85adad;
+    /* color: white; */
+  }
+  .panel {			/*for the box that can hide/appear*/
+    padding: 0em 1em;
+    margin: 0.7em 0 0 0;
+    background-color: #c2d6d6;
+    /* border: 0.5pt solid #d9d9d9; */
+    border-radius: 5px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+  }
+  code {			/*for inline code*/
+    background-color: #f1f1f1;
+    color: #262626;
+    padding: 0em 0.2em 0em 0.2em;
+    font-size: 95%;
+    line-height: 22px;
+    border: 0.5pt solid #e6e6e6;
+    border-radius: 3px;
+    box-shadow: 0pt 0pt 0pt #eee8d5;
+  }
+  blockquote {			/*for block quote*/
+    /* font: 14px/22px normal helvetica, sans-serif; /\*original line*\/ */
+    line-height: 22px;
+    font-style: italic;
+    margin: 30px 0px 30px 50px;
+    padding-left: 15px;
+    border-left: 3px solid #ccc;
+  }
+  pre[class="example"] {	/*for block example*/
+    background-color: #f0efe7;
+    font-family: 'Rokkitt';
+    width: max-content;
+    color: #3e3e3e;
+    padding: 0.6em 0.8em 0.6em 0.8em;
+    /* font-size: 95%; */
+    line-height: 22px;
+    border: 0.5pt solid #ebeae0;
+    border-radius: 5px;
+    box-shadow: 0pt 0pts 0pt #eee8d5;
+  }
+  p[class="verse"] {		/*for block verse*/
+    color: #262626;
+    font-family: 'IM Fell English';
+    font-size: 110%;
+    font-style: italic;
+    /* margin-left: 30px;		/\*keep this line to have the verses indented*\/ */
+    line-height: 25px;
+  }
+  div[class="org-center"] {	/*for block center*/
+    margin: auto;
+    line-height: 22px;
+    width: max-content;
+  }
+  div[class="right"] {	/*for block right-aligned*/
+    text-align: right;
+    line-height: 22px;
+  }
+  div[class="HAND"] {		/*for block with handwriting font*/
+    font-family: 'Montez';
+    line-height: 26px;
+    font-size: 130%;
+  }
+  div[class="MONO"] {	/*for block with monospace font*/
+    /* font-family: 'Anonymous Pro'; */
+    font-family: 'Roboto Slab Thin';
+    margin: auto;
+    width: max-content;
+    color: #000000;
+    padding: 0.3 0.8em 0.3 0.8em;
+    font-size: 95%;
+    line-height: 20px;
+    /* margin: 0 0 0 5px; */
+    /* border: 0.5pt solid #d9d9d9; */
+    /* border-radius: 5px; */
+    /* font-size: 95%; */
+  }
+  div[class="RED"] {	/*for block with monospace font*/
+    /* font-family: 'Anonymous Pro'; */
+    /* font-family: 'Roboto Slab Thin'; */
+    /* margin: auto; */
+    /* width: max-content; */
+    /* color: #a52a2a; */
+    /* font-weight: bold; */
+    /* font-style: italic; */
+    padding: 0.1em 0.8em;
+    /* font-size: 95%; */
+    /* line-height: 20px; */
+    /* margin: 0 0 0 5px; */
+    /* border: 0.5pt solid #d9d9d9; */
+    /* border-radius: 5px; */
+    /* font-size: 95%; */
+    /* padding: 0em 1em; */
+    /* margin: 0.7em 0 0 0; */
+    background-color: #f5deb3;
+    /* border: 0.5pt solid #d9d9d9; */
+    /* border-radius: 5px; */
+    /* max-height: 0; */
+    /* overflow: hidden; */
+    /* transition: max-height 0.2s ease-out; */
+    /* background-color: #f1f1f1; */
+    color: #262626;
+    /* padding: 0.8em; */
+    font-size: 92%;
+    /* line-height: 22px; */
+    /* border: 0.5pt solid #d9d9d9; */
+    border-radius: 5px;
+    box-shadow: 0pt 0pt 0pt #eee8d5;
+  }
+  div[class="VERBATIM"] {	/*for block verbatim*/
+    /* background-color: #f4faff; */
+    line-height: 27px;
+    font-family: 'Linden Hill';
+    /* font-weight: bold; */
+    margin: 45px 50px 45px 100px;
+    /* padding-left: 10px; */
+    /* border-left: 3px solid #890c0c; */
+    font-size: 120%;
+    color: #303b52;
+    padding: 0 0 0 15px;
+    border-left: 0.5px solid #425170;
+    width: max-content;
+  }
+  div[class="EMPHASIS"] {	/*for block verbatim*/
+    line-height: 27px;
+    /* font-weight: bold; */
+    margin: 45px 0px 45px 150px;
+    /* padding-left: 10px; */
+    /* border-left: 3px solid #890c0c; */
+    font-size: 135%;
+    color: #7c6262;
+  }
+  .org-ess-numbers {
+    color: #e28200; 
+  }
+  .org-comment-delimiter {
+    color: #8c8c8c;
+  }
+  .org-comment {
+    color: #8c8c8c;
+  }
+  .org-string {
+    color: #013b6d;
+  }
+  .org-ess-function-call {
+    color: #bf4040;
+    /* font-weight: bolder; */
+  }
+  .org-ess-operator {
+    color: #0b5e56;
+  }
+  .org-ess-assignment {
+    color: #0b5e56;
+  }
+  .org-ess-paren {
+    color: #0b5e56;
+  }
+  .org-ess-XopX {
+    color: #0b5e56;
+  }  
+  h1 {
+    font-size: 2.2em;
+    text-align: center;
+  }
+  h2 {
+    font-size: 1.6em;
+  }
+  h3 {
+    font-size: 1.5em;
+  }
+  h4 {
+    font-size: 1.4em;
+  }
+  h5 {
+    font-size: 1.3em;
+  }
+  h6 {
+    font-size: 1.2em;
+  }
+  .tag {
+    background-color: #eee8d5;
+    color: #d33682;
+    padding: 0 0.2em;
+  }
+  .todo,
+  .next,
+  .done {
+    color: #faf9f1;
+    background-color: #dc322f;
+    padding: 0 0.2em;
+  }
+  .tag {
+    -webkit-border-radius: 0.35em;
+    -moz-border-radius: 0.35em;
+    border-radius: 0.35em;
+  }
+  .TODO {
+    -webkit-border-radius: 0.2em;
+    -moz-border-radius: 0.2em;
+    border-radius: 0.2em;
+    background-color: #2aa198;
+  }
+  .NEXT {
+    -webkit-border-radius: 0.2em;
+    -moz-border-radius: 0.2em;
+    border-radius: 0.2em;
+    background-color: #268bd2;
+  }
+  .ACTIVE {
+    -webkit-border-radius: 0.2em;
+    -moz-border-radius: 0.2em;
+    border-radius: 0.2em;
+    background-color: #268bd2;
+  }
+  .DONE {
+    -webkit-border-radius: 0.2em;
+    -moz-border-radius: 0.2em;
+    border-radius: 0.2em;
+    background-color: #859900;
+  }
+  .WAITING {
+    -webkit-border-radius: 0.2em;
+    -moz-border-radius: 0.2em;
+    border-radius: 0.2em;
+    background-color: #cb4b16;
+  }
+  .HOLD {
+    -webkit-border-radius: 0.2em;
+    -moz-border-radius: 0.2em;
+    border-radius: 0.2em;
+    background-color: #d33682;
+  }
+  .NOTE {
+    -webkit-border-radius: 0.2em;
+    -moz-border-radius: 0.2em;
+    border-radius: 0.2em;
+    background-color: #d33682;
+  }
+  .CANCELLED {
+    -webkit-border-radius: 0.2em;
+    -moz-border-radius: 0.2em;
+    border-radius: 0.2em;
+    background-color: #859900;
+  }
+
+  /* TOC inspired by http://jashkenas.github.com/coffee-script */
+  #table-of-contents {
+    font-size: 10pt;
+    position: fixed;
+    right: 0em;
+    top: 0em;
+    background: #faf9f1;
+    color: #596a73;
+    /* -webkit-box-shadow: 0 0 1em #777777; */
+    /* -moz-box-shadow: 0 0 1em #777777; */
+    /* -webkit-border-bottom-left-radius: 10px; */
+    /* -moz-border-radius-bottomleft: 10px; */
+    text-align: right;
+    /* ensure doesn't flow off the screen when expanded */
+    max-height: 80%;
+    overflow: auto;
+  }
+  #table-of-contents h2 {
+    font-size: 12pt;
+    max-width: 25em;
+    font-weight: bold;
+    color: #596a73;
+    padding-right: 3em;
+    padding-left: 0.8em;
+    padding-top: 1em;
+    padding-bottom: 0em;
+    text-align: left;
+  }
+  #table-of-contents #text-table-of-contents {
+    display: none;
+    text-align: left;
+  }
+  #table-of-contents:hover #text-table-of-contents {
+    display: block;
+    padding: 0.5em;
+    margin-top: -1.5em;
+  }
+
+  .rss_box {}
+  .rss_title, rss_title a {}
+  .rss_items {}
+  .rss_item a:link, .rss_item a:visited, .rss_item a:active {}
+  .rss_item a:hover {}
+  .rss_date {}
+
+} /* END OF @media all */
+
+
+@media screen
+{
+  #table-of-contents {
+    float: right;
+    border: 0px solid #CCC;
+    max-width: 25%;
+    overflow: auto;
+  }
+} /* END OF @media screen */
+/*]]>*/-->
+</style>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2018 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="preamble" class="status">
+<span style="color:#596a73; font-size:17px"><b>Marie-Hélène Burle</b></span><br><span style="color:#596a73; font-size:15px"><img src="./email.ico" alt="email" height="16" width="16"> <a href="mailto:msb2@sfu.ca">msb2@sfu.ca</a>&nbsp;&nbsp;<img src="./twitter.ico" alt="twitter" height="17" width="17"> <a href="https://twitter.com/MHBurle">@MHBurle</a>&nbsp;&nbsp;<img src="./gh.ico" alt="github" height="15" width="15"> <a href="https://github.com/prosoitos">prosoitos</a></span><br><span style="color:#596a73; font-size:16px">August 23, 2018</span>
+</div>
+<div id="content">
+<h1 class="title">Tips on best practices in R</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#orge0004e0">Self-contained projects</a>
+<ul>
+<li><a href="#org961c6ca">Example possible project structure</a></li>
+</ul>
+</li>
+<li><a href="#orgc78151f">Paths</a>
+<ul>
+<li><a href="#org5d2b290">The problem with absolute paths</a></li>
+<li><a href="#orga08e95a">Solution: use paths relative to your project root</a></li>
+<li><a href="#org916326d">Package <code class="src src-R">here</code></a></li>
+</ul>
+</li>
+<li><a href="#org92beb70">Clean session</a></li>
+<li><a href="#orgfd3aa68">Formatting</a></li>
+<li><a href="#orgb7fd47d">Things you do not want in a script</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orge0004e0" class="outline-2">
+<h2 id="orge0004e0">Self-contained projects</h2>
+<div class="outline-text-2" id="text-orge0004e0">
+<div class="VERBATIM">
+<p>
+Work in self-contained projects<br />
+</p>
+
+</div>
+
+<p>
+Advantages:<br />
+</p>
+<ul class="org-ul">
+<li>allows collaboration<br /></li>
+<li>makes projects portable<br /></li>
+<li>facilitates version control<br /></li>
+<li>reduces the risk to end up with broken links or missing files necessary for the projects<br /></li>
+</ul>
+
+<div class="EMPHASIS">
+<p>
+Create a directory that contains all the necessary subdirectories and files for your project<br />
+</p>
+
+</div>
+
+<p>
+This includes data, scripts, as well as the project outputs (graphs, results, etc.)<br />
+</p>
+
+<p>
+If you use RStudio, create RStudio projects.<br />
+</p>
+</div>
+
+<div id="outline-container-org961c6ca" class="outline-3">
+<h3 id="org961c6ca">Example possible project structure</h3>
+<div class="outline-text-3" id="text-org961c6ca">
+<p>
+This would be a rather standard project structure:<br />
+</p>
+
+<pre class="example">
+/project_root     /data         /raw
+                                      /clean
+
+                      /results      /graphs
+                                      /tables
+
+                      /docs
+                      /bin
+                      /src
+                      /ms
+</pre>
+
+<p>
+You are free to organize your projects in a way that works for you. But following some rather standard way of organizing files will help collaborators find their way around your project and some consistency between projects will also help you adapt scripts and snippets from one project to another.<br />
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgc78151f" class="outline-2">
+<h2 id="orgc78151f">Paths</h2>
+<div class="outline-text-2" id="text-orgc78151f">
+</div>
+<div id="outline-container-org5d2b290" class="outline-3">
+<h3 id="org5d2b290">The problem with absolute paths</h3>
+<div class="outline-text-3" id="text-org5d2b290">
+<p>
+If this is how your script starts:<br />
+</p>
+
+<div class="org-src-container">
+<pre class="src src-R"><span class="org-ess-function-call">setwd</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-1">(</span></span><span class="org-string">"C:\Users\charlie\some_very_personal_directory_structure\our_project"</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-1">)</span></span>
+</pre>
+</div>
+
+<p>
+what do you think the odds are that the person to whom you are giving that script<br />
+</p>
+
+<ul class="org-ul">
+<li>is called Charlie and<br /></li>
+<li>is using Windows and<br /></li>
+<li>is having the exact same directory structure in their computer?<br /></li>
+</ul>
+
+<p>
+In order to run your script, your friend Lucy, who uses linux, will have to change all links to:<br />
+</p>
+
+<div class="org-src-container">
+<pre class="src src-R"><span class="org-string">"/home/lucy/totally_different_directory_structure/our_project"</span>
+</pre>
+</div>
+
+<p>
+This makes for challenging collaborations.<br />
+</p>
+
+<p>
+If you move your project to another machine, the links will equally get broken. And it is likely that they will get broken over time as you reorganize documents in your computer.<br />
+</p>
+</div>
+</div>
+
+<div id="outline-container-orga08e95a" class="outline-3">
+<h3 id="orga08e95a">Solution: use paths relative to your project root</h3>
+<div class="outline-text-3" id="text-orga08e95a">
+<p>
+<b>Once your entire project lives within one directory</b> (the project root), as we saw in the previous section, make sure that:<br />
+</p>
+
+<div class="VERBATIM">
+<p>
+all the paths in your scripts are relative to the project root<br />
+</p>
+
+</div>
+
+<p>
+This makes your project <i>portable</i>, <i>much more robust</i> (lower risk to get broken over time), and straightforward to <i>share</i>.<br />
+</p>
+
+<p>
+The way a lot of people go around this is by setting the working directory manually in RStudio (by clicking on "Set As Working Directory") to the project root. But for this to run in another machine, the user will have to do the same before running the script (unless the script is in the project root, but this is rarely the case and you certainly cannot assume that it is).<br />
+</p>
+
+<p>
+A portable script should run as is, without this manual tinkering. Why?<br />
+</p>
+
+<ol class="org-ol">
+<li>It is easy to forget to do the tinkering and wonder why nothing works<br /></li>
+<li>This manual tinkering prevents automation and defeats one of the main advantages of programming:<br /></li>
+</ol>
+<p>
+once you realize the advantages of writing code over the use of a GUI software, you should realize that you have to be careful in how you use RStudio. Clicking around is ok for some tasks, but it is not if this does something necessary for the script to run successfully (such as setting the working directory).<br />
+</p>
+
+<p>
+If you use RStudio projects (and if you use RStudio, you definitely should create RStudio projects), RStudio will automatically, upon opening a project, move the current working directory to the project root. This is great. But you cannot assume that everybody running your script uses RStudio: R scripts can be run directly in R, in the command line, from a shell script, or using other tools or IDEs. So the script itself should ideally contain a way to refer to the project root, independent of RStudio.<br />
+</p>
+
+<p>
+How?<br />
+</p>
+</div>
+</div>
+
+<div id="outline-container-org916326d" class="outline-3">
+<h3 id="org916326d">Package <code class="src src-R">here</code></h3>
+<div class="outline-text-3" id="text-org916326d">
+<p>
+There are various methods, but a wonderfully easy one is:<br />
+</p>
+
+<div class="VERBATIM">
+<p>
+the package <a href="https://github.com/r-lib/here">here</a> from <a href="https://github.com/krlmlr">Kirill Müller</a><br />
+</p>
+
+</div>
+
+<p>
+The function <code class="src src-R">here::<span class="org-ess-function-call">here</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-1">()</span></span></code> starts from the current working directory (the directory in which the script is running if you don't set it manually in RStudio or with <code class="src src-R">setwd</code>) and goes up the directory chain until it finds a <code class="src src-R">.Rproj</code> file (if you use RStudio projects), a <code class="src src-R">.git</code> or <code class="src src-R">.svn</code> file (if you version control your projects), a <code class="src src-R">.projectile</code> file (if you use emacs projectile), or other sensible files which signify a project root. If none of these apply to you (which is very unlikely), you can create a file <code class="src src-R">.here</code> in your project root with the function <code class="src src-R"><span class="org-ess-function-call">set_here</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-1">()</span></span></code> and this file will then signify to the function <code class="src src-R"><span class="org-ess-function-call">here</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-1">()</span></span></code> that this is the project root.<br />
+</p>
+
+<p>
+From there on, you can refer to any file in your project with <code class="src src-R"><span class="org-ess-function-call">here</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-1">(</span></span><span class="org-string">"file/path/from/project/root"</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-1">)</span></span></code>.<br />
+</p>
+
+<p>
+<i>Example usage:</i><br />
+</p>
+
+<div class="org-src-container">
+<pre class="src src-R"><span class="org-ess-modifiers">library</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-1">(</span></span>tidyverse<span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-1">)</span></span>
+<span class="org-ess-modifiers">library</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-1">(</span></span>here<span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-1">)</span></span>
+
+my_var <span class="org-ess-assignment">&lt;-</span> <span class="org-ess-function-call">read_excel</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-1">(</span></span><span class="org-ess-function-call">here</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-2">(</span></span><span class="org-string">"data/raw/my-super-data.xlsx"</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-2">)</span></span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-1">)</span></span>
+my_plot <span class="org-ess-assignment">&lt;-</span> <span class="org-ess-function-call">ggplot</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-1">(</span></span>data <span class="org-ess-operator">=</span> my_var<span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-1">)</span></span> <span class="org-ess-operator">+</span> <span class="org-ess-function-call">geom_point</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-1">()</span></span>
+<span class="org-ess-function-call">ggsave</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-1">(</span></span><span class="org-ess-function-call">here</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-2">(</span></span><span class="org-string">"results/graphs/my_plot.png"</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-2">)</span></span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-1">)</span></span>
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org92beb70" class="outline-2">
+<h2 id="org92beb70">Clean session</h2>
+<div class="outline-text-2" id="text-org92beb70">
+<div class="VERBATIM">
+<p>
+Never set anything that might change how your code runs<br />
+</p>
+
+</div>
+
+<p>
+In particular:<br />
+</p>
+
+<ul class="org-ul">
+<li>never save your workspace upon closing a session (beware of RStudio default settings! go edit them now),<br /></li>
+<li>restart your R session frequently to make sure that you are not running bits of code from past sessions,<br /></li>
+<li>do not add anything in your <code class="src src-R">.Rprofile</code>, <code class="src src-R">.Renviron</code>, or any other setting file that would affect the output of your code in any way, such as setting options, creating functions, loading packages, etc. This is tempting if you always use the same options or packages. But this makes your scripts non-reproducible by others who do not have those settings. It is much better to create snippets to add those lines of code very easily (even automatically) at the beginning of your scripts.<br /></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgfd3aa68" class="outline-2">
+<h2 id="orgfd3aa68">Formatting</h2>
+<div class="outline-text-2" id="text-orgfd3aa68">
+<p>
+There is no official R formatting. <a href="http://hadley.nz/">Hadley Wickham</a> wrote a <a href="http://style.tidyverse.org/">short book</a> on R formatting and this can be a great template to follow. A growing number of people are following his guidelines and it would be a good idea to familiarize yourself with them.<br />
+</p>
+
+<p>
+The package <code class="src src-R">lintr</code> by <a href="https://github.com/jimhester">Jim Hester</a>, which runs in emacs ESS, Sublime, Vim, and Atom, as well as RStudio functionalities highlight where your code does not follow these formatting recommendations and can be a great way to get used to applying them to your code until they become automatic.<br />
+</p>
+
+<p>
+But the most important pieces of advice, when it comes to formatting code are:<br />
+</p>
+
+<div class="VERBATIM">
+<p>
+<b>be consistent</b><br />
+</p>
+
+<p>
+follow the style used by your collaborators, particularly if you edit their scripts<br />
+</p>
+
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgb7fd47d" class="outline-2">
+<h2 id="orgb7fd47d">Things you do not want in a script</h2>
+<div class="outline-text-2" id="text-orgb7fd47d">
+<div class="VERBATIM">
+<p>
+Avoid anything that will make changes to a computer in your scripts<br />
+</p>
+
+</div>
+
+<p>
+If someone runs your script, this should not install packages or make any other change to their machine. So, for instance, avoid<br />
+</p>
+
+<div class="org-src-container">
+<pre class="src src-R"><span class="org-ess-function-call">install.packages</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-1">()</span></span>
+</pre>
+</div>
+
+<div class="RED">
+<p>
+I owe these better coding habits to <a href="https://github.com/jennybc">Jenny Bryan</a> and <a href="http://hadley.nz/">Hadley Wickham</a>. Do not hesitate to look for their books, workshops, and other material that are very useful and open source.<br />
+</p>
+
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>
