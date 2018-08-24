@@ -1,0 +1,75 @@
+#+OPTIONS: title:t date:t author:t email:t
+#+OPTIONS: toc:t h:6 num:nil |:t todo:nil
+#+OPTIONS: *:t -:t ::t <:t \n:t e:t creator:nil
+#+OPTIONS: f:t inline:t tasks:t tex:t timestamp:t
+#+OPTIONS: html-preamble:t html-postamble:nil
+
+#+PROPERTY: header-args:R :session R:purrr :eval no :exports code :tangle yes :comments link
+
+#+TITLE:   Magrittr less used "piping" treasures
+#+DATE:	  {{{time(%B %d\, %Y)}}}
+#+AUTHOR:  Marie-Hélène Burle
+#+EMAIL:   msb2@sfu.ca
+
+In the previous workshop section, we used this code:
+
+#+BEGIN_SRC R
+banding <-
+  tibble(
+    bird = paste0("bird", 1:50),
+    sex = sample(c("F", "M"), 50, replace = T),
+    population = sample(LETTERS[1:3], 50, replace = T),
+    mass = rnorm(50, 43, 4) %>% round(1),
+    tarsus = rnorm(50, 27, 1) %>% round(1),
+    wing = rnorm(50, 112, 3) %>% round(0)
+  ) %T>% 
+  str()
+#+END_SRC
+
+And you might have wondered:
+
+#+BEGIN_QUOTE
+Wait: what is this weird looking pipe?
+#+END_QUOTE
+
+Everybody is now familiar with the main src_R[:eval no]{magrittr} pipe (src_R[:eval no]{%>%}) and it comes with most of the src_R[:eval no]{tidyverse} packages. This is why, even though src_R[:eval no]{magrittr} is not one of the core packages, you do not have to load it to use the pipe.
+
+But src_R[:eval no]{magrittr} has several other treasures (to use them, you will have to load the package).
+
+* %<>%
+
+src_R[:eval no]{%<>%} pipes the left expression to the right, and then back to the left. Instead of an arrow going right (as the main pipe is), think of it as an arrow going from left to right and then back left.
+
+#+BEGIN_RED
+Basically, it replaces the variable to the left, after having been transformed by the expression to the right.
+
+This is extremely convenient, but also dangerous: each time you run such line of code, your variable changes. To rerun the script, you need to first rerun the code that created the initial variable with that name.
+#+END_RED
+
+The code:
+
+#+BEGIN_SRC R
+banding %<>% modify_if(is.factor, as.character)
+#+END_SRC
+
+is equivalent to:
+
+#+BEGIN_SRC R
+banding <-
+  banding %>%
+  modify_if(is.factor, as.character)
+#+END_SRC
+
+* %T%
+
+src_R[:eval no]{%T%} pipes the effect of the left expression to the right, but does not pipe the object itself (so the object is "free" to be used by another pipe). This is very useful when you want to produce to output from one object or produce a side effect (e.g. printing) without interrupting a pipeline. I like to think of the "T" as a branching which represents the 2 outputs produced by a single object.
+
+#+BEGIN_VERBATIM
+Try replacing src_R[:eval no]{%T%} with the regular pipe src_R[:eval no]{%>%} in our code at the top of this page.
+What happens?
+Can you explain it?
+#+END_VERBATIM
+
+#+BEGIN_RED
+src_R[:eval no]{magrittr} has other pipes and [[https://github.com/tidyverse/magrittr][you should explore them at your own time]]!
+#+END_RED
