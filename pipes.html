@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2018-08-23 Thu 17:50 -->
+<!-- 2018-08-24 Fri 16:59 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Magrittr less used "piping" treasures</title>
@@ -646,7 +646,7 @@ for the JavaScript code in this tag.
 </head>
 <body>
 <div id="preamble" class="status">
-<span style="color:#596a73; font-size:17px"><b>Marie-Hélène Burle</b></span><br><span style="color:#596a73; font-size:15px"><img src="./email.ico" alt="email" height="16" width="16"> <a href="mailto:msb2@sfu.ca">msb2@sfu.ca</a>&nbsp;&nbsp;<img src="./twitter.ico" alt="twitter" height="17" width="17"> <a href="https://twitter.com/MHBurle">@MHBurle</a>&nbsp;&nbsp;<img src="./gh.ico" alt="github" height="15" width="15"> <a href="https://github.com/prosoitos">prosoitos</a></span><br><span style="color:#596a73; font-size:16px">August 23, 2018</span>
+<span style="color:#596a73; font-size:17px"><b>Marie-Hélène Burle</b></span><br><span style="color:#596a73; font-size:15px"><img src="./favicons/email.ico" alt="email" height="16" width="16"> <a href="mailto:msb2@sfu.ca">msb2@sfu.ca</a>&nbsp;&nbsp;<img src="./favicons/twitter.ico" alt="twitter" height="17" width="17"> <a href="https://twitter.com/MHBurle">@MHBurle</a>&nbsp;&nbsp;<img src="./favicons/gh.ico" alt="github" height="15" width="15"> <a href="https://github.com/prosoitos">prosoitos</a></span><br><span style="color:#596a73; font-size:16px">August 24, 2018</span>
 </div>
 <div id="content">
 <h1 class="title">Magrittr less used "piping" treasures</h1>
@@ -654,8 +654,8 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orge2b26e4">%&lt;&gt;%</a></li>
-<li><a href="#org8838d12">%T%</a></li>
+<li><a href="#org78a79cd">%&lt;&gt;%</a></li>
+<li><a href="#org2d51dce">%T%</a></li>
 </ul>
 </div>
 </div>
@@ -695,9 +695,9 @@ Everybody is now familiar with the main <code class="src src-R">magrittr</code> 
 But <code class="src src-R">magrittr</code> has several other treasures (to use them, you will have to load the package).<br />
 </p>
 
-<div id="outline-container-orge2b26e4" class="outline-2">
-<h2 id="orge2b26e4">%&lt;&gt;%</h2>
-<div class="outline-text-2" id="text-orge2b26e4">
+<div id="outline-container-org78a79cd" class="outline-2">
+<h2 id="org78a79cd">%&lt;&gt;%</h2>
+<div class="outline-text-2" id="text-org78a79cd">
 <p>
 <code class="src src-R"><span class="org-ess-XopX">%&lt;&gt;%</span></code> pipes the left expression to the right, and then back to the left. Instead of an arrow going right (as the main pipe is), think of it as an arrow going from left to right and then back left.<br />
 </p>
@@ -735,9 +735,9 @@ is equivalent to:<br />
 </div>
 </div>
 
-<div id="outline-container-org8838d12" class="outline-2">
-<h2 id="org8838d12">%T%</h2>
-<div class="outline-text-2" id="text-org8838d12">
+<div id="outline-container-org2d51dce" class="outline-2">
+<h2 id="org2d51dce">%T%</h2>
+<div class="outline-text-2" id="text-org2d51dce">
 <p>
 <code class="src src-R"><span class="org-ess-XopX">%T%</span></code> pipes the effect of the left expression to the right, but does not pipe the object itself (so the object is "free" to be used by another pipe). This is very useful when you want to produce to output from one object or produce a side effect (e.g. printing) without interrupting a pipeline. I like to think of the "T" as a branching which represents the 2 outputs produced by a single object.<br />
 </p>
