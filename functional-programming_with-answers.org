@@ -6,9 +6,10 @@
 
 #+PROPERTY: header-args:R :session R:purrr :eval no :exports code :tangle yes :comments link
 
-#+TITLE:   Functional programming in R (with /purrr/)
+#+TITLE:   Functional programming in R with /purrr/
 #+DATE:	   {{{time(%B %d\, %Y)}}}
 #+AUTHOR:  Marie-Hélène Burle
+#+SUBTITLE: Simon Fraser University, Research Commons
 #+EMAIL:   msb2@sfu.ca
 
 * Introduction
@@ -36,7 +37,7 @@ src_R[:eval no]{Purrr} is a set of tools allowing consistent functional programm
 
 As Hadley Wickham says, in many ways, src_R[:eval no]{purrr} is the equivalent of the src_R[:eval no]{dplyr}, but while src_R[:eval no]{dplyr} focuses on data frames, src_R[:eval no]{purrr} works on vectors: it works on the elements of atomic vectors, lists, and data frames. Since R's most basic data structure is the vector, this makes src_R[:eval no]{purrr} extremely powerful and flexible.
 
-*** Logistics
+* 
 
 Install it with:
 

@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2018-08-24 Fri 17:00 -->
+<!-- 2018-08-29 Wed 16:54 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Tips on best practices in R</title>
@@ -646,36 +646,39 @@ for the JavaScript code in this tag.
 </head>
 <body>
 <div id="preamble" class="status">
-<span style="color:#596a73; font-size:17px"><b>Marie-Hélène Burle</b></span><br><span style="color:#596a73; font-size:15px"><img src="./favicons/email.ico" alt="email" height="16" width="16"> <a href="mailto:msb2@sfu.ca">msb2@sfu.ca</a>&nbsp;&nbsp;<img src="./favicons/twitter.ico" alt="twitter" height="17" width="17"> <a href="https://twitter.com/MHBurle">@MHBurle</a>&nbsp;&nbsp;<img src="./favicons/gh.ico" alt="github" height="15" width="15"> <a href="https://github.com/prosoitos">prosoitos</a></span><br><span style="color:#596a73; font-size:16px">August 24, 2018</span>
+<span style="color:#596a73; font-size:17px"><b>Marie-Hélène Burle</b></span><br><span style="color:#8a8a8a; font-size:15px"><b>Simon Fraser University, Research Commons</b></span><br><span style="color:#596a73; font-size:15px"><img src="./favicons/email.ico" alt="email" height="16" width="16"> <a href="mailto:msb2@sfu.ca">msb2@sfu.ca</a>&nbsp;&nbsp;<img src="./favicons/twitter.ico" alt="twitter" height="17" width="17"> <a href="https://twitter.com/MHBurle">@MHBurle</a>&nbsp;&nbsp;<img src="./favicons/gh.ico" alt="github" height="15" width="15"> <a href="https://github.com/prosoitos">prosoitos</a></span><br><span style="color:#596a73; font-size:16px">August 29, 2018</span>
 </div>
 <div id="content">
-<h1 class="title">Tips on best practices in R</h1>
+<h1 class="title">Tips on best practices in R
+<br />
+<span class="subtitle">Simon Fraser University, Research Commons</span>
+</h1>
 <div id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org9c963a3">Self-contained projects</a>
+<li><a href="#org53ae5cb">Self-contained projects</a>
 <ul>
-<li><a href="#org86062d5">Example possible project structure</a></li>
+<li><a href="#org2bc8419">Example possible project structure</a></li>
 </ul>
 </li>
-<li><a href="#orga9120e5">Paths</a>
+<li><a href="#org3cadbec">Paths</a>
 <ul>
-<li><a href="#orgf90a637">The problem with absolute paths</a></li>
-<li><a href="#org057990f">Solution: use paths relative to your project root</a></li>
-<li><a href="#orgd812f7a">Package <code class="src src-R">here</code></a></li>
+<li><a href="#org2165851">The problem with absolute paths</a></li>
+<li><a href="#org8500ff1">Solution: use paths relative to your project root</a></li>
+<li><a href="#org49eee33">Package <code class="src src-R">here</code></a></li>
 </ul>
 </li>
-<li><a href="#org840de11">Clean session</a></li>
-<li><a href="#orgd00f2f4">Formatting</a></li>
-<li><a href="#org96ec44a">Things you do not want in a script</a></li>
+<li><a href="#org53f5fc7">Clean session</a></li>
+<li><a href="#orga6cb5c2">Formatting</a></li>
+<li><a href="#orge6d7ae9">Things you do not want in a script</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org9c963a3" class="outline-2">
-<h2 id="org9c963a3">Self-contained projects</h2>
-<div class="outline-text-2" id="text-org9c963a3">
+<div id="outline-container-org53ae5cb" class="outline-2">
+<h2 id="org53ae5cb">Self-contained projects</h2>
+<div class="outline-text-2" id="text-org53ae5cb">
 <div class="VERBATIM">
 <p>
 Work in self-contained projects<br />
@@ -709,9 +712,9 @@ If you use RStudio, create RStudio projects.<br />
 </p>
 </div>
 
-<div id="outline-container-org86062d5" class="outline-3">
-<h3 id="org86062d5">Example possible project structure</h3>
-<div class="outline-text-3" id="text-org86062d5">
+<div id="outline-container-org2bc8419" class="outline-3">
+<h3 id="org2bc8419">Example possible project structure</h3>
+<div class="outline-text-3" id="text-org2bc8419">
 <p>
 This would be a rather standard project structure:<br />
 </p>
@@ -736,19 +739,19 @@ You are free to organize your projects in a way that works for you. But followin
 </div>
 </div>
 
-<div id="outline-container-orga9120e5" class="outline-2">
-<h2 id="orga9120e5">Paths</h2>
-<div class="outline-text-2" id="text-orga9120e5">
+<div id="outline-container-org3cadbec" class="outline-2">
+<h2 id="org3cadbec">Paths</h2>
+<div class="outline-text-2" id="text-org3cadbec">
 </div>
-<div id="outline-container-orgf90a637" class="outline-3">
-<h3 id="orgf90a637">The problem with absolute paths</h3>
-<div class="outline-text-3" id="text-orgf90a637">
+<div id="outline-container-org2165851" class="outline-3">
+<h3 id="org2165851">The problem with absolute paths</h3>
+<div class="outline-text-3" id="text-org2165851">
 <p>
 If this is how your script starts:<br />
 </p>
 
 <div class="org-src-container">
-<pre class="src src-R"><span class="org-ess-function-call">setwd</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-1">(</span></span><span class="org-string">"C:\Users\charlie\some_very_personal_directory_structure\our_project"</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-1">)</span></span>
+<pre class="src src-R"><span class="org-ess-modifiers">setwd</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-1">(</span></span><span class="org-string">"C:\Users\charlie\some_very_personal_directory_structure\our_project"</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-1">)</span></span>
 </pre>
 </div>
 
@@ -781,9 +784,9 @@ If you move your project to another machine, the links will equally get broken. 
 </div>
 </div>
 
-<div id="outline-container-org057990f" class="outline-3">
-<h3 id="org057990f">Solution: use paths relative to your project root</h3>
-<div class="outline-text-3" id="text-org057990f">
+<div id="outline-container-org8500ff1" class="outline-3">
+<h3 id="org8500ff1">Solution: use paths relative to your project root</h3>
+<div class="outline-text-3" id="text-org8500ff1">
 <p>
 <b>Once your entire project lives within one directory</b> (the project root), as we saw in the previous section, make sure that:<br />
 </p>
@@ -825,9 +828,9 @@ How?<br />
 </div>
 </div>
 
-<div id="outline-container-orgd812f7a" class="outline-3">
-<h3 id="orgd812f7a">Package <code class="src src-R">here</code></h3>
-<div class="outline-text-3" id="text-orgd812f7a">
+<div id="outline-container-org49eee33" class="outline-3">
+<h3 id="org49eee33">Package <code class="src src-R">here</code></h3>
+<div class="outline-text-3" id="text-org49eee33">
 <p>
 There are various methods, but a wonderfully easy one is:<br />
 </p>
@@ -864,9 +867,9 @@ my_plot <span class="org-ess-assignment">&lt;-</span> <span class="org-ess-funct
 </div>
 </div>
 
-<div id="outline-container-org840de11" class="outline-2">
-<h2 id="org840de11">Clean session</h2>
-<div class="outline-text-2" id="text-org840de11">
+<div id="outline-container-org53f5fc7" class="outline-2">
+<h2 id="org53f5fc7">Clean session</h2>
+<div class="outline-text-2" id="text-org53f5fc7">
 <div class="VERBATIM">
 <p>
 Never set anything that might change how your code runs<br />
@@ -886,9 +889,9 @@ In particular:<br />
 </div>
 </div>
 
-<div id="outline-container-orgd00f2f4" class="outline-2">
-<h2 id="orgd00f2f4">Formatting</h2>
-<div class="outline-text-2" id="text-orgd00f2f4">
+<div id="outline-container-orga6cb5c2" class="outline-2">
+<h2 id="orga6cb5c2">Formatting</h2>
+<div class="outline-text-2" id="text-orga6cb5c2">
 <p>
 There is no official R formatting. <a href="http://hadley.nz/">Hadley Wickham</a> wrote a <a href="http://style.tidyverse.org/">short book</a> on R formatting and this can be a great template to follow. A growing number of people are following his guidelines and it would be a good idea to familiarize yourself with them.<br />
 </p>
@@ -914,9 +917,9 @@ follow the style used by your collaborators, particularly if you edit their scri
 </div>
 </div>
 
-<div id="outline-container-org96ec44a" class="outline-2">
-<h2 id="org96ec44a">Things you do not want in a script</h2>
-<div class="outline-text-2" id="text-org96ec44a">
+<div id="outline-container-orge6d7ae9" class="outline-2">
+<h2 id="orge6d7ae9">Things you do not want in a script</h2>
+<div class="outline-text-2" id="text-orge6d7ae9">
 <div class="VERBATIM">
 <p>
 Avoid anything that will make changes to a computer in your scripts<br />

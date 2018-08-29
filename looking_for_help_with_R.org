@@ -7,6 +7,7 @@
 #+TITLE:   Help guide for R users
 #+DATE:	   {{{time(%B %d\, %Y)}}}
 #+AUTHOR:  Marie-Hélène Burle
+#+SUBTITLE: Simon Fraser University, Research Commons
 #+EMAIL:   msb2@sfu.ca
 
 R is a fast evolving and increasingly popular language. It started as a statistical analysis and graphing language written by data scientists, but its capabilities expended widely beyond this. Amongst the many benefits of R are the countless packages being incessantly developed and the fact that R is fully open source. But another appeal to R is its large and incredibly active on-line community and the amazing resources that it produces. Surprisingly however, a lot of graduate students don't make much use of these freely available and extremely high quality resources. This document intends to list some of them, as well as more traditional resources, in hope that graduate students will start writing better code with much less pain and much more joy.

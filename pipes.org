@@ -9,9 +9,40 @@
 #+TITLE:   Magrittr less used "piping" treasures
 #+DATE:	  {{{time(%B %d\, %Y)}}}
 #+AUTHOR:  Marie-Hélène Burle
+#+SUBTITLE: Simon Fraser University, Research Commons
 #+EMAIL:   msb2@sfu.ca
 
-In the previous workshop section, we used this code:
+* Requirements
+
+#+BEGIN_SRC R
+library(magrittr)
+#+END_SRC
+
+* %>%
+
+src_R[:eval no]{%>%}, or "forward-pipe operator", is the default R pipe. Several src_R[:eval no]{tidyverse} packages include it, which is why, even though src_R[:eval no]{magrittr} is not one of the core packages, you do not have to load src_R[:eval no]{magrittr} to use it in src_R[:eval no]{dplyr}, src_R[:eval no]{tidyr}, src_R[:eval no]{forcats}, src_R[:eval no]{rvest}, src_R[:eval no]{stringr}, src_R[:eval no]{purrr}, or src_R[:eval no]{modelr}.
+
+src_R[:eval no]{%>%} represents an arrow going right and pipes the left expression to the right.
+
+In R, the object on which a function is applied often is the first argument of that function.
+
+For instance, to get the mean of an object src_R[:eval no]{x}, we apply the function src_R[:eval no]{mean()} on it this way:
+
+#+BEGIN_SRC R
+x <- 1:10
+#+END_SRC
+
+#+BEGIN_SRC R
+mean(x)
+#+END_SRC
+
+#+BEGIN_SRC R
+x %>% mean()
+#+END_SRC
+
+
+
+In the [[https://prosoitos.github.io/r_resources/functional-programming_with-answers][functional programming]] section, we used some fake bird banding data created by this code:
 
 #+BEGIN_SRC R
 banding <-
@@ -25,16 +56,6 @@ banding <-
   ) %T>% 
   str()
 #+END_SRC
-
-And you might have wondered:
-
-#+BEGIN_QUOTE
-Wait: what is this weird looking pipe?
-#+END_QUOTE
-
-Everybody is now familiar with the main src_R[:eval no]{magrittr} pipe (src_R[:eval no]{%>%}) and it comes with most of the src_R[:eval no]{tidyverse} packages. This is why, even though src_R[:eval no]{magrittr} is not one of the core packages, you do not have to load it to use the pipe.
-
-But src_R[:eval no]{magrittr} has several other treasures (to use them, you will have to load the package).
 
 * %<>%
 
@@ -73,3 +94,6 @@ Can you explain it?
 #+BEGIN_RED
 src_R[:eval no]{magrittr} has other pipes and [[https://github.com/tidyverse/magrittr][you should explore them at your own time]]!
 #+END_RED
+
+* %$%
+
