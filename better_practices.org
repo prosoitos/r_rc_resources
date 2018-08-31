@@ -6,7 +6,7 @@
 
 #+PROPERTY: header-args:R :session R:best-prac :results output :exports code :tangle yes :comments link :eval no
 
-#+TITLE:   Tips on best practices in R
+#+TITLE:   Tips on better practices in R
 #+DATE:	   {{{time(%B %d\, %Y)}}}
 #+AUTHOR:  Marie-Hélène Burle
 #+CREATOR: Simon Fraser University, Research Commons
