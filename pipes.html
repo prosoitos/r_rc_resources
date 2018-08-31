@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2018-08-29 Wed 16:55 -->
+<!-- 2018-08-31 Fri 13:49 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Magrittr less used "piping" treasures</title>
@@ -646,29 +646,26 @@ for the JavaScript code in this tag.
 </head>
 <body>
 <div id="preamble" class="status">
-<span style="color:#596a73; font-size:17px"><b>Marie-Hélène Burle</b></span><br><span style="color:#8a8a8a; font-size:15px"><b>Simon Fraser University, Research Commons</b></span><br><span style="color:#596a73; font-size:15px"><img src="./favicons/email.ico" alt="email" height="16" width="16"> <a href="mailto:msb2@sfu.ca">msb2@sfu.ca</a>&nbsp;&nbsp;<img src="./favicons/twitter.ico" alt="twitter" height="17" width="17"> <a href="https://twitter.com/MHBurle">@MHBurle</a>&nbsp;&nbsp;<img src="./favicons/gh.ico" alt="github" height="15" width="15"> <a href="https://github.com/prosoitos">prosoitos</a></span><br><span style="color:#596a73; font-size:16px">August 29, 2018</span>
+<span style="color:#596a73; font-size:17px"><b>Marie-Hélène Burle</b></span><br><span style="color:#8a8a8a; font-size:15px"><b>Simon Fraser University, Research Commons</b></span><br><span style="color:#596a73; font-size:15px"><img src="./favicons/email.ico" alt="email" height="16" width="16"> <a href="mailto:msb2@sfu.ca">msb2@sfu.ca</a>&nbsp;&nbsp;<img src="./favicons/twitter.ico" alt="twitter" height="17" width="17"> <a href="https://twitter.com/MHBurle">@MHBurle</a>&nbsp;&nbsp;<img src="./favicons/gh.ico" alt="github" height="15" width="15"> <a href="https://github.com/prosoitos">prosoitos</a></span><br><span style="color:#596a73; font-size:16px">August 31, 2018</span>
 </div>
 <div id="content">
-<h1 class="title">Magrittr less used "piping" treasures
-<br />
-<span class="subtitle">Simon Fraser University, Research Commons</span>
-</h1>
+<h1 class="title">Magrittr less used "piping" treasures</h1>
 <div id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org43d5d57">Requirements</a></li>
-<li><a href="#org87377b9">%&gt;%</a></li>
-<li><a href="#orgfd420c5">%&lt;&gt;%</a></li>
-<li><a href="#org605f4a3">%T%</a></li>
-<li><a href="#orgc5e6b59">%$%</a></li>
+<li><a href="#orgf530373">Requirements</a></li>
+<li><a href="#org0ad3651">%&gt;%</a></li>
+<li><a href="#org52010ef">%&lt;&gt;%</a></li>
+<li><a href="#org58f7bd3">%T%</a></li>
+<li><a href="#orgca579b4">%$%</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org43d5d57" class="outline-2">
-<h2 id="org43d5d57">Requirements</h2>
-<div class="outline-text-2" id="text-org43d5d57">
+<div id="outline-container-orgf530373" class="outline-2">
+<h2 id="orgf530373">Requirements</h2>
+<div class="outline-text-2" id="text-orgf530373">
 <div class="org-src-container">
 <pre class="src src-R"><span class="org-ess-modifiers">library</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-1">(</span></span>magrittr<span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-1">)</span></span>
 </pre>
@@ -676,9 +673,9 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-org87377b9" class="outline-2">
-<h2 id="org87377b9">%&gt;%</h2>
-<div class="outline-text-2" id="text-org87377b9">
+<div id="outline-container-org0ad3651" class="outline-2">
+<h2 id="org0ad3651">%&gt;%</h2>
+<div class="outline-text-2" id="text-org0ad3651">
 <p>
 <code class="src src-R"><span class="org-ess-XopX">%&gt;%</span></code>, or "forward-pipe operator", is the default R pipe. Several <code class="src src-R">tidyverse</code> packages include it, which is why, even though <code class="src src-R">magrittr</code> is not one of the core packages, you do not have to load <code class="src src-R">magrittr</code> to use it in <code class="src src-R">dplyr</code>, <code class="src src-R">tidyr</code>, <code class="src src-R">forcats</code>, <code class="src src-R">rvest</code>, <code class="src src-R">stringr</code>, <code class="src src-R">purrr</code>, or <code class="src src-R">modelr</code>.<br />
 </p>
@@ -732,9 +729,9 @@ In the <a href="https://prosoitos.github.io/r_resources/functional-programming_w
 </div>
 </div>
 
-<div id="outline-container-orgfd420c5" class="outline-2">
-<h2 id="orgfd420c5">%&lt;&gt;%</h2>
-<div class="outline-text-2" id="text-orgfd420c5">
+<div id="outline-container-org52010ef" class="outline-2">
+<h2 id="org52010ef">%&lt;&gt;%</h2>
+<div class="outline-text-2" id="text-org52010ef">
 <p>
 <code class="src src-R"><span class="org-ess-XopX">%&lt;&gt;%</span></code> pipes the left expression to the right, and then back to the left. Instead of an arrow going right (as the main pipe is), think of it as an arrow going from left to right and then back left.<br />
 </p>
@@ -772,9 +769,9 @@ is equivalent to:<br />
 </div>
 </div>
 
-<div id="outline-container-org605f4a3" class="outline-2">
-<h2 id="org605f4a3">%T%</h2>
-<div class="outline-text-2" id="text-org605f4a3">
+<div id="outline-container-org58f7bd3" class="outline-2">
+<h2 id="org58f7bd3">%T%</h2>
+<div class="outline-text-2" id="text-org58f7bd3">
 <p>
 <code class="src src-R"><span class="org-ess-XopX">%T%</span></code> pipes the effect of the left expression to the right, but does not pipe the object itself (so the object is "free" to be used by another pipe). This is very useful when you want to produce to output from one object or produce a side effect (e.g. printing) without interrupting a pipeline. I like to think of the "T" as a branching which represents the 2 outputs produced by a single object.<br />
 </p>
@@ -797,8 +794,8 @@ Can you explain it?<br />
 </div>
 </div>
 
-<div id="outline-container-orgc5e6b59" class="outline-2">
-<h2 id="orgc5e6b59">%$%</h2>
+<div id="outline-container-orgca579b4" class="outline-2">
+<h2 id="orgca579b4">%$%</h2>
 </div>
 </div>
 </body>

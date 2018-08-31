@@ -9,7 +9,7 @@
 #+TITLE:   Functional programming in R (with /purrr/)
 #+DATE:	   {{{time(%B %d\, %Y)}}}
 #+AUTHOR:  Marie-Hélène Burle
-#+SUBTITLE: Simon Fraser University, Research Commons
+#+CREATOR: Simon Fraser University, Research Commons
 #+EMAIL:   msb2@sfu.ca
 
 * Introduction
