@@ -1,0 +1,89 @@
+#+OPTIONS: title:t date:t author:t email:t
+#+OPTIONS: toc:t h:6 num:nil |:t todo:nil
+#+OPTIONS: *:t -:t ::t <:t \n:t e:t creator:nil
+#+OPTIONS: f:t inline:t tasks:t tex:t timestamp:t
+#+OPTIONS: html-preamble:t html-postamble:nil
+
+#+TITLE:   Great R resources
+#+DATE:	  {{{time(%B %d\, %Y)}}}
+#+AUTHOR:  Marie-Hélène Burle
+#+CREATOR: Simon Fraser University, Research Commons
+#+EMAIL:   msb2@sfu.ca
+
+* Learning R
+
+** On-line resources
+
+** On-line books
+
+[[https://bookdown.org/][A list of R books written in R Markdown thanks to the package bookdown]].
+
+** At SFU
+
+- rc service
+- workshops
+- books
+
+An amazing starting place to learn R is the book by Garrett Grolemund and Hadley Wickham "R for Data Science". This is also a great resource for R users who aren't familiar with the tidyverse. It is freely available [[http://r4ds.had.co.nz/index.html][on-line]], but also exists in a book format.
+
+[[https://software-carpentry.org/][Software Carpentry]] and [[http://www.datacarpentry.org/][Data Carpentry]], now merged under [[http://carpentries.org/][the Carpentries]]
+
+[[http://sciprog.ca/][SciProg]] is 
+
+For students in the department of biology, 
+
+[[link: where is the link??? I can't find it... Maybe R support should be better advertised :) ][Research Commons R peers].
+
+
+For intermediate users willing to understand the language better, or for people new to R but already familiar with other languages, a great resource is another book by Hadley Wickham, "Advanced R". It is also freely accessible [[http://adv-r.had.co.nz/][on-line]].
+
+
+Hadley also wrote a book on how to write your own packages. This one too, is available [[http://r-pkgs.had.co.nz/][on-line]].
+
+
+
+* Formatting code
+
+http://adv-r.had.co.nz/Style.html
+
+https://google.github.io/styleguide/Rguide.xml
+
+[[http://style.tidyverse.org/][the tidyverse style guide]]
+
+* Getting involved in the R community
+
+[[https://ropensci.org/blog/][rOpenSci]]
+
+[[https://rladies.org/][R Ladies]], an organization promoting gender diversity in the R community, recently opened [[https://www.meetup.com/R-Ladies-Vancouver/][a new chapter in Vancouver]].
+
+*** Answering questions
+
+Obviously, 
+
+*** Contributing code
+
+**** Filling issues and submitting pull request
+
+[[https://github.com/][GitHub]]
+
+**** Submitting packages
+
+
+* Keeping up to date with R
+
+Listing only free resources. Some paid options too.
+
+
+** Blogs
+
+Rblogger
+
+
+
+** In town
+
+R Ladies new chapter
+
+* GIS in R
+
+R can also be used to map data and conduct spacial data analysis. [[https://data.cdrc.ac.uk/tutorial/an-introduction-to-spatial-data-analysis-and-visualisation-in-r][This series of tutorials]] by Guy Lansley and James Cheshire and [[https://geocompr.robinlovelace.net/][the book "Geocomputation with R"]] by Robin Lovelace, Jakub Nowosad, and Jannes Muenchow are good on-line resources to get started on this.
