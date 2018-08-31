@@ -11,8 +11,4 @@
 #+AUTHOR:  Marie-Hélène Burle
 #+EMAIL:   msb2@sfu.ca
 
-- [[https://prosoitos.github.io/r_resources/looking_for_help_with_R][Where to find help with R]]
-- [[https://prosoitos.github.io/r_resources/better_practices_in_r][Better practices in R]]
-- [[https://prosoitos.github.io/r_resources/functional-programming_with-answers][Functional programming]]
-- [[https://prosoitos.github.io/r_resources/pipes][Pipes]]
-
+See [[https://prosoitos.github.io/rc_resources_index/rc_resources_index][the index to the Research Commons computing literacy resources]] for links to the R resources.
