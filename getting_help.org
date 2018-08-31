@@ -1,0 +1,52 @@
+#+OPTIONS: title:t date:t author:t email:nil
+#+OPTIONS: toc:t h:6 num:nil |:t todo:nil
+#+OPTIONS: *:t -:t ::t <:t \n:t e:t creator:nil
+#+OPTIONS: f:t inline:t tasks:t tex:t timestamp:t
+#+OPTIONS: html-preamble:t html-postamble:nil
+
+#+TITLE:   Getting help with R
+#+DATE:	   {{{time(%B %d\, %Y)}}}
+#+AUTHOR:  Marie-Hélène Burle
+#+CREATOR: Simon Fraser University, Research Commons
+#+EMAIL:   msb2@sfu.ca
+
+* Where to ask for help
+
+** Ask R!
+
+src_R[:eval no]{vignette()}
+src_R[:eval no]{help.start()}
+src_R[:eval no]{?}
+
+** On-line
+
+community
+
+- so
+- rsc
+- twitter
+- slack r4ds
+- mailing lists
+
+** At SFU
+
+* How to ask for help
+
+** (Minimal) reproducible example
+
+The best way to get help with R is to make a minimal reproducible example: https://www.tidyverse.org/help/#where-to-ask
+
+ ("reprex" in R jargon).
+[[https://stackoverflow.com/questions/tagged/r][Stack Overflow]]
+
+[[https://stackoverflow.com/help/tagging][tags]]
+
+Hadley Wickham [[http://adv-r.had.co.nz/Reproducibility.html][How to write a reproducible example]] 
+Stack Overflow [[https://stackoverflow.com/questions/5963269/how-to-make-a-great-r-reproducible-example][How to make a great R reproducible example?]]
+
+https://community.rstudio.com/t/welcome-to-the-rstudio-community/8
+
+https://community.rstudio.com/guidelines
+
+https://support.rstudio.com/hc/en-us/articles/200552336
+
