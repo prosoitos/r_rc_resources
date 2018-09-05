@@ -3,10 +3,10 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2018-08-31 Fri 16:41 -->
+<!-- 2018-09-05 Wed 10:28 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Tips on better practices in R</title>
+<title>Tips on best practices in R</title>
 <meta name="generator" content="Org mode" />
 <meta name="author" content="Marie-Hélène Burle" />
 <style type="text/css">
@@ -648,36 +648,36 @@ for the JavaScript code in this tag.
 </head>
 <body>
 <div id="preamble" class="status">
-<span style="color:#596a73; font-size:17px"><b>Marie-Hélène Burle</b></span><br><span style="color:#8a8a8a; font-size:15px"><b>Simon Fraser University, Research Commons</b></span><br><span style="color:#596a73; font-size:15px"><img src="./favicons/email.ico" alt="email" height="16" width="16"> <a href="mailto:msb2@sfu.ca">msb2@sfu.ca</a>&nbsp;&nbsp;<img src="./favicons/twitter.ico" alt="twitter" height="17" width="17"> <a href="https://twitter.com/MHBurle">@MHBurle</a>&nbsp;&nbsp;<img src="./favicons/gh.ico" alt="github" height="15" width="15"> <a href="https://github.com/prosoitos">prosoitos</a></span><br><span style="color:#596a73; font-size:16px">August 31, 2018</span>
+<span style="color:#596a73; font-size:17px"><b>Marie-Hélène Burle</b></span><br><span style="color:#8a8a8a; font-size:15px"><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-----------</b></span><br><span style="color:#596a73; font-size:15px"><img src="./favicons/email.ico" alt="email" height="16" width="16"> <a href="mailto:msb2@sfu.ca">msb2@sfu.ca</a>&nbsp;&nbsp;<img src="./favicons/twitter.ico" alt="twitter" height="17" width="17"> <a href="https://twitter.com/MHBurle">@MHBurle</a>&nbsp;&nbsp;<img src="./favicons/gh.ico" alt="github" height="15" width="15"> <a href="https://github.com/prosoitos">prosoitos</a></span><br><span style="color:#596a73; font-size:16px">September 05, 2018</span>
 </div>
 <div id="content">
-<h1 class="title">Tips on better practices in R</h1>
+<h1 class="title">Tips on best practices in R</h1>
 <div id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org723ca50">Self-contained projects</a>
+<li><a href="#org048014b">Projects</a>
 <ul>
-<li><a href="#org738525a">Example possible project structure</a></li>
+<li><a href="#org9778bf0">Example possible project structure</a></li>
 </ul>
 </li>
-<li><a href="#org091f383">Paths</a>
+<li><a href="#org53d50ad">Paths</a>
 <ul>
-<li><a href="#org5e71fb3">The problem with absolute paths</a></li>
-<li><a href="#orgdd814f4">Solution: use paths relative to your project root</a></li>
-<li><a href="#orgc0f15df">Package <code class="src src-R">here</code></a></li>
+<li><a href="#org2036c02">The problem with absolute paths</a></li>
+<li><a href="#org15fb410">Solution: use paths relative to your project root</a></li>
+<li><a href="#org6f885a5">Package <code class="src src-R">here</code></a></li>
 </ul>
 </li>
-<li><a href="#org0324712">Clean session</a></li>
-<li><a href="#orgbbbf4eb">Formatting</a></li>
-<li><a href="#orga77bec9">Things you do not want in a script</a></li>
+<li><a href="#org5d66470">Clean session</a></li>
+<li><a href="#orgc8c5b66">Formatting</a></li>
+<li><a href="#org6f98b1c">Things you do not want in a script</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org723ca50" class="outline-2">
-<h2 id="org723ca50">Self-contained projects</h2>
-<div class="outline-text-2" id="text-org723ca50">
+<div id="outline-container-org048014b" class="outline-2">
+<h2 id="org048014b">Projects</h2>
+<div class="outline-text-2" id="text-org048014b">
 <div class="VERBATIM">
 <p>
 Work in self-contained projects<br />
@@ -711,9 +711,9 @@ If you use RStudio, create RStudio projects.<br />
 </p>
 </div>
 
-<div id="outline-container-org738525a" class="outline-3">
-<h3 id="org738525a">Example possible project structure</h3>
-<div class="outline-text-3" id="text-org738525a">
+<div id="outline-container-org9778bf0" class="outline-3">
+<h3 id="org9778bf0">Example possible project structure</h3>
+<div class="outline-text-3" id="text-org9778bf0">
 <p>
 This would be a rather standard project structure:<br />
 </p>
@@ -732,19 +732,19 @@ This would be a rather standard project structure:<br />
 </pre>
 
 <p>
-You are free to organize your projects in a way that works for you. But following some rather standard way of organizing files will help collaborators find their way around your project and some consistency between projects will also help you adapt scripts and snippets from one project to another.<br />
+You are free to organize your projects in a way that works for you. But following some rather standard way of organizing files will help collaborators find their way around your project and some consistency between projects will also help you adapt scripts and snippets from one project to the next.<br />
 </p>
 </div>
 </div>
 </div>
 
-<div id="outline-container-org091f383" class="outline-2">
-<h2 id="org091f383">Paths</h2>
-<div class="outline-text-2" id="text-org091f383">
+<div id="outline-container-org53d50ad" class="outline-2">
+<h2 id="org53d50ad">Paths</h2>
+<div class="outline-text-2" id="text-org53d50ad">
 </div>
-<div id="outline-container-org5e71fb3" class="outline-3">
-<h3 id="org5e71fb3">The problem with absolute paths</h3>
-<div class="outline-text-3" id="text-org5e71fb3">
+<div id="outline-container-org2036c02" class="outline-3">
+<h3 id="org2036c02">The problem with absolute paths</h3>
+<div class="outline-text-3" id="text-org2036c02">
 <p>
 If this is how your script starts:<br />
 </p>
@@ -783,9 +783,9 @@ If you move your project to another machine, the links will equally get broken. 
 </div>
 </div>
 
-<div id="outline-container-orgdd814f4" class="outline-3">
-<h3 id="orgdd814f4">Solution: use paths relative to your project root</h3>
-<div class="outline-text-3" id="text-orgdd814f4">
+<div id="outline-container-org15fb410" class="outline-3">
+<h3 id="org15fb410">Solution: use paths relative to your project root</h3>
+<div class="outline-text-3" id="text-org15fb410">
 <p>
 <b>Once your entire project lives within one directory</b> (the project root), as we saw in the previous section, make sure that:<br />
 </p>
@@ -827,9 +827,9 @@ How?<br />
 </div>
 </div>
 
-<div id="outline-container-orgc0f15df" class="outline-3">
-<h3 id="orgc0f15df">Package <code class="src src-R">here</code></h3>
-<div class="outline-text-3" id="text-orgc0f15df">
+<div id="outline-container-org6f885a5" class="outline-3">
+<h3 id="org6f885a5">Package <code class="src src-R">here</code></h3>
+<div class="outline-text-3" id="text-org6f885a5">
 <p>
 There are various methods, but a wonderfully easy one is:<br />
 </p>
@@ -842,7 +842,7 @@ the package <a href="https://github.com/r-lib/here">here</a> from <a href="https
 </div>
 
 <p>
-The function <code class="src src-R">here::<span class="org-ess-function-call">here</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-1">()</span></span></code> starts from the current working directory (the directory in which the script is running if you don't set it manually in RStudio or with <code class="src src-R">setwd</code>) and goes up the directory chain until it finds a <code class="src src-R">.Rproj</code> file (if you use RStudio projects), a <code class="src src-R">.git</code> or <code class="src src-R">.svn</code> file (if you version control your projects), a <code class="src src-R">.projectile</code> file (if you use emacs projectile), or other sensible files which signify a project root. If none of these apply to you (which is very unlikely), you can create a file <code class="src src-R">.here</code> in your project root with the function <code class="src src-R"><span class="org-ess-function-call">set_here</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-1">()</span></span></code> and this file will then signify to the function <code class="src src-R"><span class="org-ess-function-call">here</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-1">()</span></span></code> that this is the project root.<br />
+The function <code class="src src-R">here::<span class="org-ess-function-call">here</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-1">()</span></span></code> starts from the current working directory (the directory in which the script is running if you don't set it manually in RStudio or with <code class="src src-R">setwd</code>) and goes up the directory chain until it finds a <code class="src src-R">.Rproj</code> file (if you use RStudio projects), a <code class="src src-R">.git</code> or <code class="src src-R">.svn</code> file (if you version control your projects), a <code class="src src-R">.projectile</code> file (if you use emacs projectile), or other sensible files which signify a project root. If none of these apply to you (which is unlikely), you can create a file <code class="src src-R">.here</code> in your project root with the function <code class="src src-R"><span class="org-ess-function-call">set_here</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-1">()</span></span></code> and this file will then signify to the function <code class="src src-R"><span class="org-ess-function-call">here</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-1">()</span></span></code> that this is the project root.<br />
 </p>
 
 <p>
@@ -857,8 +857,8 @@ From there on, you can refer to any file in your project with <code class="src s
 <pre class="src src-R"><span class="org-ess-modifiers">library</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-1">(</span></span>tidyverse<span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-1">)</span></span>
 <span class="org-ess-modifiers">library</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-1">(</span></span>here<span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-1">)</span></span>
 
-my_var <span class="org-ess-assignment">&lt;-</span> <span class="org-ess-function-call">read_excel</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-1">(</span></span><span class="org-ess-function-call">here</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-2">(</span></span><span class="org-string">"data/raw/my-super-data.xlsx"</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-2">)</span></span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-1">)</span></span>
-my_plot <span class="org-ess-assignment">&lt;-</span> <span class="org-ess-function-call">ggplot</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-1">(</span></span>data <span class="org-ess-operator">=</span> my_var<span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-1">)</span></span> <span class="org-ess-operator">+</span> <span class="org-ess-function-call">geom_point</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-1">()</span></span>
+my_data <span class="org-ess-assignment">&lt;-</span> <span class="org-ess-function-call">read_excel</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-1">(</span></span><span class="org-ess-function-call">here</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-2">(</span></span><span class="org-string">"data/raw/my_data.xlsx"</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-2">)</span></span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-1">)</span></span>
+my_plot <span class="org-ess-assignment">&lt;-</span> <span class="org-ess-function-call">ggplot</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-1">(</span></span>data <span class="org-ess-operator">=</span> my_data<span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-1">)</span></span> <span class="org-ess-operator">+</span> <span class="org-ess-function-call">geom_point</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-1">()</span></span>
 <span class="org-ess-function-call">ggsave</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-1">(</span></span><span class="org-ess-function-call">here</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-2">(</span></span><span class="org-string">"results/graphs/my_plot.png"</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-2">)</span></span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-1">)</span></span>
 </pre>
 </div>
@@ -866,9 +866,9 @@ my_plot <span class="org-ess-assignment">&lt;-</span> <span class="org-ess-funct
 </div>
 </div>
 
-<div id="outline-container-org0324712" class="outline-2">
-<h2 id="org0324712">Clean session</h2>
-<div class="outline-text-2" id="text-org0324712">
+<div id="outline-container-org5d66470" class="outline-2">
+<h2 id="org5d66470">Clean session</h2>
+<div class="outline-text-2" id="text-org5d66470">
 <div class="VERBATIM">
 <p>
 Never set anything that might change how your code runs<br />
@@ -881,16 +881,16 @@ In particular:<br />
 </p>
 
 <ul class="org-ul">
-<li>never save your workspace upon closing a session (beware of RStudio default settings! go edit them now),<br /></li>
+<li>never save your workspace upon closing a session (beware of RStudio default settings! <a href="https://twitter.com/hadleywickham/status/1032665959734108160">go edit them now</a>),<br /></li>
 <li>restart your R session frequently to make sure that you are not running bits of code from past sessions,<br /></li>
 <li>do not add anything in your <code class="src src-R">.Rprofile</code>, <code class="src src-R">.Renviron</code>, or any other setting file that would affect the output of your code in any way, such as setting options, creating functions, loading packages, etc. This is tempting if you always use the same options or packages. But this makes your scripts non-reproducible by others who do not have those settings. It is much better to create snippets to add those lines of code very easily (even automatically) at the beginning of your scripts.<br /></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgbbbf4eb" class="outline-2">
-<h2 id="orgbbbf4eb">Formatting</h2>
-<div class="outline-text-2" id="text-orgbbbf4eb">
+<div id="outline-container-orgc8c5b66" class="outline-2">
+<h2 id="orgc8c5b66">Formatting</h2>
+<div class="outline-text-2" id="text-orgc8c5b66">
 <p>
 There is no official R formatting. <a href="http://hadley.nz/">Hadley Wickham</a> wrote a <a href="http://style.tidyverse.org/">short book</a> on R formatting and this can be a great template to follow. A growing number of people are following his guidelines and it would be a good idea to familiarize yourself with them.<br />
 </p>
@@ -916,12 +916,12 @@ follow the style used by your collaborators, particularly if you edit their scri
 </div>
 </div>
 
-<div id="outline-container-orga77bec9" class="outline-2">
-<h2 id="orga77bec9">Things you do not want in a script</h2>
-<div class="outline-text-2" id="text-orga77bec9">
+<div id="outline-container-org6f98b1c" class="outline-2">
+<h2 id="org6f98b1c">Things you do not want in a script</h2>
+<div class="outline-text-2" id="text-org6f98b1c">
 <div class="VERBATIM">
 <p>
-Avoid anything that will make changes to a computer in your scripts<br />
+Avoid anything that will make changes to a computer<br />
 </p>
 
 </div>

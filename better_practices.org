@@ -6,13 +6,12 @@
 
 #+PROPERTY: header-args:R :session R:best-prac :results output :exports code :tangle yes :comments link :eval no
 
-#+TITLE:   Tips on better practices in R
+#+TITLE:   Tips on best practices in R
 #+DATE:	   {{{time(%B %d\, %Y)}}}
 #+AUTHOR:  Marie-Hélène Burle
-#+CREATOR: Simon Fraser University, Research Commons
 #+EMAIL:   msb2@sfu.ca
 
-* Self-contained projects
+* Projects
 
 #+BEGIN_VERBATIM
 Work in self-contained projects
@@ -49,7 +48,7 @@ This would be a rather standard project structure:
                       /ms
 #+END_EXAMPLE
 
-You are free to organize your projects in a way that works for you. But following some rather standard way of organizing files will help collaborators find their way around your project and some consistency between projects will also help you adapt scripts and snippets from one project to another.
+You are free to organize your projects in a way that works for you. But following some rather standard way of organizing files will help collaborators find their way around your project and some consistency between projects will also help you adapt scripts and snippets from one project to the next.
 
 * Paths
 
@@ -107,7 +106,7 @@ There are various methods, but a wonderfully easy one is:
 the package [[https://github.com/r-lib/here][here]] from [[https://github.com/krlmlr][Kirill Müller]]
 #+END_VERBATIM
 
-The function src_R[:eval no]{here::here()} starts from the current working directory (the directory in which the script is running if you don't set it manually in RStudio or with src_R[:eval no]{setwd}) and goes up the directory chain until it finds a src_R[:eval no]{.Rproj} file (if you use RStudio projects), a src_R[:eval no]{.git} or src_R[:eval no]{.svn} file (if you version control your projects), a src_R[:eval no]{.projectile} file (if you use emacs projectile), or other sensible files which signify a project root. If none of these apply to you (which is very unlikely), you can create a file src_R[:eval no]{.here} in your project root with the function src_R[:eval no]{set_here()} and this file will then signify to the function src_R[:eval no]{here()} that this is the project root.
+The function src_R[:eval no]{here::here()} starts from the current working directory (the directory in which the script is running if you don't set it manually in RStudio or with src_R[:eval no]{setwd}) and goes up the directory chain until it finds a src_R[:eval no]{.Rproj} file (if you use RStudio projects), a src_R[:eval no]{.git} or src_R[:eval no]{.svn} file (if you version control your projects), a src_R[:eval no]{.projectile} file (if you use emacs projectile), or other sensible files which signify a project root. If none of these apply to you (which is unlikely), you can create a file src_R[:eval no]{.here} in your project root with the function src_R[:eval no]{set_here()} and this file will then signify to the function src_R[:eval no]{here()} that this is the project root.
 
 From there on, you can refer to any file in your project with src_R[:eval no]{here("file/path/from/project/root")}.
 
@@ -117,8 +116,8 @@ From there on, you can refer to any file in your project with src_R[:eval no]{he
 library(tidyverse)
 library(here)
 
-my_var <- read_excel(here("data/raw/my-super-data.xlsx"))
-my_plot <- ggplot(data = my_var) + geom_point()
+my_data <- read_excel(here("data/raw/my_data.xlsx"))
+my_plot <- ggplot(data = my_data) + geom_point()
 ggsave(here("results/graphs/my_plot.png"))
 #+END_SRC
 
@@ -130,7 +129,7 @@ Never set anything that might change how your code runs
 
 In particular:
 
-- never save your workspace upon closing a session (beware of RStudio default settings! go edit them now),
+- never save your workspace upon closing a session (beware of RStudio default settings! [[https://twitter.com/hadleywickham/status/1032665959734108160][go edit them now]]),
 - restart your R session frequently to make sure that you are not running bits of code from past sessions,
 - do not add anything in your src_R[:eval no]{.Rprofile}, src_R[:eval no]{.Renviron}, or any other setting file that would affect the output of your code in any way, such as setting options, creating functions, loading packages, etc. This is tempting if you always use the same options or packages. But this makes your scripts non-reproducible by others who do not have those settings. It is much better to create snippets to add those lines of code very easily (even automatically) at the beginning of your scripts.
 
@@ -151,7 +150,7 @@ follow the style used by your collaborators, particularly if you edit their scri
 * Things you do not want in a script
 
 #+BEGIN_VERBATIM
-Avoid anything that will make changes to a computer in your scripts
+Avoid anything that will make changes to a computer
 #+END_VERBATIM
 
 If someone runs your script, this should not install packages or make any other change to their machine. So, for instance, avoid
