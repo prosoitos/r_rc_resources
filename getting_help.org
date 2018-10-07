@@ -4,6 +4,8 @@
 #+OPTIONS: f:t inline:t tasks:t tex:t timestamp:t
 #+OPTIONS: html-preamble:t html-postamble:nil
 
+#+PROPERTY: header-args:R :session R:help :eval no :results output :exports code :tangle yes :comments link
+
 #+TITLE:   Getting help with R
 #+DATE:	   {{{time(%B %d\, %Y)}}}
 #+AUTHOR:  Marie-Hélène Burle
@@ -14,11 +16,94 @@
 
 ** Ask R!
 
-src_R[:eval no]{vignette()}
-src_R[:eval no]{help.start()}
-src_R[:eval no]{?}
+R, as well as any package you have installed, contain a lot of documentation. This can be invaluable if you do not have internet access.
 
-** On-line
+*** Manuals
+
+General manuals on R can be found by running:
+
+#+BEGIN_SRC R
+help.start()
+#+END_SRC
+
+*** Packages
+
+To get information on a package, you can run:
+
+#+BEGIN_SRC R
+package?package-name
+#+END_SRC
+
+For instancesrc_R[:eval no]{package?data.table}.
+
+And to get a list of the functions in a package, run:
+
+#+BEGIN_SRC R
+help(package = package-name)
+#+END_SRC
+
+For instance src_R[:eval no]{help(package = data.table)}.
+
+Note that, for this to work, the package doesn't need to be loaded. But of course, it does need to be installed on your machine.
+
+*** Functions
+
+R and any serious package contain the documentation of every function in help files.
+
+You can get a detailed description of a function by running:
+
+#+BEGIN_SRC R
+?function-name
+#+END_SRC
+
+For instance src_R[:eval no]{?map}.
+
+For this to work, the package containing this function needs to be loaded. So the above line will only work if you have previously loaded the package src_R[:eval no]{purrr}. Alternatively, you can run src_R[:eval no]{?purrr::map}.
+
+*** Vignettes
+
+Packages also often contain additional information in "vignettes". These are the references to use when you aren't sure how to use a function.
+
+**** List vignettes
+
+To list all the vignettes for a package, run:
+
+#+BEGIN_SRC R
+vignette(package = "package-name")
+#+END_SRC
+
+For instance src_R[:eval no]{vignette(package = "dplyr")}.
+
+Note that, for this to work, the package doesn't need to be loaded. But of course, it does need to be installed on your machine.
+
+To list all the vignettes from the *loaded* packages:
+
+#+BEGIN_SRC R
+vignette(all = F)
+#+END_SRC
+     
+To list all the vignettes from all *installed* packages:
+
+#+BEGIN_SRC R
+vignette()
+#+END_SRC
+
+**** Open a vignette
+
+Once you have found the name of a vignette pertaining to the topic you are interested in, you can open it with:
+
+#+BEGIN_SRC R
+vignette("vignette-name")
+#+END_SRC
+
+For instance src_R[:eval no]{vignette("two-table")}.
+
+** Ask Google!
+
+You can also download the pdf manuals of packages on CRAN by googling "CRAN package-name".
+
+
+On-line
 
 community
 
@@ -32,6 +117,27 @@ community
 
 * How to ask for help
 
+1. makes sense without being run
+
+So includes input and output. Not everybody wants to run the code.
+
+2. can be run
+
+The essence of "reproducible" and a necessity to test suggested solutions.
+
+3. does not contain sensitive or personal data
+
+Those should be anonymised or fake data of similar structure should be created.
+
+4. does not use data which needs to be downloaded
+
+The data should be created from the script text, either from code producing it or from dput() output.
+
+5. (optionally) does not contain more than is necessary to reproduce the error
+
+For the added sleekness of a minimal reproducible example. But that is more sophisticated and not necessary.
+
+
 ** (Minimal) reproducible example
 
 The best way to get help with R is to make a minimal reproducible example: https://www.tidyverse.org/help/#where-to-ask
@@ -44,9 +150,22 @@ The best way to get help with R is to make a minimal reproducible example: https
 Hadley Wickham [[http://adv-r.had.co.nz/Reproducibility.html][How to write a reproducible example]] 
 Stack Overflow [[https://stackoverflow.com/questions/5963269/how-to-make-a-great-r-reproducible-example][How to make a great R reproducible example?]]
 
-https://community.rstudio.com/t/welcome-to-the-rstudio-community/8
+https://community.rstudio.com/t/welcome-to-the-rstudio-community/
 
 https://community.rstudio.com/guidelines
 
 https://support.rstudio.com/hc/en-us/articles/200552336
 
+https://www.dummies.com/programming/r/r-for-dummies-cheat-sheet/
+
+https://www.r-bloggers.com/three-tips-for-posting-good-questions-to-r-help-and-stack-overflow/
+
+https://www.youtube.com/watch?v=MmTPhGQWPUo
+
+https://swcarpentry.github.io/r-novice-gapminder/03-seeking-help/
+
+https://masalmon.eu/2018/07/22/wheretogethelp/
+
+http://www.cookbook-r.com/
+
+** Data anonymization

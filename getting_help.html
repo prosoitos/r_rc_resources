@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2018-08-31 Fri 15:58 -->
+<!-- 2018-09-19 Wed 22:24 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Getting help with R</title>
@@ -261,7 +261,7 @@
   pre[class="src src-R"] {	/*for blocks src R*/
     background-color: #f1f1f1;
     color: #262626;
-    padding: 0.8em;
+    padding: 0.4em 0.8em;
     font-size: 95%;
     line-height: 22px;
     border: 0.5pt solid #d9d9d9;
@@ -648,7 +648,7 @@ for the JavaScript code in this tag.
 </head>
 <body>
 <div id="preamble" class="status">
-<span style="color:#596a73; font-size:17px"><b>Marie-Hélène Burle</b></span><br><span style="color:#8a8a8a; font-size:15px"><b>Simon Fraser University, Research Commons</b></span><br><span style="color:#596a73; font-size:15px"><img src="./favicons/email.ico" alt="email" height="16" width="16"> <a href="mailto:msb2@sfu.ca">msb2@sfu.ca</a>&nbsp;&nbsp;<img src="./favicons/twitter.ico" alt="twitter" height="17" width="17"> <a href="https://twitter.com/MHBurle">@MHBurle</a>&nbsp;&nbsp;<img src="./favicons/gh.ico" alt="github" height="15" width="15"> <a href="https://github.com/prosoitos">prosoitos</a></span><br><span style="color:#596a73; font-size:16px">August 31, 2018</span>
+<span style="color:#596a73; font-size:17px"><b>Marie-Hélène Burle</b></span><br><span style="color:#8a8a8a; font-size:15px"><b>Simon Fraser University, Research Commons</b></span><br><span style="color:#596a73; font-size:15px"><img src="./favicons/email.ico" alt="email" height="16" width="16"> <a href="mailto:msb2@sfu.ca">msb2@sfu.ca</a>&nbsp;&nbsp;<img src="./favicons/twitter.ico" alt="twitter" height="17" width="17"> <a href="https://twitter.com/MHBurle">@MHBurle</a>&nbsp;&nbsp;<img src="./favicons/gh.ico" alt="github" height="15" width="15"> <a href="https://github.com/prosoitos">prosoitos</a></span><br><span style="color:#596a73; font-size:16px">September 19, 2018</span>
 </div>
 <div id="content">
 <h1 class="title">Getting help with R</h1>
@@ -656,37 +656,208 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org954173b">Where to ask for help</a>
+<li><a href="#org9630ea5">Where to ask for help</a>
 <ul>
-<li><a href="#org0222a54">Ask R!</a></li>
-<li><a href="#org7ef7559">On-line</a></li>
-<li><a href="#orgf82cde0">At SFU</a></li>
+<li><a href="#orgd5d0274">Ask R!</a>
+<ul>
+<li><a href="#orgd2eb155">Manuals</a></li>
+<li><a href="#orgd461cbe">Packages</a></li>
+<li><a href="#orgf91060a">Functions</a></li>
+<li><a href="#orgf71570c">Vignettes</a>
+<ul>
+<li><a href="#org635c9fb">List vignettes</a></li>
+<li><a href="#org0965cfa">Open a vignette</a></li>
 </ul>
 </li>
-<li><a href="#orge49fe98">How to ask for help</a>
+</ul>
+</li>
+<li><a href="#orgb46efef">Ask Google!</a></li>
+<li><a href="#org6aaab80">At SFU</a></li>
+</ul>
+</li>
+<li><a href="#orgd2cea61">How to ask for help</a>
 <ul>
-<li><a href="#org64fc1d7">(Minimal) reproducible example</a></li>
+<li><a href="#org18d4693">(Minimal) reproducible example</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org954173b" class="outline-2">
-<h2 id="org954173b">Where to ask for help</h2>
-<div class="outline-text-2" id="text-org954173b">
+<div id="outline-container-org9630ea5" class="outline-2">
+<h2 id="org9630ea5">Where to ask for help</h2>
+<div class="outline-text-2" id="text-org9630ea5">
 </div>
-<div id="outline-container-org0222a54" class="outline-3">
-<h3 id="org0222a54">Ask R!</h3>
+<div id="outline-container-orgd5d0274" class="outline-3">
+<h3 id="orgd5d0274">Ask R!</h3>
+<div class="outline-text-3" id="text-orgd5d0274">
+</div>
+<div id="outline-container-orgd2eb155" class="outline-4">
+<h4 id="orgd2eb155">Manuals</h4>
+<div class="outline-text-4" id="text-orgd2eb155">
+<div class="org-src-container">
+<pre class="src src-R"><span class="org-ess-function-call">help.start</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-1">()</span></span>
+</pre>
+</div>
+</div>
 </div>
 
+<div id="outline-container-orgd461cbe" class="outline-4">
+<h4 id="orgd461cbe">Packages</h4>
+<div class="outline-text-4" id="text-orgd461cbe">
+<p>
+To get<br />
+</p>
 
+<div class="org-src-container">
+<pre class="src src-R">package?package<span class="org-ess-operator">-</span>name
+</pre>
+</div>
 
+<p>
+e.g. <code class="src src-R">package?data.table</code><br />
+</p>
 
+<p>
+And to get a list of the functions in a package, run:<br />
+</p>
 
-<div id="outline-container-org7ef7559" class="outline-3">
-<h3 id="org7ef7559">On-line</h3>
-<div class="outline-text-3" id="text-org7ef7559">
+<div class="org-src-container">
+<pre class="src src-R"><span class="org-ess-function-call">help</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-1">(</span></span>package <span class="org-ess-operator">=</span> package<span class="org-ess-operator">-</span>name<span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-1">)</span></span>
+</pre>
+</div>
+
+<p>
+e.g.<br />
+</p>
+
+<div class="org-src-container">
+<pre class="src src-R"><span class="org-ess-function-call">help</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-1">(</span></span>package <span class="org-ess-operator">=</span> data.table<span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-1">)</span></span>
+</pre>
+</div>
+
+<p>
+Note that, for this to work, the package doesn't need to be loaded. But of course, it does need to be installed on your machine.<br />
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgf91060a" class="outline-4">
+<h4 id="orgf91060a">Functions</h4>
+<div class="outline-text-4" id="text-orgf91060a">
+<p>
+R and any serious package contain the documentation of every function in help files.<br />
+</p>
+
+<p>
+You can get a detailed description of a function by running:<br />
+</p>
+
+<div class="org-src-container">
+<pre class="src src-R">?function<span class="org-ess-operator">-</span>name
+</pre>
+</div>
+
+<p>
+e.g.<br />
+</p>
+
+<div class="org-src-container">
+<pre class="src src-R">?map
+</pre>
+</div>
+
+<p>
+For this to work, the package containing this function needs to be loaded. So the above line will only work if you have previously loaded the package <code class="src src-R">purrr</code>. Alternatively, you can run <code class="src src-R">?purrr::map</code>.<br />
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgf71570c" class="outline-4">
+<h4 id="orgf71570c">Vignettes</h4>
+<div class="outline-text-4" id="text-orgf71570c">
+<p>
+Packages also often contain additional information in "vignettes". These are the references to use when you aren't sure how to use a function.<br />
+</p>
+</div>
+
+<div id="outline-container-org635c9fb" class="outline-5">
+<h5 id="org635c9fb">List vignettes</h5>
+<div class="outline-text-5" id="text-org635c9fb">
+<p>
+To list all the vignettes for a package, run:<br />
+</p>
+
+<div class="org-src-container">
+<pre class="src src-R"><span class="org-ess-function-call">vignette</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-1">(</span></span>package <span class="org-ess-operator">=</span> <span class="org-string">"package-name"</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-1">)</span></span>
+</pre>
+</div>
+
+<p>
+e.g.<br />
+</p>
+
+<div class="org-src-container">
+<pre class="src src-R"><span class="org-ess-function-call">vignette</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-1">(</span></span>package <span class="org-ess-operator">=</span> <span class="org-string">"dplyr"</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-1">)</span></span>
+</pre>
+</div>
+
+<p>
+Note that, for this to work, the package doesn't need to be loaded. But of course, it does need to be installed on your machine.<br />
+</p>
+
+<p>
+To list all the vignettes from the <b>loaded</b> packages:<br />
+</p>
+
+<div class="org-src-container">
+<pre class="src src-R"><span class="org-ess-function-call">vignette</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-1">(</span></span>all <span class="org-ess-operator">=</span> <span class="org-ess-constant">F</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-1">)</span></span>
+</pre>
+</div>
+
+<p>
+To list all the vignettes from all <b>installed</b> packages:<br />
+</p>
+
+<div class="org-src-container">
+<pre class="src src-R"><span class="org-ess-function-call">vignette</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-1">()</span></span>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org0965cfa" class="outline-5">
+<h5 id="org0965cfa">Open a vignette</h5>
+<div class="outline-text-5" id="text-org0965cfa">
+<p>
+Once you have found the name of a vignette pertaining to the topic you are interested in, you can open it with:<br />
+</p>
+
+<div class="org-src-container">
+<pre class="src src-R"><span class="org-ess-function-call">vignette</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-1">(</span></span><span class="org-string">"vignette-name"</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-1">)</span></span>
+</pre>
+</div>
+
+<p>
+e.g.<br />
+</p>
+
+<div class="org-src-container">
+<pre class="src src-R"><span class="org-ess-function-call">vignette</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-1">(</span></span><span class="org-string">"two-table"</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-1">)</span></span>
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgb46efef" class="outline-3">
+<h3 id="orgb46efef">Ask Google!</h3>
+<div class="outline-text-3" id="text-orgb46efef">
+<p>
+On-line<br />
+</p>
+
 <p>
 community<br />
 </p>
@@ -701,18 +872,18 @@ community<br />
 </div>
 </div>
 
-<div id="outline-container-orgf82cde0" class="outline-3">
-<h3 id="orgf82cde0">At SFU</h3>
+<div id="outline-container-org6aaab80" class="outline-3">
+<h3 id="org6aaab80">At SFU</h3>
 </div>
 </div>
 
-<div id="outline-container-orge49fe98" class="outline-2">
-<h2 id="orge49fe98">How to ask for help</h2>
-<div class="outline-text-2" id="text-orge49fe98">
+<div id="outline-container-orgd2cea61" class="outline-2">
+<h2 id="orgd2cea61">How to ask for help</h2>
+<div class="outline-text-2" id="text-orgd2cea61">
 </div>
-<div id="outline-container-org64fc1d7" class="outline-3">
-<h3 id="org64fc1d7">(Minimal) reproducible example</h3>
-<div class="outline-text-3" id="text-org64fc1d7">
+<div id="outline-container-org18d4693" class="outline-3">
+<h3 id="org18d4693">(Minimal) reproducible example</h3>
+<div class="outline-text-3" id="text-org18d4693">
 <p>
 The best way to get help with R is to make a minimal reproducible example: <a href="https://www.tidyverse.org/help/#where-to-ask">https://www.tidyverse.org/help/#where-to-ask</a><br />
 </p>
