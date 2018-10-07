@@ -2,7 +2,7 @@
 #+OPTIONS: toc:t h:6 num:nil |:t todo:nil
 #+OPTIONS: *:t -:t ::t <:t \n:t e:t creator:nil
 #+OPTIONS: f:t inline:t tasks:t tex:t timestamp:t
-#+OPTIONS: html-preamble:t html-postamble:nil
+#+OPTIONS: html-preamble:t html-postamble:t
 
 #+PROPERTY: header-args:R :session R:best-prac :results output :exports code :tangle yes :comments link :eval no
 
@@ -10,12 +10,13 @@
 #+DATE:	   {{{time(%B %d\, %Y)}}}
 #+AUTHOR:  Marie-Hélène Burle
 #+EMAIL:   msb2@sfu.ca
+#+CREATOR: <img src="./favicons/rc.png" height="18" width="18"> SFU Research Commons
 
 * Projects
 
-#+BEGIN_VERBATIM
+#+BEGIN_vertbar
 Work in self-contained projects
-#+END_VERBATIM
+#+END_vertbar
 
 Advantages:
 - allows collaboration
@@ -23,9 +24,9 @@ Advantages:
 - facilitates version control
 - reduces the risk to end up with broken links or missing files necessary for the projects
 
-#+BEGIN_EMPHASIS
+#+BEGIN_emphasis
 Create a directory that contains all the necessary subdirectories and files for your project
-#+END_EMPHASIS
+#+END_emphasis
 
 This includes data, scripts, as well as the project outputs (graphs, results, etc.)
 
@@ -35,18 +36,18 @@ If you use RStudio, create RStudio projects.
 
 This would be a rather standard project structure:
 
-#+BEGIN_EXAMPLE
+#+BEGIN_example
 /project_root     /data         /raw
-                                      /clean
+                                /clean
 
-                      /results      /graphs
-                                      /tables
+                  /results      /graphs
+                                /tables
 
-                      /docs
-                      /bin
-                      /src
-                      /ms
-#+END_EXAMPLE
+                  /docs
+                  /bin
+                  /src
+                  /ms
+#+END_example
 
 You are free to organize your projects in a way that works for you. But following some rather standard way of organizing files will help collaborators find their way around your project and some consistency between projects will also help you adapt scripts and snippets from one project to the next.
 
@@ -80,9 +81,9 @@ If you move your project to another machine, the links will equally get broken. 
 
 *Once your entire project lives within one directory* (the project root), as we saw in the previous section, make sure that:
 
-#+BEGIN_VERBATIM
+#+BEGIN_vertbar
 all the paths in your scripts are relative to the project root
-#+END_VERBATIM
+#+END_vertbar
 
 This makes your project /portable/, /much more robust/ (lower risk to get broken over time), and straightforward to /share/.
 
@@ -102,9 +103,9 @@ How?
 
 There are various methods, but a wonderfully easy one is:
 
-#+BEGIN_VERBATIM
+#+BEGIN_vertbar
 the package [[https://github.com/r-lib/here][here]] from [[https://github.com/krlmlr][Kirill Müller]]
-#+END_VERBATIM
+#+END_vertbar
 
 The function src_R[:eval no]{here::here()} starts from the current working directory (the directory in which the script is running if you don't set it manually in RStudio or with src_R[:eval no]{setwd}) and goes up the directory chain until it finds a src_R[:eval no]{.Rproj} file (if you use RStudio projects), a src_R[:eval no]{.git} or src_R[:eval no]{.svn} file (if you version control your projects), a src_R[:eval no]{.projectile} file (if you use emacs projectile), or other sensible files which signify a project root. If none of these apply to you (which is unlikely), you can create a file src_R[:eval no]{.here} in your project root by running the function src_R[:eval no]{set_here("path/to/project/root")} in the console (don't add it to your script since the path to your project root is specific to your machine and you only need to do this once). This src_R[:eval no]{.here} file is now the marker of the project root for the function src_R[:eval no]{here()}.
 
@@ -123,9 +124,9 @@ ggsave(here("results/graphs/my_plot.png"))
 
 * Clean session
 
-#+BEGIN_VERBATIM
+#+BEGIN_vertbar
 Never set anything that might change how your code runs
-#+END_VERBATIM
+#+END_vertbar
 
 In particular:
 
@@ -141,17 +142,17 @@ The package src_R[:eval no]{lintr} by [[https://github.com/jimhester][Jim Hester
 
 But the most important pieces of advice, when it comes to formatting code are:
 
-#+BEGIN_VERBATIM
+#+BEGIN_vertbar
 *be consistent*
 
 follow the style used by your collaborators, particularly if you edit their scripts
-#+END_VERBATIM
+#+END_vertbar
 
 * Things you do not want in a script
 
-#+BEGIN_VERBATIM
+#+BEGIN_vertbar
 Avoid anything that will make changes to a computer
-#+END_VERBATIM
+#+END_vertbar
 
 If someone runs your script, this should not install packages or make any other change to their machine. So, for instance, avoid
 
@@ -159,6 +160,6 @@ If someone runs your script, this should not install packages or make any other 
 install.packages()
 #+END_SRC
 
-#+BEGIN_RED
+#+BEGIN_red
 I owe these better coding habits to [[https://github.com/jennybc][Jenny Bryan]] and [[http://hadley.nz/][Hadley Wickham]]. Do not hesitate to look for their books, workshops, and other material that are very useful and open source.
-#+END_RED
+#+END_red
