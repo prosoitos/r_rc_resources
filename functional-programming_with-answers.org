@@ -2,15 +2,15 @@
 #+OPTIONS: toc:t h:6 num:nil |:t todo:nil
 #+OPTIONS: *:t -:t ::t <:t \n:t e:t creator:nil
 #+OPTIONS: f:t inline:t tasks:t tex:t timestamp:t
-#+OPTIONS: html-preamble:t html-postamble:nil
+#+OPTIONS: html-preamble:t html-postamble:t
 
 #+PROPERTY: header-args:R :session R:purrr :eval no :exports code :tangle yes :comments link
 
 #+TITLE:   Functional programming in R with /purrr/
-#+DATE:	   {{{time(%B %d\, %Y)}}}
+#+DATE:	  {{{time(%B %d\, %Y)}}}
 #+AUTHOR:  Marie-Hélène Burle
-#+CREATOR: Simon Fraser University, Research Commons
 #+EMAIL:   msb2@sfu.ca
+#+CREATOR: <img src="./favicons/rc.png" height="18" width="18"> SFU Research Commons
 
 * Introduction
 
@@ -99,10 +99,10 @@ banding
 
 Imagine that you want to calculate the mean for each of the morphometric measurements (mass, tarsus, and wing).
 
-#+BEGIN_VERBATIM
+#+BEGIN_vertbar
 How would you usually do this?
 Spend 5 minutes writing code you would usually use.
-#+END_VERBATIM
+#+END_vertbar
 
 To apply functions to elements of a list, you can use src_R[:eval no]{map}, one of the key function of the src_R[:eval no]{purrr} package.
 
@@ -112,11 +112,11 @@ To apply functions to elements of a list, you can use src_R[:eval no]{map}, one 
 map(.x, .f, ...)
 #+END_SRC
 
-#+BEGIN_EXAMPLE
+#+BEGIN_definition
 .x     a list or atomic vector
 .f     a function, formula, or atomic vector
 ...     additional arguments passed to .f
-#+END_EXAMPLE
+#+END_definition
 
 For every element of src_R[:eval no]{.x}, apply src_R[:eval no]{.f}.
 
@@ -128,11 +128,11 @@ map(list, function)
 
 *** In our example
 
-#+BEGIN_VERBATIM
+#+BEGIN_vertbar
 How could we use src_R[:eval no]{map()} to calculate the means of all 3 measurement types?
-#+END_VERBATIM
+#+END_vertbar
 
-#+BEGIN_RED
+#+BEGIN_red
 A data frame is a list! It is a list of vectors.
 
 Without running it in your computer, try to guess what the result of the following will be:
@@ -142,7 +142,7 @@ length(banding)
 #+END_SRC
 
 Now, run it. What do you get? Why?
-#+END_RED
+#+END_red
 
 So, back to our example, we do have a list: a list of vectors. That's what our banding data frame is! So no problem about applying src_R[:eval no]{map()} to it.
 
@@ -182,9 +182,9 @@ banding[4:6] %>% map_dbl(mean)
 
 Similarly, you can calculate the variance, the sum, look for the largest value, or apply any other function to our data.
 
-#+BEGIN_VERBATIM
+#+BEGIN_vertbar
 Spend 2 min writing codes for these.
-#+END_VERBATIM
+#+END_vertbar
 
 #+BEGIN_accordion
 Answer
@@ -202,11 +202,11 @@ map_dbl(banding[4:6], max)
 
 Now, imagine that you would like to plot the relationship between tarsus and mass for each population.
 
-#+BEGIN_VERBATIM
+#+BEGIN_vertbar
 How would you usually do that?
 Spend 5 min writing code for this.
 And feel free to chat.
-#+END_VERBATIM
+#+END_vertbar
 
 #+BEGIN_accordion
 Answer
@@ -242,9 +242,9 @@ graphs <-
 
 *** Formulas
 
-#+BEGIN_RED
+#+BEGIN_red
 Formulas = a shorter notation for anonymous functions
-#+END_RED
+#+END_red
 
 **** With one element
 
@@ -262,9 +262,9 @@ map(~ . + 3)
 
 This code abbreviation is called a "formula".
 
-#+BEGIN_VERBATIM
+#+BEGIN_vertbar
 Your turn: write the following anonymous function as a formula.
-#+END_VERBATIM
+#+END_vertbar
 
 #+BEGIN_SRC R
 map(function(x) mean(x) + 3)
@@ -304,9 +304,9 @@ map2(~ .x + .y)
 
 etc.
 
-#+BEGIN_VERBATIM
+#+BEGIN_vertbar
 Your turn: write the following anonymous function as a formula.
-#+END_VERBATIM
+#+END_vertbar
 
 #+BEGIN_SRC R
 pmap(function(x1, x2, y) lm(y ~ x1 + x2))
@@ -356,15 +356,15 @@ banding <-
   str()
 #+END_SRC
 
-#+BEGIN_RED
+#+BEGIN_red
 The reason several base R functions transform strings into factors is historic. This used to be essential to save space. But this is not relevant anymore and has become somewhat of an annoyance.
-#+END_RED
+#+END_red
 
 If you have such a data frame, you may wish to transform the factors into characters.
 
-#+BEGIN_VERBATIM
+#+BEGIN_vertbar
 How can you do this?
-#+END_VERBATIM
+#+END_vertbar
 
 src_R[:eval no]{map()} has the derivatives src_R[:eval no]{map_if()} and src_R[:eval no]{map_at()} which allow to apply functions when conditions are met or at certain locations. Here, we can use src_R[:eval no]{map_if()}:
 
@@ -393,7 +393,7 @@ banding %>%
   str()
 #+END_SRC
 
-#+BEGIN_RED
+#+BEGIN_red
 This could also be accomplished with src_R[:eval no]{mutate_if()}:
 
 #+BEGIN_SRC R
@@ -401,7 +401,7 @@ banding %>% mutate_if(is.factor, as.character)
 #+END_SRC
 
 But the src_R[:eval no]{map()} functions also work with lists and are more flexible than src_R[:eval no]{mutate()} and its derivatives.
-#+END_RED
+#+END_red
 
 *** Usage
 
@@ -411,7 +411,7 @@ modify_if(.x, .p, .f, ...)
 modify_at(.x, .at, .f, ...)
 #+END_SRC
 
-#+BEGIN_EXAMPLE
+#+BEGIN_definition
 .x     a list or atomic vector
 .f     a function, formula, or atomic vector
 ...    additional arguments passed to .f
@@ -419,7 +419,7 @@ modify_at(.x, .at, .f, ...)
        Only the elements for which .p evaluates to TRUE will be modified
 .at    a character vector of names or a numeric vector of positions.
        Only the elements corresponding to .at will be modified
-#+END_EXAMPLE
+#+END_definition
 
 For every element of src_R[:eval no]{.x}, apply src_R[:eval no]{.f}, and return a modified version of src_R[:eval no]{.x}.
 
@@ -433,10 +433,10 @@ modify(list, function)
 
 Now, we want to save the 3 graphs we previously drew into 3 files.
 
-#+BEGIN_VERBATIM
+#+BEGIN_vertbar
 How would you do this?
 Spend 5 minutes writing code you would usually use.
-#+END_VERBATIM
+#+END_vertbar
 
 To apply side effects to elements of a list, we use the src_R[:eval no]{walk} functions family.
 
@@ -446,11 +446,11 @@ To apply side effects to elements of a list, we use the src_R[:eval no]{walk} fu
 walk(.x, .f, ...)
 #+END_SRC
 
-#+BEGIN_EXAMPLE
+#+BEGIN_definition
 .x     a list or atomic vector
 .f     a function, formula, or atomic vector
 ...     additional arguments passed to .f
-#+END_EXAMPLE
+#+END_definition
 
 *** Apply to our example
 
@@ -470,18 +470,18 @@ Here is how src_R[:eval no]{walk2} works (it is the same for src_R[:eval no]{map
 walk2(.x, .y, .f, ...)
 #+END_SRC
 
-#+BEGIN_EXAMPLE
+#+BEGIN_definition
 .x, .y   vectors of the same length.
          A vector of length 1 will be recycled.
 .f       a function, formula, or atomic vector
 ...       additional arguments passed to .f
-#+END_EXAMPLE
+#+END_definition
 
-#+BEGIN_VERBATIM
+#+BEGIN_vertbar
 Give it a try:
 use src_R[:eval no]{walk2} to save the elements of src_R[:eval no]{graphs} into the elements of src_R[:eval no]{paths} using src_R[:eval no]{ggsave}.
 Don't hesitate to look up the help file for src_R[:eval no]{ggsave} with src_R[:eval no]{?ggsave} if you don't remember how to use it!
-#+END_VERBATIM
+#+END_vertbar
 
 #+BEGIN_accordion
 Answer

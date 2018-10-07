@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2018-08-31 Fri 13:48 -->
+<!-- 2018-10-06 Sat 18:21 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Functional programming in R with <i>purrr</i></title>
@@ -230,13 +230,15 @@
     padding: 1em;
   } 
   a {
-    color: #b58900;
+    color: #db4000;
+    text-decoration: none;
   }
   a:visited {
-    color: #cb4b16;
+    color: #8a5640;
   }
   a:hover {
-    color: #e65719;
+    background-color: #fbc7b1;
+    color: #211d1b;
   }
   h1 {
     color: #890c0c;
@@ -256,30 +258,10 @@
   h6 {
     color: #808080;
   }
-  pre[class="src src-R"] {	/*for blocks src R*/
-    background-color: #f1f1f1;
-    color: #262626;
-    padding: 0.8em;
-    font-size: 95%;
-    line-height: 22px;
-    border: 0.5pt solid #d9d9d9;
-    border-radius: 5px;
-    box-shadow: 0pt 0pt 0pt #eee8d5;
-  }
-  pre[class="src src-sh"] {	/*for blocks src sh*/
-    background-color: #f1f1f1;
-    color: #262626;
-    padding: 0.8em;
-    font-size: 95%;
-    line-height: 22px;
-    border: 0.5pt solid #d9d9d9;
-    border-radius: 5px;
-    box-shadow: 0pt 0pt 0pt #eee8d5;
-  }
-  .accordion {			/*for the button of the box that can hide/appear*/
+  .accordion {			/*button of the accordeon box*/
     background-color: #c2d6d6;
     color: #262626;
-    padding: 0 0.8em;
+    padding: 0em 0.8em;
     font-size: 95%;
     line-height: 22px;
     border: 0.5pt solid #b3cccc;
@@ -289,12 +271,12 @@
     cursor: pointer;
     outline: none;
   }
-  .active, .accordion:hover {	/*for the button of the box while hover*/
+  .active, .accordion:hover {	/*button of the accordeon box while hover*/
     background-color: #94b8b8;
     border: 0.5pt solid #85adad;
     /* color: white; */
   }
-  .panel {			/*for the box that can hide/appear*/
+  .panel {			/*accordeon box*/
     padding: 0em 1em;
     margin: 0.7em 0 0 0;
     background-color: #c2d6d6;
@@ -304,17 +286,17 @@
     overflow: hidden;
     transition: max-height 0.2s ease-out;
   }
-  code {			/*for inline code*/
+  code {			/*inline code*/
     background-color: #f1f1f1;
     color: #262626;
-    padding: 0em 0.2em 0em 0.2em;
+    padding: 0em 0.2em;
     font-size: 95%;
     line-height: 22px;
     border: 0.5pt solid #e6e6e6;
     border-radius: 3px;
     box-shadow: 0pt 0pt 0pt #eee8d5;
   }
-  blockquote {			/*for block quote*/
+  blockquote {			/*quote*/
     /* font: 14px/22px normal helvetica, sans-serif; /\*original line*\/ */
     line-height: 22px;
     font-style: italic;
@@ -322,57 +304,107 @@
     padding-left: 15px;
     border-left: 3px solid #ccc;
   }
-  pre[class="example"] {	/*for block example*/
+  pre[class="src src-R"] {	/*src r*/
+    background-color: #f1f1f1;
+    color: #262626;
+    padding: 0.4em 0.8em;
+    font-size: 95%;
+    line-height: 22px;
+    border: 0.5pt solid #d9d9d9;
+    border-radius: 5px;
+    box-shadow: 0pt 0pt 0pt #eee8d5;
+  }
+  pre[class="src src-sh"] {	/*src sh*/
+    background-color: #f1f1f1;
+    color: #262626;
+    padding: 0.4em 0.8em;
+    font-size: 95%;
+    line-height: 22px;
+    border: 0.5pt solid #d9d9d9;
+    border-radius: 5px;
+    box-shadow: 0pt 0pt 0pt #eee8d5;
+  }
+  pre[class="src src-tex"] {	/*src latex*/
+    background-color: #f1f1f1;
+    color: #262626;
+    padding: 0.4em 0.8em;
+    font-size: 95%;
+    line-height: 22px;
+    border: 0.5pt solid #d9d9d9;
+    border-radius: 5px;
+    box-shadow: 0pt 0pt 0pt #eee8d5;
+  }
+  pre[class="src src-html"] {	/*src html*/
+    background-color: #f1f1f1;
+    color: #262626;
+    padding: 0.4em 0.8em;
+    font-size: 95%;
+    line-height: 22px;
+    border: 0.5pt solid #d9d9d9;
+    border-radius: 5px;
+    box-shadow: 0pt 0pt 0pt #eee8d5;
+  }
+  pre[class="example"] {	/*mono font framed by subtle gray border*/
+    padding: 0.4em 0.8em;
+    line-height: 22px;
+    border: 0.5pt solid #d9d9d9;
+    border-radius: 5px;
+    box-shadow: 0pt 0pt 0pt #eee8d5;
+  }
+  div[class="definition"] {	/*small font in dull gray box*/
     background-color: #f0efe7;
-    font-family: 'Rokkitt';
+    font-family: 'rokkitt';
     width: max-content;
     color: #3e3e3e;
-    padding: 0.6em 0.8em 0.6em 0.8em;
+    /* padding: 0.6em 0.8em 0.6em 0.8em; */
+    padding: 0em 0.8em;
     /* font-size: 95%; */
     line-height: 22px;
     border: 0.5pt solid #ebeae0;
     border-radius: 5px;
     box-shadow: 0pt 0pts 0pt #eee8d5;
   }
-  p[class="verse"] {		/*for block verse*/
+  p[class="verse"] {		/*verse*/
     color: #262626;
-    font-family: 'IM Fell English';
+    font-family: 'im fell english';
     font-size: 110%;
     font-style: italic;
-    /* margin-left: 30px;		/\*keep this line to have the verses indented*\/ */
+    margin-left: 30px;		/*keep this line to have the verses indented*/
     line-height: 25px;
   }
-  div[class="org-center"] {	/*for block center*/
+  div[class="org-center"] {	/*center*/
     margin: auto;
     line-height: 22px;
     width: max-content;
   }
-  div[class="right"] {	/*for block right-aligned*/
+  div[class="right"] {	/*right-aligned*/
     text-align: right;
     line-height: 22px;
   }
-  div[class="HAND"] {		/*for block with handwriting font*/
-    font-family: 'Montez';
+  div[class="handwriting"] {		/*handwriting font*/
+    font-family: 'montez';
     line-height: 26px;
     font-size: 130%;
   }
-  div[class="MONO"] {	/*for block with monospace font*/
-    /* font-family: 'Anonymous Pro'; */
-    font-family: 'Roboto Slab Thin';
+  div[class="monofont"] {	/*monospace font*/
     margin: auto;
     width: max-content;
+    /* font-family: 'anonymous pro'; */
+    font-family: 'Slabo';
+    width: max-content;
     color: #000000;
-    padding: 0.3 0.8em 0.3 0.8em;
+    /* padding: 0.3 0.8em 0.3 0.8em; */
+    padding: 0em 0.8em;
     font-size: 95%;
     line-height: 20px;
     /* margin: 0 0 0 5px; */
-    /* border: 0.5pt solid #d9d9d9; */
-    /* border-radius: 5px; */
+    border: 0.5pt solid #999999;
+    border-radius: 5px;
     /* font-size: 95%; */
   }
-  div[class="RED"] {	/*for block with monospace font*/
-    /* font-family: 'Anonymous Pro'; */
-    /* font-family: 'Roboto Slab Thin'; */
+  div[class="red"] {	/*with monospace font*/
+    /* font-family: 'anonymous pro'; */
+    /* font-family: 'roboto slab thin'; */
     /* margin: auto; */
     /* width: max-content; */
     /* color: #a52a2a; */
@@ -395,17 +427,17 @@
     /* transition: max-height 0.2s ease-out; */
     /* background-color: #f1f1f1; */
     color: #262626;
-    /* padding: 0.8em; */
+    /* padding: 0.4em 0.8em; */
     font-size: 92%;
     /* line-height: 22px; */
     /* border: 0.5pt solid #d9d9d9; */
     border-radius: 5px;
     box-shadow: 0pt 0pt 0pt #eee8d5;
   }
-  div[class="VERBATIM"] {	/*for block verbatim*/
+  div[class="vertbar"] {	/*vertical-bar and big margin for questions or emphasis*/
     /* background-color: #f4faff; */
     line-height: 27px;
-    font-family: 'Linden Hill';
+    font-family: 'linden hill';
     /* font-weight: bold; */
     margin: 45px 50px 45px 100px;
     /* padding-left: 10px; */
@@ -414,174 +446,176 @@
     color: #303b52;
     padding: 0 0 0 15px;
     border-left: 0.5px solid #425170;
-    width: max-content;
-  }
-  div[class="EMPHASIS"] {	/*for block verbatim*/
-    line-height: 27px;
-    /* font-weight: bold; */
-    margin: 45px 0px 45px 150px;
-    /* padding-left: 10px; */
-    /* border-left: 3px solid #890c0c; */
-    font-size: 135%;
-    color: #7c6262;
-  }
-  .org-ess-numbers {
-    color: #e28200; 
-  }
-  .org-comment-delimiter {
-    color: #8c8c8c;
-  }
-  .org-comment {
-    color: #8c8c8c;
-  }
-  .org-string {
-    color: #013b6d;
-  }
-  .org-ess-function-call {
-    color: #bf4040;
-    /* font-weight: bolder; */
-  }
-  .org-ess-operator {
-    color: #0b5e56;
-  }
-  .org-ess-assignment {
-    color: #0b5e56;
-  }
-  .org-ess-paren {
-    color: #0b5e56;
-  }
-  .org-ess-XopX {
-    color: #0b5e56;
-  }  
-  h1 {
-    font-size: 2.2em;
-    text-align: center;
-  }
-  h2 {
-    font-size: 1.6em;
-  }
-  h3 {
-    font-size: 1.5em;
-  }
-  h4 {
-    font-size: 1.4em;
-  }
-  h5 {
-    font-size: 1.3em;
-  }
-  h6 {
-    font-size: 1.2em;
-  }
-  .tag {
-    background-color: #eee8d5;
-    color: #d33682;
-    padding: 0 0.2em;
-  }
-  .todo,
-  .next,
-  .done {
-    color: #faf9f1;
-    background-color: #dc322f;
-    padding: 0 0.2em;
-  }
-  .tag {
-    -webkit-border-radius: 0.35em;
-    -moz-border-radius: 0.35em;
-    border-radius: 0.35em;
-  }
-  .TODO {
-    -webkit-border-radius: 0.2em;
-    -moz-border-radius: 0.2em;
-    border-radius: 0.2em;
-    background-color: #2aa198;
-  }
-  .NEXT {
-    -webkit-border-radius: 0.2em;
-    -moz-border-radius: 0.2em;
-    border-radius: 0.2em;
-    background-color: #268bd2;
-  }
-  .ACTIVE {
-    -webkit-border-radius: 0.2em;
-    -moz-border-radius: 0.2em;
-    border-radius: 0.2em;
-    background-color: #268bd2;
-  }
-  .DONE {
-    -webkit-border-radius: 0.2em;
-    -moz-border-radius: 0.2em;
-    border-radius: 0.2em;
-    background-color: #859900;
-  }
-  .WAITING {
-    -webkit-border-radius: 0.2em;
-    -moz-border-radius: 0.2em;
-    border-radius: 0.2em;
-    background-color: #cb4b16;
-  }
-  .HOLD {
-    -webkit-border-radius: 0.2em;
-    -moz-border-radius: 0.2em;
-    border-radius: 0.2em;
-    background-color: #d33682;
-  }
-  .NOTE {
-    -webkit-border-radius: 0.2em;
-    -moz-border-radius: 0.2em;
-    border-radius: 0.2em;
-    background-color: #d33682;
-  }
-  .CANCELLED {
-    -webkit-border-radius: 0.2em;
-    -moz-border-radius: 0.2em;
-    border-radius: 0.2em;
-    background-color: #859900;
-  }
+    width: max-content;    
+  }    
+    div[class="emphasis"] {
+      line-height: 27px;
+      font-family: 'Montserrat';
+      /* font-weight: bold; */
+      margin: 30px 0px 45px 100px;
+      /* padding-left: 10px; */
+      /* border-left: 3px solid #890c0c; */
+      /* font-size: 135%; */
+      /* color: #8f7070; */
+      color: #911808;
+    }
+    .org-ess-numbers {
+      color: #e28200; 
+    }
+    .org-comment-delimiter {
+      color: #8c8c8c;
+    }
+    .org-comment {
+      color: #8c8c8c;
+    }
+    .org-string {
+      color: #013b6d;
+    }
+    .org-ess-function-call {
+      color: #bf4040;
+      /* font-weight: bolder; */
+    }
+    .org-ess-operator {
+      color: #0b5e56;
+    }
+    .org-ess-assignment {
+      color: #0b5e56;
+    }
+    .org-ess-paren {
+      color: #0b5e56;
+    }
+    .org-ess-XopX {
+      color: #0b5e56;
+    }  
+    h1 {
+      font-size: 2.1em;
+      text-align: center;
+    }
+    h2 {
+      font-size: 1.6em;
+    }
+    h3 {
+      font-size: 1.5em;
+    }
+    h4 {
+      font-size: 1.4em;
+    }
+    h5 {
+      font-size: 1.3em;
+    }
+    h6 {
+      font-size: 1.2em;
+    }
+    .tag {
+      background-color: #eee8d5;
+      color: #d33682;
+      padding: 0 0.2em;
+    }
+    .todo,
+    .next,
+    .done {
+      color: #faf9f1;
+      background-color: #dc322f;
+      padding: 0 0.2em;
+    }
+    .tag {
+      -webkit-border-radius: 0.35em;
+      -moz-border-radius: 0.35em;
+      border-radius: 0.35em;
+    }
+    .TODO {
+      -webkit-border-radius: 0.2em;
+      -moz-border-radius: 0.2em;
+      border-radius: 0.2em;
+      background-color: #2aa198;
+    }
+    .NEXT {
+      -webkit-border-radius: 0.2em;
+      -moz-border-radius: 0.2em;
+      border-radius: 0.2em;
+      background-color: #268bd2;
+    }
+    .ACTIVE {
+      -webkit-border-radius: 0.2em;
+      -moz-border-radius: 0.2em;
+      border-radius: 0.2em;
+      background-color: #268bd2;
+    }
+    .DONE {
+      -webkit-border-radius: 0.2em;
+      -moz-border-radius: 0.2em;
+      border-radius: 0.2em;
+      background-color: #859900;
+    }
+    .WAITING {
+      -webkit-border-radius: 0.2em;
+      -moz-border-radius: 0.2em;
+      border-radius: 0.2em;
+      background-color: #cb4b16;
+    }
+    .HOLD {
+      -webkit-border-radius: 0.2em;
+      -moz-border-radius: 0.2em;
+      border-radius: 0.2em;
+      background-color: #d33682;
+    }
+    .NOTE {
+      -webkit-border-radius: 0.2em;
+      -moz-border-radius: 0.2em;
+      border-radius: 0.2em;
+      background-color: #d33682;
+    }
+    .CANCELLED {
+      -webkit-border-radius: 0.2em;
+      -moz-border-radius: 0.2em;
+      border-radius: 0.2em;
+      background-color: #859900;
+    }
 
-  /* TOC inspired by http://jashkenas.github.com/coffee-script */
-  #table-of-contents {
-    font-size: 10pt;
-    position: fixed;
-    right: 0em;
-    top: 0em;
-    background: #faf9f1;
-    color: #596a73;
-    /* -webkit-box-shadow: 0 0 1em #777777; */
-    /* -moz-box-shadow: 0 0 1em #777777; */
-    /* -webkit-border-bottom-left-radius: 10px; */
-    /* -moz-border-radius-bottomleft: 10px; */
-    text-align: right;
-    /* ensure doesn't flow off the screen when expanded */
-    max-height: 80%;
-    overflow: auto;
-  }
-  #table-of-contents h2 {
-    font-size: 12pt;
-    max-width: 25em;
-    font-weight: bold;
-    color: #596a73;
-    padding-right: 3em;
-    padding-left: 0.8em;
-    padding-top: 1em;
-    padding-bottom: 0em;
-    text-align: left;
-  }
-  #table-of-contents #text-table-of-contents {
-    display: none;
-    text-align: left;
-  }
-  #table-of-contents:hover #text-table-of-contents {
-    display: block;
-    padding: 0.5em;
-    margin-top: -1.5em;
-  }
+    /* TOC inspired by http://jashkenas.github.com/coffee-script */
+    #table-of-contents {
+      font-size: 10pt;
+      position: fixed;
+      right: 0em;
+      top: 0em;
+      background: #faf9f1;
+      color: #336699;
+      /* -webkit-box-shadow: 0 0 1em #777777; */
+      /* -moz-box-shadow: 0 0 1em #777777; */
+      /* -webkit-border-bottom-left-radius: 10px; */
+      /* -moz-border-radius-bottomleft: 10px; */
+      text-align: right;
+      /* ensure doesn't flow off the screen when expanded */
+      max-height: 100%;
+      overflow: auto;
+    }
+    #table-of-contents h2 {
+      font-size: 12pt;
+      max-width: 25em;
+      font-weight: bold;
+      color: #336699;
+      padding-right: 3em;
+      padding-left: 0.8em;
+      padding-top: 1em;
+      padding-bottom: 0em;
+      text-align: left;
+    }
+    #table-of-contents #text-table-of-contents {
+      display: none;
+      text-align: left;
+    }
+    #table-of-contents:hover #text-table-of-contents {
+      display: block;
+      padding: 0em;
+      margin-top: -1.5em;
+    }
 
-  .rss_box {}
-  .rss_title, rss_title a {}
-  .rss_items {}
-  .rss_item a:link, .rss_item a:visited, .rss_item a:active {}
-  .rss_item a:hover {}
-  .rss_date {}
+    .rss_box {}
+    .rss_title, rss_title a {}
+    .rss_items {}
+    .rss_item a:link, .rss_item a:visited, .rss_item a:active {}
+    .rss_item a:hover {}
+    .rss_date {}
 
 } /* END OF @media all */
 
@@ -591,7 +625,7 @@
   #table-of-contents {
     float: right;
     border: 0px solid #CCC;
-    max-width: 25%;
+    max-width: 40%;
     overflow: auto;
   }
 } /* END OF @media screen */
@@ -646,7 +680,8 @@ for the JavaScript code in this tag.
 </head>
 <body>
 <div id="preamble" class="status">
-<span style="color:#596a73; font-size:17px"><b>Marie-Hélène Burle</b></span><br><span style="color:#8a8a8a; font-size:15px"><b>Simon Fraser University, Research Commons</b></span><br><span style="color:#596a73; font-size:15px"><img src="./favicons/email.ico" alt="email" height="16" width="16"> <a href="mailto:msb2@sfu.ca">msb2@sfu.ca</a>&nbsp;&nbsp;<img src="./favicons/twitter.ico" alt="twitter" height="17" width="17"> <a href="https://twitter.com/MHBurle">@MHBurle</a>&nbsp;&nbsp;<img src="./favicons/gh.ico" alt="github" height="15" width="15"> <a href="https://github.com/prosoitos">prosoitos</a></span><br><span style="color:#596a73; font-size:16px">August 31, 2018</span>
+
+<span style="color:#596a73;font-size:17px"><b>Marie-Hélène Burle</b></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#002b80; font-size:17px"><b><img src="./favicons/rc.png" height="18" width="18"> SFU Research Commons</b></span><br><span style="color:#596a73;font-size:14px"><img src="./favicons/email.ico" alt="email" height="15" width="15"> <a href="mailto:msb2@sfu.ca">msb2@sfu.ca</a><br><img src="./favicons/twitter.ico" alt="twitter" height="16" width="16"><a href="https://twitter.com/MHBurle"> MHBurle</a><br><img src="./favicons/gh.ico" alt="github" height="14" width="14"><a href="https://github.com/prosoitos"> prosoitos</a></span>
 </div>
 <div id="content">
 <h1 class="title">Functional programming in R with <i>purrr</i></h1>
@@ -654,71 +689,70 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgb76c0bb">Introduction</a>
+<li><a href="#orge9614fe">Introduction</a>
 <ul>
-<li><a href="#org8ae62b1">What is functional programming?</a></li>
-<li><a href="#orgd7b93cf">Iterations</a></li>
-<li><a href="#org2e89cbd">The purrr package</a>
+<li><a href="#org555e4b7">What is functional programming?</a></li>
+<li><a href="#org00fc592">Iterations</a></li>
+<li><a href="#org050f210">The purrr package</a>
 <ul>
-<li><a href="#org12a0634">Goal</a></li>
+<li><a href="#org496e379">Goal</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#org5225575"></a></li>
-<li><a href="#org4b53e60">Let's dive in</a>
+<li><a href="#org8867dc8">Let's dive in</a>
 <ul>
-<li><a href="#org5a0eb33">Load packages</a></li>
-<li><a href="#orge34a2d0">Create some fake banding data</a></li>
-<li><a href="#org4b33602">Map: apply functions to elements of a list</a>
+<li><a href="#orgd8b33df">Load packages</a></li>
+<li><a href="#orgc2f19ae">Create some fake banding data</a></li>
+<li><a href="#org8b2e6fd">Map: apply functions to elements of a list</a>
 <ul>
-<li><a href="#org30b8330">Usage</a></li>
-<li><a href="#org79a12b0">In our example</a></li>
-<li><a href="#orgc8aec12">Stepping things up</a></li>
-<li><a href="#orgf2a583b">Formulas</a>
+<li><a href="#org6a23f54">Usage</a></li>
+<li><a href="#orgc695cf1">In our example</a></li>
+<li><a href="#org804775a">Stepping things up</a></li>
+<li><a href="#org8f490dd">Formulas</a>
 <ul>
-<li><a href="#org872ee07">With one element</a></li>
-<li><a href="#org3ccbb99">With 2 elements</a></li>
-<li><a href="#org335633c">Referring to elements</a></li>
+<li><a href="#orga4ff49e">With one element</a></li>
+<li><a href="#org7a0acd3">With 2 elements</a></li>
+<li><a href="#orgff8be47">Referring to elements</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#orgb71453e"><code class="src src-R">map_if</code>/<code class="src src-R">modify_if</code> and <code class="src src-R">map_at</code>/<code class="src src-R">modify_at</code></a>
+<li><a href="#org45a0879"><code class="src src-R">map_if</code>/<code class="src src-R">modify_if</code> and <code class="src src-R">map_at</code>/<code class="src src-R">modify_at</code></a>
 <ul>
-<li><a href="#orgd917cfa">Usage</a></li>
+<li><a href="#org57fd1c6">Usage</a></li>
 </ul>
 </li>
-<li><a href="#org5888bcd">Walk: apply side effects to elements of a list</a>
+<li><a href="#org3f87b1d">Walk: apply side effects to elements of a list</a>
 <ul>
-<li><a href="#org9aa733e">Usage</a></li>
-<li><a href="#orgc4080a0">Apply to our example</a></li>
+<li><a href="#orgb962067">Usage</a></li>
+<li><a href="#org388b2c3">Apply to our example</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#orgb568142">Summary of the map and walk functions family</a></li>
-<li><a href="#org828ca11">Conclusion</a></li>
+<li><a href="#orgeb9a9fc">Summary of the map and walk functions family</a></li>
+<li><a href="#org48196c6">Conclusion</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgb76c0bb" class="outline-2">
-<h2 id="orgb76c0bb">Introduction</h2>
-<div class="outline-text-2" id="text-orgb76c0bb">
+<div id="outline-container-orge9614fe" class="outline-2">
+<h2 id="orge9614fe">Introduction</h2>
+<div class="outline-text-2" id="text-orge9614fe">
 </div>
-<div id="outline-container-org8ae62b1" class="outline-3">
-<h3 id="org8ae62b1">What is functional programming?</h3>
-<div class="outline-text-3" id="text-org8ae62b1">
+<div id="outline-container-org555e4b7" class="outline-3">
+<h3 id="org555e4b7">What is functional programming?</h3>
+<div class="outline-text-3" id="text-org555e4b7">
 <p>
 It is a programming paradigm based on the evaluation of functions. This is opposed to <i>imperative  programming</i>. While some languages are based strictly on functional programming (e.g. Haskell), R allows both imperative code (e.g. loops) and functional code (e.g. many base functions, the <code class="src src-R"><span class="org-ess-function-call">apply</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-1">()</span></span></code> family, <code class="src src-R">purrr</code>).<br />
 </p>
 </div>
 </div>
 
-<div id="outline-container-orgd7b93cf" class="outline-3">
-<h3 id="orgd7b93cf">Iterations</h3>
-<div class="outline-text-3" id="text-orgd7b93cf">
+<div id="outline-container-org00fc592" class="outline-3">
+<h3 id="org00fc592">Iterations</h3>
+<div class="outline-text-3" id="text-org00fc592">
 <p>
 Iterations are the repetition of a process (e.g. applying the same function to several variables, several datasets, or several files).<br />
 </p>
@@ -734,17 +768,17 @@ The classic methods in R are:<br />
 </div>
 </div>
 
-<div id="outline-container-org2e89cbd" class="outline-3">
-<h3 id="org2e89cbd">The purrr package</h3>
-<div class="outline-text-3" id="text-org2e89cbd">
+<div id="outline-container-org050f210" class="outline-3">
+<h3 id="org050f210">The purrr package</h3>
+<div class="outline-text-3" id="text-org050f210">
 <p>
 One of the <code class="src src-R">tidyverse</code> core packages, <code class="src src-R">purrr</code> was written in 2015 by <a href="https://github.com/lionel-">Lionel Henry</a> (also the maintainer), <a href="http://hadley.nz/">Hadley Wickham</a>, and <a href="https://www.rstudio.com/">RStudio inc.</a> <br />
 </p>
 </div>
 
-<div id="outline-container-org12a0634" class="outline-4">
-<h4 id="org12a0634">Goal</h4>
-<div class="outline-text-4" id="text-org12a0634">
+<div id="outline-container-org496e379" class="outline-4">
+<h4 id="org496e379">Goal</h4>
+<div class="outline-text-4" id="text-org496e379">
 <p>
 <code class="src src-R">Purrr</code> is a set of tools allowing consistent functional programming in R in a <code class="src src-R">tidyverse</code> style (using <code class="src src-R">magrittr</code> pipes and following the same naming conventions found in other <code class="src src-R">tidyverse</code> packages).<br />
 </p>
@@ -752,14 +786,7 @@ One of the <code class="src src-R">tidyverse</code> core packages, <code class="
 <p>
 As Hadley Wickham says, in many ways, <code class="src src-R">purrr</code> is the equivalent of the <code class="src src-R">dplyr</code>, but while <code class="src src-R">dplyr</code> focuses on data frames, <code class="src src-R">purrr</code> works on vectors: it works on the elements of atomic vectors, lists, and data frames. Since R's most basic data structure is the vector, this makes <code class="src src-R">purrr</code> extremely powerful and flexible.<br />
 </p>
-</div>
-</div>
-</div>
-</div>
 
-<div id="outline-container-org5225575" class="outline-2">
-<h2 id="org5225575"></h2>
-<div class="outline-text-2" id="text-org5225575">
 <p>
 Install it with:<br />
 </p>
@@ -803,14 +830,16 @@ and on any of its functions with:<br />
 </div>
 </div>
 </div>
-
-<div id="outline-container-org4b53e60" class="outline-2">
-<h2 id="org4b53e60">Let's dive in</h2>
-<div class="outline-text-2" id="text-org4b53e60">
 </div>
-<div id="outline-container-org5a0eb33" class="outline-3">
-<h3 id="org5a0eb33">Load packages</h3>
-<div class="outline-text-3" id="text-org5a0eb33">
+</div>
+
+<div id="outline-container-org8867dc8" class="outline-2">
+<h2 id="org8867dc8">Let's dive in</h2>
+<div class="outline-text-2" id="text-org8867dc8">
+</div>
+<div id="outline-container-orgd8b33df" class="outline-3">
+<h3 id="orgd8b33df">Load packages</h3>
+<div class="outline-text-3" id="text-orgd8b33df">
 <p>
 First, let's load the packages that we will use. It is always a good idea to write all the packages that you will be using at the top of the script. This will help others, using your script, to know what is required to run it.<br />
 </p>
@@ -823,9 +852,9 @@ First, let's load the packages that we will use. It is always a good idea to wri
 </div>
 </div>
 
-<div id="outline-container-orge34a2d0" class="outline-3">
-<h3 id="orge34a2d0">Create some fake banding data</h3>
-<div class="outline-text-3" id="text-orge34a2d0">
+<div id="outline-container-orgc2f19ae" class="outline-3">
+<h3 id="orgc2f19ae">Create some fake banding data</h3>
+<div class="outline-text-3" id="text-orgc2f19ae">
 <p>
 Let's create some imaginary bird banding data:<br />
 </p>
@@ -835,9 +864,9 @@ Let's create some imaginary bird banding data:<br />
   bird <span class="org-ess-operator">=</span> <span class="org-ess-function-call">paste0</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-2">(</span></span><span class="org-string">"bird"</span>, <span class="org-ess-numbers">1</span>:<span class="org-ess-numbers">50</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-2">)</span></span>,
   sex <span class="org-ess-operator">=</span> <span class="org-ess-function-call">sample</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-2">(</span></span><span class="org-ess-function-call">c</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-3">(</span></span><span class="org-string">"F"</span>, <span class="org-string">"M"</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-3">)</span></span>, <span class="org-ess-numbers">50</span>, replace <span class="org-ess-operator">=</span> <span class="org-ess-constant">T</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-2">)</span></span>,
   population <span class="org-ess-operator">=</span> <span class="org-ess-function-call">sample</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-2">(</span></span>LETTERS<span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-3">[</span></span><span class="org-ess-numbers">1</span>:<span class="org-ess-numbers">3</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-3">]</span></span>, <span class="org-ess-numbers">50</span>, replace <span class="org-ess-operator">=</span> <span class="org-ess-constant">T</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-2">)</span></span>,
-  mass <span class="org-ess-operator">=</span> <span class="org-ess-function-call">rnorm</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-2">(</span></span><span class="org-ess-numbers">50</span>, <span class="org-ess-numbers">43</span>, <span class="org-ess-numbers">4</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-2">)</span></span> <span class="org-ess-XopX">%&gt;%</span> <span class="org-ess-function-call">round</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-2">(</span></span><span class="org-ess-numbers">1</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-2">)</span></span>,
-  tarsus <span class="org-ess-operator">=</span> <span class="org-ess-function-call">rnorm</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-2">(</span></span><span class="org-ess-numbers">50</span>, <span class="org-ess-numbers">27</span>, <span class="org-ess-numbers">1</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-2">)</span></span> <span class="org-ess-XopX">%&gt;%</span> <span class="org-ess-function-call">round</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-2">(</span></span><span class="org-ess-numbers">1</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-2">)</span></span>,
-  wing <span class="org-ess-operator">=</span> <span class="org-ess-function-call">rnorm</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-2">(</span></span><span class="org-ess-numbers">50</span>, <span class="org-ess-numbers">112</span>, <span class="org-ess-numbers">3</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-2">)</span></span> <span class="org-ess-XopX">%&gt;%</span> <span class="org-ess-function-call">round</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-2">(</span></span><span class="org-ess-numbers">0</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-2">)</span></span>
+  mass <span class="org-ess-operator">=</span> <span class="org-ess-function-call">rnorm</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-2">(</span></span><span class="org-ess-numbers">50</span>, <span class="org-ess-numbers">43</span>, <span class="org-ess-numbers">4</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-2">)</span></span> <span class="org-default">%&gt;%</span> <span class="org-ess-function-call">round</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-2">(</span></span><span class="org-ess-numbers">1</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-2">)</span></span>,
+  tarsus <span class="org-ess-operator">=</span> <span class="org-ess-function-call">rnorm</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-2">(</span></span><span class="org-ess-numbers">50</span>, <span class="org-ess-numbers">27</span>, <span class="org-ess-numbers">1</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-2">)</span></span> <span class="org-default">%&gt;%</span> <span class="org-ess-function-call">round</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-2">(</span></span><span class="org-ess-numbers">1</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-2">)</span></span>,
+  wing <span class="org-ess-operator">=</span> <span class="org-ess-function-call">rnorm</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-2">(</span></span><span class="org-ess-numbers">50</span>, <span class="org-ess-numbers">112</span>, <span class="org-ess-numbers">3</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-2">)</span></span> <span class="org-default">%&gt;%</span> <span class="org-ess-function-call">round</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-2">(</span></span><span class="org-ess-numbers">0</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-2">)</span></span>
 <span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-1">)</span></span>
 
 banding
@@ -846,14 +875,14 @@ banding
 </div>
 </div>
 
-<div id="outline-container-org4b33602" class="outline-3">
-<h3 id="org4b33602">Map: apply functions to elements of a list</h3>
-<div class="outline-text-3" id="text-org4b33602">
+<div id="outline-container-org8b2e6fd" class="outline-3">
+<h3 id="org8b2e6fd">Map: apply functions to elements of a list</h3>
+<div class="outline-text-3" id="text-org8b2e6fd">
 <p>
 Imagine that you want to calculate the mean for each of the morphometric measurements (mass, tarsus, and wing).<br />
 </p>
 
-<div class="VERBATIM">
+<div class="vertbar">
 <p>
 How would you usually do this?<br />
 Spend 5 minutes writing code you would usually use.<br />
@@ -866,19 +895,22 @@ To apply functions to elements of a list, you can use <code class="src src-R">ma
 </p>
 </div>
 
-<div id="outline-container-org30b8330" class="outline-4">
-<h4 id="org30b8330">Usage</h4>
-<div class="outline-text-4" id="text-org30b8330">
+<div id="outline-container-org6a23f54" class="outline-4">
+<h4 id="org6a23f54">Usage</h4>
+<div class="outline-text-4" id="text-org6a23f54">
 <div class="org-src-container">
 <pre class="src src-R"><span class="org-ess-function-call">map</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-1">(</span></span>.x, .f, ...<span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-1">)</span></span>
 </pre>
 </div>
 
-<pre class="example">
-.x     a list or atomic vector
-.f     a function, formula, or atomic vector
-...     additional arguments passed to .f
-</pre>
+<div class="definition">
+<p>
+.x     a list or atomic vector<br />
+.f     a function, formula, or atomic vector<br />
+&#x2026;     additional arguments passed to .f<br />
+</p>
+
+</div>
 
 <p>
 For every element of <code class="src src-R">.x</code>, apply <code class="src src-R">.f</code>.<br />
@@ -895,17 +927,17 @@ What we have, in the simplest case, is:<br />
 </div>
 </div>
 
-<div id="outline-container-org79a12b0" class="outline-4">
-<h4 id="org79a12b0">In our example</h4>
-<div class="outline-text-4" id="text-org79a12b0">
-<div class="VERBATIM">
+<div id="outline-container-orgc695cf1" class="outline-4">
+<h4 id="orgc695cf1">In our example</h4>
+<div class="outline-text-4" id="text-orgc695cf1">
+<div class="vertbar">
 <p>
 How could we use <code class="src src-R"><span class="org-ess-function-call">map</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-1">()</span></span></code> to calculate the means of all 3 measurement types?<br />
 </p>
 
 </div>
 
-<div class="RED">
+<div class="red">
 <p>
 A data frame is a list! It is a list of vectors.<br />
 </p>
@@ -947,7 +979,7 @@ or using a pipe<br />
 </p>
 
 <div class="org-src-container">
-<pre class="src src-R">banding<span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-1">[</span></span><span class="org-ess-numbers">4</span>:<span class="org-ess-numbers">6</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-1">]</span></span> <span class="org-ess-XopX">%&gt;%</span> <span class="org-ess-function-call">map</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-1">(</span></span>mean<span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-1">)</span></span>
+<pre class="src src-R">banding<span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-1">[</span></span><span class="org-ess-numbers">4</span>:<span class="org-ess-numbers">6</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-1">]</span></span> <span class="org-default">%&gt;%</span> <span class="org-ess-function-call">map</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-1">(</span></span>mean<span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-1">)</span></span>
 </pre>
 </div>
 </div>
@@ -974,7 +1006,7 @@ or<br />
 </p>
 
 <div class="org-src-container">
-<pre class="src src-R">banding<span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-1">[</span></span><span class="org-ess-numbers">4</span>:<span class="org-ess-numbers">6</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-1">]</span></span> <span class="org-ess-XopX">%&gt;%</span> <span class="org-ess-function-call">map_dbl</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-1">(</span></span>mean<span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-1">)</span></span>
+<pre class="src src-R">banding<span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-1">[</span></span><span class="org-ess-numbers">4</span>:<span class="org-ess-numbers">6</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-1">]</span></span> <span class="org-default">%&gt;%</span> <span class="org-ess-function-call">map_dbl</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-1">(</span></span>mean<span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-1">)</span></span>
 </pre>
 </div>
 </div>
@@ -983,7 +1015,7 @@ or<br />
 Similarly, you can calculate the variance, the sum, look for the largest value, or apply any other function to our data.<br />
 </p>
 
-<div class="VERBATIM">
+<div class="vertbar">
 <p>
 Spend 2 min writing codes for these.<br />
 </p>
@@ -1008,14 +1040,14 @@ Answer<br />
 </div>
 </div>
 
-<div id="outline-container-orgc8aec12" class="outline-4">
-<h4 id="orgc8aec12">Stepping things up</h4>
-<div class="outline-text-4" id="text-orgc8aec12">
+<div id="outline-container-org804775a" class="outline-4">
+<h4 id="org804775a">Stepping things up</h4>
+<div class="outline-text-4" id="text-org804775a">
 <p>
 Now, imagine that you would like to plot the relationship between tarsus and mass for each population.<br />
 </p>
 
-<div class="VERBATIM">
+<div class="vertbar">
 <p>
 How would you usually do that?<br />
 Spend 5 min writing code for this.<br />
@@ -1038,7 +1070,7 @@ You could write a for loop:<br />
 
 <div class="org-src-container">
 <pre class="src src-R"><span class="org-ess-keyword">for</span> <span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-1">(</span></span>i <span class="org-ess-keyword">in</span> <span class="org-ess-function-call">unique</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-2">(</span></span>banding$population<span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-2">)</span></span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-1">)</span></span> <span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-1">{</span></span>
-  <span class="org-ess-function-call">print</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-2">(</span></span><span class="org-ess-function-call">ggplot</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-3">(</span></span>banding <span class="org-ess-XopX">%&gt;%</span> <span class="org-ess-function-call">filter</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-4">(</span></span>population <span class="org-ess-operator">==</span> i<span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-4">)</span></span>,
+  <span class="org-ess-function-call">print</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-2">(</span></span><span class="org-ess-function-call">ggplot</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-3">(</span></span>banding <span class="org-default">%&gt;%</span> <span class="org-ess-function-call">filter</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-4">(</span></span>population <span class="org-ess-operator">==</span> i<span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-4">)</span></span>,
                <span class="org-ess-function-call">aes</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-4">(</span></span>tarsus, mass<span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-4">)</span></span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-3">)</span></span> <span class="org-ess-operator">+</span> <span class="org-ess-function-call">geom_point</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-3">()</span></span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-2">)</span></span>
 <span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-1">}</span></span>
 </pre>
@@ -1049,8 +1081,8 @@ But this is the functional programming method:<br />
 </p>
 
 <div class="org-src-container">
-<pre class="src src-R">banding <span class="org-ess-XopX">%&gt;%</span>
-  <span class="org-ess-function-call">split</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-1">(</span></span>.$population<span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-1">)</span></span> <span class="org-ess-XopX">%&gt;%</span>
+<pre class="src src-R">banding <span class="org-default">%&gt;%</span>
+  <span class="org-ess-function-call">split</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-1">(</span></span>.$population<span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-1">)</span></span> <span class="org-default">%&gt;%</span>
   <span class="org-ess-function-call">map</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-1">(</span></span>~ <span class="org-ess-function-call">ggplot</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-2">(</span></span>., <span class="org-ess-function-call">aes</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-3">(</span></span>tarsus, mass<span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-3">)</span></span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-2">)</span></span> <span class="org-ess-operator">+</span> <span class="org-ess-function-call">geom_point</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-2">()</span></span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-1">)</span></span>
 </pre>
 </div>
@@ -1061,8 +1093,8 @@ Let's save those graphs in a variable called <code class="src src-R">graphs</cod
 
 <div class="org-src-container">
 <pre class="src src-R">graphs <span class="org-ess-assignment">&lt;-</span>
-  banding <span class="org-ess-XopX">%&gt;%</span>
-  <span class="org-ess-function-call">split</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-1">(</span></span>.$population<span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-1">)</span></span> <span class="org-ess-XopX">%&gt;%</span>
+  banding <span class="org-default">%&gt;%</span>
+  <span class="org-ess-function-call">split</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-1">(</span></span>.$population<span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-1">)</span></span> <span class="org-default">%&gt;%</span>
   <span class="org-ess-function-call">map</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-1">(</span></span>~ <span class="org-ess-function-call">ggplot</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-2">(</span></span>., <span class="org-ess-function-call">aes</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-3">(</span></span>tarsus, mass<span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-3">)</span></span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-2">)</span></span> <span class="org-ess-operator">+</span> <span class="org-ess-function-call">geom_point</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-2">()</span></span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-1">)</span></span>
 </pre>
 </div>
@@ -1070,10 +1102,10 @@ Let's save those graphs in a variable called <code class="src src-R">graphs</cod
 </div>
 </div>
 
-<div id="outline-container-orgf2a583b" class="outline-4">
-<h4 id="orgf2a583b">Formulas</h4>
-<div class="outline-text-4" id="text-orgf2a583b">
-<div class="RED">
+<div id="outline-container-org8f490dd" class="outline-4">
+<h4 id="org8f490dd">Formulas</h4>
+<div class="outline-text-4" id="text-org8f490dd">
+<div class="red">
 <p>
 Formulas = a shorter notation for anonymous functions<br />
 </p>
@@ -1081,9 +1113,9 @@ Formulas = a shorter notation for anonymous functions<br />
 </div>
 </div>
 
-<div id="outline-container-org872ee07" class="outline-5">
-<h5 id="org872ee07">With one element</h5>
-<div class="outline-text-5" id="text-org872ee07">
+<div id="outline-container-orga4ff49e" class="outline-5">
+<h5 id="orga4ff49e">With one element</h5>
+<div class="outline-text-5" id="text-orga4ff49e">
 <p>
 The code:<br />
 </p>
@@ -1106,7 +1138,7 @@ which contains the anonymous function <code class="src src-R"><span class="org-e
 This code abbreviation is called a "formula".<br />
 </p>
 
-<div class="VERBATIM">
+<div class="vertbar">
 <p>
 Your turn: write the following anonymous function as a formula.<br />
 </p>
@@ -1134,9 +1166,9 @@ Answer<br />
 </div>
 </div>
 
-<div id="outline-container-org3ccbb99" class="outline-5">
-<h5 id="org3ccbb99">With 2 elements</h5>
-<div class="outline-text-5" id="text-org3ccbb99">
+<div id="outline-container-org7a0acd3" class="outline-5">
+<h5 id="org7a0acd3">With 2 elements</h5>
+<div class="outline-text-5" id="text-org7a0acd3">
 <p>
 The code:<br />
 </p>
@@ -1157,9 +1189,9 @@ can be shortened to:<br />
 </div>
 </div>
 
-<div id="outline-container-org335633c" class="outline-5">
-<h5 id="org335633c">Referring to elements</h5>
-<div class="outline-text-5" id="text-org335633c">
+<div id="outline-container-orgff8be47" class="outline-5">
+<h5 id="orgff8be47">Referring to elements</h5>
+<div class="outline-text-5" id="text-orgff8be47">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -1214,7 +1246,7 @@ can be shortened to:<br />
 etc.<br />
 </p>
 
-<div class="VERBATIM">
+<div class="vertbar">
 <p>
 Your turn: write the following anonymous function as a formula.<br />
 </p>
@@ -1244,9 +1276,9 @@ Answer<br />
 </div>
 </div>
 
-<div id="outline-container-orgb71453e" class="outline-3">
-<h3 id="orgb71453e"><code class="src src-R">map_if</code>/<code class="src src-R">modify_if</code> and <code class="src src-R">map_at</code>/<code class="src src-R">modify_at</code></h3>
-<div class="outline-text-3" id="text-orgb71453e">
+<div id="outline-container-org45a0879" class="outline-3">
+<h3 id="org45a0879"><code class="src src-R">map_if</code>/<code class="src src-R">modify_if</code> and <code class="src src-R">map_at</code>/<code class="src src-R">modify_at</code></h3>
+<div class="outline-text-3" id="text-org45a0879">
 <p>
 We built our data frame with <code class="src src-R"><span class="org-ess-function-call">tibble</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-1">()</span></span></code> which, as is the norm in the <code class="src src-R">tidyverse</code>, does not transform strings into factors:<br />
 </p>
@@ -1257,10 +1289,10 @@ We built our data frame with <code class="src src-R"><span class="org-ess-functi
     bird <span class="org-ess-operator">=</span> <span class="org-ess-function-call">paste0</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-2">(</span></span><span class="org-string">"bird"</span>, <span class="org-ess-numbers">1</span>:<span class="org-ess-numbers">50</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-2">)</span></span>,
     sex <span class="org-ess-operator">=</span> <span class="org-ess-function-call">sample</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-2">(</span></span><span class="org-ess-function-call">c</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-3">(</span></span><span class="org-string">"F"</span>, <span class="org-string">"M"</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-3">)</span></span>, <span class="org-ess-numbers">50</span>, replace <span class="org-ess-operator">=</span> <span class="org-ess-constant">T</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-2">)</span></span>,
     population <span class="org-ess-operator">=</span> <span class="org-ess-function-call">sample</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-2">(</span></span>LETTERS<span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-3">[</span></span><span class="org-ess-numbers">1</span>:<span class="org-ess-numbers">3</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-3">]</span></span>, <span class="org-ess-numbers">50</span>, replace <span class="org-ess-operator">=</span> <span class="org-ess-constant">T</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-2">)</span></span>,
-    mass <span class="org-ess-operator">=</span> <span class="org-ess-function-call">rnorm</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-2">(</span></span><span class="org-ess-numbers">50</span>, <span class="org-ess-numbers">43</span>, <span class="org-ess-numbers">4</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-2">)</span></span> <span class="org-ess-XopX">%&gt;%</span> <span class="org-ess-function-call">round</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-2">(</span></span><span class="org-ess-numbers">1</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-2">)</span></span>,
-    tarsus <span class="org-ess-operator">=</span> <span class="org-ess-function-call">rnorm</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-2">(</span></span><span class="org-ess-numbers">50</span>, <span class="org-ess-numbers">27</span>, <span class="org-ess-numbers">1</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-2">)</span></span> <span class="org-ess-XopX">%&gt;%</span> <span class="org-ess-function-call">round</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-2">(</span></span><span class="org-ess-numbers">1</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-2">)</span></span>,
-    wing <span class="org-ess-operator">=</span> <span class="org-ess-function-call">rnorm</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-2">(</span></span><span class="org-ess-numbers">50</span>, <span class="org-ess-numbers">112</span>, <span class="org-ess-numbers">3</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-2">)</span></span> <span class="org-ess-XopX">%&gt;%</span> <span class="org-ess-function-call">round</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-2">(</span></span><span class="org-ess-numbers">0</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-2">)</span></span>
-  <span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-1">)</span></span> <span class="org-ess-XopX">%T&gt;%</span> 
+    mass <span class="org-ess-operator">=</span> <span class="org-ess-function-call">rnorm</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-2">(</span></span><span class="org-ess-numbers">50</span>, <span class="org-ess-numbers">43</span>, <span class="org-ess-numbers">4</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-2">)</span></span> <span class="org-default">%&gt;%</span> <span class="org-ess-function-call">round</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-2">(</span></span><span class="org-ess-numbers">1</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-2">)</span></span>,
+    tarsus <span class="org-ess-operator">=</span> <span class="org-ess-function-call">rnorm</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-2">(</span></span><span class="org-ess-numbers">50</span>, <span class="org-ess-numbers">27</span>, <span class="org-ess-numbers">1</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-2">)</span></span> <span class="org-default">%&gt;%</span> <span class="org-ess-function-call">round</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-2">(</span></span><span class="org-ess-numbers">1</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-2">)</span></span>,
+    wing <span class="org-ess-operator">=</span> <span class="org-ess-function-call">rnorm</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-2">(</span></span><span class="org-ess-numbers">50</span>, <span class="org-ess-numbers">112</span>, <span class="org-ess-numbers">3</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-2">)</span></span> <span class="org-default">%&gt;%</span> <span class="org-ess-function-call">round</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-2">(</span></span><span class="org-ess-numbers">0</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-2">)</span></span>
+  <span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-1">)</span></span> <span class="org-default">%T&gt;%</span> 
   <span class="org-ess-function-call">str</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-1">()</span></span>
 </pre>
 </div>
@@ -1279,15 +1311,15 @@ Let's build the same data with the base R function <code class="src src-R"><span
     bird <span class="org-ess-operator">=</span> <span class="org-ess-function-call">paste0</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-2">(</span></span><span class="org-string">"bird"</span>, <span class="org-ess-numbers">1</span>:<span class="org-ess-numbers">50</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-2">)</span></span>,
     sex <span class="org-ess-operator">=</span> <span class="org-ess-function-call">sample</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-2">(</span></span><span class="org-ess-function-call">c</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-3">(</span></span><span class="org-string">"F"</span>, <span class="org-string">"M"</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-3">)</span></span>, <span class="org-ess-numbers">50</span>, replace <span class="org-ess-operator">=</span> <span class="org-ess-constant">T</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-2">)</span></span>,
     population <span class="org-ess-operator">=</span> <span class="org-ess-function-call">sample</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-2">(</span></span>LETTERS<span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-3">[</span></span><span class="org-ess-numbers">1</span>:<span class="org-ess-numbers">3</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-3">]</span></span>, <span class="org-ess-numbers">50</span>, replace <span class="org-ess-operator">=</span> <span class="org-ess-constant">T</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-2">)</span></span>,
-    mass <span class="org-ess-operator">=</span> <span class="org-ess-function-call">rnorm</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-2">(</span></span><span class="org-ess-numbers">50</span>, <span class="org-ess-numbers">43</span>, <span class="org-ess-numbers">4</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-2">)</span></span> <span class="org-ess-XopX">%&gt;%</span> <span class="org-ess-function-call">round</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-2">(</span></span><span class="org-ess-numbers">1</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-2">)</span></span>,
-    tarsus <span class="org-ess-operator">=</span> <span class="org-ess-function-call">rnorm</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-2">(</span></span><span class="org-ess-numbers">50</span>, <span class="org-ess-numbers">27</span>, <span class="org-ess-numbers">1</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-2">)</span></span> <span class="org-ess-XopX">%&gt;%</span> <span class="org-ess-function-call">round</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-2">(</span></span><span class="org-ess-numbers">1</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-2">)</span></span>,
-    wing <span class="org-ess-operator">=</span> <span class="org-ess-function-call">rnorm</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-2">(</span></span><span class="org-ess-numbers">50</span>, <span class="org-ess-numbers">112</span>, <span class="org-ess-numbers">3</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-2">)</span></span> <span class="org-ess-XopX">%&gt;%</span> <span class="org-ess-function-call">round</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-2">(</span></span><span class="org-ess-numbers">0</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-2">)</span></span>
-  <span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-1">)</span></span> <span class="org-ess-XopX">%T&gt;%</span> 
+    mass <span class="org-ess-operator">=</span> <span class="org-ess-function-call">rnorm</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-2">(</span></span><span class="org-ess-numbers">50</span>, <span class="org-ess-numbers">43</span>, <span class="org-ess-numbers">4</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-2">)</span></span> <span class="org-default">%&gt;%</span> <span class="org-ess-function-call">round</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-2">(</span></span><span class="org-ess-numbers">1</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-2">)</span></span>,
+    tarsus <span class="org-ess-operator">=</span> <span class="org-ess-function-call">rnorm</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-2">(</span></span><span class="org-ess-numbers">50</span>, <span class="org-ess-numbers">27</span>, <span class="org-ess-numbers">1</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-2">)</span></span> <span class="org-default">%&gt;%</span> <span class="org-ess-function-call">round</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-2">(</span></span><span class="org-ess-numbers">1</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-2">)</span></span>,
+    wing <span class="org-ess-operator">=</span> <span class="org-ess-function-call">rnorm</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-2">(</span></span><span class="org-ess-numbers">50</span>, <span class="org-ess-numbers">112</span>, <span class="org-ess-numbers">3</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-2">)</span></span> <span class="org-default">%&gt;%</span> <span class="org-ess-function-call">round</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-2">(</span></span><span class="org-ess-numbers">0</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-2">)</span></span>
+  <span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-1">)</span></span> <span class="org-default">%T&gt;%</span> 
   <span class="org-ess-function-call">str</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-1">()</span></span>
 </pre>
 </div>
 
-<div class="RED">
+<div class="red">
 <p>
 The reason several base R functions transform strings into factors is historic. This used to be essential to save space. But this is not relevant anymore and has become somewhat of an annoyance.<br />
 </p>
@@ -1298,7 +1330,7 @@ The reason several base R functions transform strings into factors is historic. 
 If you have such a data frame, you may wish to transform the factors into characters.<br />
 </p>
 
-<div class="VERBATIM">
+<div class="vertbar">
 <p>
 How can you do this?<br />
 </p>
@@ -1310,8 +1342,8 @@ How can you do this?<br />
 </p>
 
 <div class="org-src-container">
-<pre class="src src-R">banding <span class="org-ess-XopX">%&gt;%</span>
-  <span class="org-ess-function-call">map_if</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-1">(</span></span>is.factor, as.character<span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-1">)</span></span> <span class="org-ess-XopX">%T&gt;%</span> 
+<pre class="src src-R">banding <span class="org-default">%&gt;%</span>
+  <span class="org-ess-function-call">map_if</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-1">(</span></span>is.factor, as.character<span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-1">)</span></span> <span class="org-default">%T&gt;%</span> 
   <span class="org-ess-function-call">str</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-1">()</span></span>
 </pre>
 </div>
@@ -1326,25 +1358,25 @@ However, <code class="src src-R">map_if</code> and <code class="src src-R">map_a
     bird <span class="org-ess-operator">=</span> <span class="org-ess-function-call">paste0</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-2">(</span></span><span class="org-string">"bird"</span>, <span class="org-ess-numbers">1</span>:<span class="org-ess-numbers">50</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-2">)</span></span>,
     sex <span class="org-ess-operator">=</span> <span class="org-ess-function-call">sample</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-2">(</span></span><span class="org-ess-function-call">c</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-3">(</span></span><span class="org-string">"F"</span>, <span class="org-string">"M"</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-3">)</span></span>, <span class="org-ess-numbers">50</span>, replace <span class="org-ess-operator">=</span> <span class="org-ess-constant">T</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-2">)</span></span>,
     population <span class="org-ess-operator">=</span> <span class="org-ess-function-call">sample</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-2">(</span></span>LETTERS<span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-3">[</span></span><span class="org-ess-numbers">1</span>:<span class="org-ess-numbers">3</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-3">]</span></span>, <span class="org-ess-numbers">50</span>, replace <span class="org-ess-operator">=</span> <span class="org-ess-constant">T</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-2">)</span></span>,
-    mass <span class="org-ess-operator">=</span> <span class="org-ess-function-call">rnorm</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-2">(</span></span><span class="org-ess-numbers">50</span>, <span class="org-ess-numbers">43</span>, <span class="org-ess-numbers">4</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-2">)</span></span> <span class="org-ess-XopX">%&gt;%</span> <span class="org-ess-function-call">round</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-2">(</span></span><span class="org-ess-numbers">1</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-2">)</span></span>,
-    tarsus <span class="org-ess-operator">=</span> <span class="org-ess-function-call">rnorm</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-2">(</span></span><span class="org-ess-numbers">50</span>, <span class="org-ess-numbers">27</span>, <span class="org-ess-numbers">1</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-2">)</span></span> <span class="org-ess-XopX">%&gt;%</span> <span class="org-ess-function-call">round</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-2">(</span></span><span class="org-ess-numbers">1</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-2">)</span></span>,
-    wing <span class="org-ess-operator">=</span> <span class="org-ess-function-call">rnorm</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-2">(</span></span><span class="org-ess-numbers">50</span>, <span class="org-ess-numbers">112</span>, <span class="org-ess-numbers">3</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-2">)</span></span> <span class="org-ess-XopX">%&gt;%</span> <span class="org-ess-function-call">round</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-2">(</span></span><span class="org-ess-numbers">0</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-2">)</span></span>
+    mass <span class="org-ess-operator">=</span> <span class="org-ess-function-call">rnorm</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-2">(</span></span><span class="org-ess-numbers">50</span>, <span class="org-ess-numbers">43</span>, <span class="org-ess-numbers">4</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-2">)</span></span> <span class="org-default">%&gt;%</span> <span class="org-ess-function-call">round</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-2">(</span></span><span class="org-ess-numbers">1</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-2">)</span></span>,
+    tarsus <span class="org-ess-operator">=</span> <span class="org-ess-function-call">rnorm</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-2">(</span></span><span class="org-ess-numbers">50</span>, <span class="org-ess-numbers">27</span>, <span class="org-ess-numbers">1</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-2">)</span></span> <span class="org-default">%&gt;%</span> <span class="org-ess-function-call">round</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-2">(</span></span><span class="org-ess-numbers">1</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-2">)</span></span>,
+    wing <span class="org-ess-operator">=</span> <span class="org-ess-function-call">rnorm</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-2">(</span></span><span class="org-ess-numbers">50</span>, <span class="org-ess-numbers">112</span>, <span class="org-ess-numbers">3</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-2">)</span></span> <span class="org-default">%&gt;%</span> <span class="org-ess-function-call">round</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-2">(</span></span><span class="org-ess-numbers">0</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-2">)</span></span>
   <span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-1">)</span></span>
 
-banding <span class="org-ess-XopX">%&gt;%</span>
-  <span class="org-ess-function-call">modify_if</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-1">(</span></span>is.factor, as.character<span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-1">)</span></span> <span class="org-ess-XopX">%&gt;%</span>
-  <span class="org-ess-function-call">head</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-1">()</span></span> <span class="org-ess-XopX">%T&gt;%</span> 
+banding <span class="org-default">%&gt;%</span>
+  <span class="org-ess-function-call">modify_if</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-1">(</span></span>is.factor, as.character<span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-1">)</span></span> <span class="org-default">%&gt;%</span>
+  <span class="org-ess-function-call">head</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-1">()</span></span> <span class="org-default">%T&gt;%</span> 
   <span class="org-ess-function-call">str</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-1">()</span></span>
 </pre>
 </div>
 
-<div class="RED">
+<div class="red">
 <p>
 This could also be accomplished with <code class="src src-R"><span class="org-ess-function-call">mutate_if</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-1">()</span></span></code>:<br />
 </p>
 
 <div class="org-src-container">
-<pre class="src src-R">banding <span class="org-ess-XopX">%&gt;%</span> <span class="org-ess-function-call">mutate_if</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-1">(</span></span>is.factor, as.character<span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-1">)</span></span>
+<pre class="src src-R">banding <span class="org-default">%&gt;%</span> <span class="org-ess-function-call">mutate_if</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-1">(</span></span>is.factor, as.character<span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-1">)</span></span>
 </pre>
 </div>
 
@@ -1355,9 +1387,9 @@ But the <code class="src src-R"><span class="org-ess-function-call">map</span><s
 </div>
 </div>
 
-<div id="outline-container-orgd917cfa" class="outline-4">
-<h4 id="orgd917cfa">Usage</h4>
-<div class="outline-text-4" id="text-orgd917cfa">
+<div id="outline-container-org57fd1c6" class="outline-4">
+<h4 id="org57fd1c6">Usage</h4>
+<div class="outline-text-4" id="text-org57fd1c6">
 <div class="org-src-container">
 <pre class="src src-R"><span class="org-ess-function-call">modify</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-1">(</span></span>.x, .f, ...<span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-1">)</span></span>
 <span class="org-ess-function-call">modify_if</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-1">(</span></span>.x, .p, .f, ...<span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-1">)</span></span>
@@ -1365,15 +1397,18 @@ But the <code class="src src-R"><span class="org-ess-function-call">map</span><s
 </pre>
 </div>
 
-<pre class="example">
-.x     a list or atomic vector
-.f     a function, formula, or atomic vector
-...    additional arguments passed to .f
-.p     a predicate function.
-       Only the elements for which .p evaluates to TRUE will be modified
-.at    a character vector of names or a numeric vector of positions.
-       Only the elements corresponding to .at will be modified
-</pre>
+<div class="definition">
+<p>
+.x     a list or atomic vector<br />
+.f     a function, formula, or atomic vector<br />
+&#x2026;    additional arguments passed to .f<br />
+.p     a predicate function.<br />
+       Only the elements for which .p evaluates to TRUE will be modified<br />
+.at    a character vector of names or a numeric vector of positions.<br />
+       Only the elements corresponding to .at will be modified<br />
+</p>
+
+</div>
 
 <p>
 For every element of <code class="src src-R">.x</code>, apply <code class="src src-R">.f</code>, and return a modified version of <code class="src src-R">.x</code>.<br />
@@ -1391,14 +1426,14 @@ So basically, in its simplest form, we have:<br />
 </div>
 </div>
 
-<div id="outline-container-org5888bcd" class="outline-3">
-<h3 id="org5888bcd">Walk: apply side effects to elements of a list</h3>
-<div class="outline-text-3" id="text-org5888bcd">
+<div id="outline-container-org3f87b1d" class="outline-3">
+<h3 id="org3f87b1d">Walk: apply side effects to elements of a list</h3>
+<div class="outline-text-3" id="text-org3f87b1d">
 <p>
 Now, we want to save the 3 graphs we previously drew into 3 files.<br />
 </p>
 
-<div class="VERBATIM">
+<div class="vertbar">
 <p>
 How would you do this?<br />
 Spend 5 minutes writing code you would usually use.<br />
@@ -1411,25 +1446,28 @@ To apply side effects to elements of a list, we use the <code class="src src-R">
 </p>
 </div>
 
-<div id="outline-container-org9aa733e" class="outline-4">
-<h4 id="org9aa733e">Usage</h4>
-<div class="outline-text-4" id="text-org9aa733e">
+<div id="outline-container-orgb962067" class="outline-4">
+<h4 id="orgb962067">Usage</h4>
+<div class="outline-text-4" id="text-orgb962067">
 <div class="org-src-container">
 <pre class="src src-R"><span class="org-ess-function-call">walk</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-1">(</span></span>.x, .f, ...<span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-1">)</span></span>
 </pre>
 </div>
 
-<pre class="example">
-.x     a list or atomic vector
-.f     a function, formula, or atomic vector
-...     additional arguments passed to .f
-</pre>
+<div class="definition">
+<p>
+.x     a list or atomic vector<br />
+.f     a function, formula, or atomic vector<br />
+&#x2026;     additional arguments passed to .f<br />
+</p>
+
+</div>
 </div>
 </div>
 
-<div id="outline-container-orgc4080a0" class="outline-4">
-<h4 id="orgc4080a0">Apply to our example</h4>
-<div class="outline-text-4" id="text-orgc4080a0">
+<div id="outline-container-org388b2c3" class="outline-4">
+<h4 id="org388b2c3">Apply to our example</h4>
+<div class="outline-text-4" id="text-org388b2c3">
 <p>
 We already have a list of graphs: <code class="src src-R">graphs</code>. Now, we can create a list of paths where we want to save them:<br />
 </p>
@@ -1456,14 +1494,17 @@ Here is how <code class="src src-R">walk2</code> works (it is the same for <code
 </pre>
 </div>
 
-<pre class="example">
-.x, .y   vectors of the same length.
-         A vector of length 1 will be recycled.
-.f       a function, formula, or atomic vector
-...       additional arguments passed to .f
-</pre>
+<div class="definition">
+<p>
+.x, .y   vectors of the same length.<br />
+         A vector of length 1 will be recycled.<br />
+.f       a function, formula, or atomic vector<br />
+&#x2026;       additional arguments passed to .f<br />
+</p>
 
-<div class="VERBATIM">
+</div>
+
+<div class="vertbar">
 <p>
 Give it a try:<br />
 use <code class="src src-R">walk2</code> to save the elements of <code class="src src-R">graphs</code> into the elements of <code class="src src-R">paths</code> using <code class="src src-R">ggsave</code>.<br />
@@ -1490,9 +1531,9 @@ Answer<br />
 </div>
 </div>
 
-<div id="outline-container-orgb568142" class="outline-2">
-<h2 id="orgb568142">Summary of the map and walk functions family</h2>
-<div class="outline-text-2" id="text-orgb568142">
+<div id="outline-container-orgeb9a9fc" class="outline-2">
+<h2 id="orgeb9a9fc">Summary of the map and walk functions family</h2>
+<div class="outline-text-2" id="text-orgeb9a9fc">
 <p>
 We will use different <code class="src src-R">map</code> (or <code class="src src-R">walk</code>, if we want the side effects) function depending on:<br />
 </p>
@@ -1695,9 +1736,9 @@ Results are returned predictably and consistently, which is <a href="https://blo
 </div>
 </div>
 
-<div id="outline-container-org828ca11" class="outline-2">
-<h2 id="org828ca11">Conclusion</h2>
-<div class="outline-text-2" id="text-org828ca11">
+<div id="outline-container-org48196c6" class="outline-2">
+<h2 id="org48196c6">Conclusion</h2>
+<div class="outline-text-2" id="text-org48196c6">
 <p>
 These are some of the most important <code class="src src-R">purrr</code> functions. But there are many others and I encourage you to explore them by yourself.<br />
 </p>
@@ -1720,6 +1761,9 @@ Have fun!!!<br />
 <script>; var acc = document.getElementsByClassName("accordion"); var i; for (i = 0; i < acc.length; i++) {; acc[i].addEventListener("click", function() {; this.classList.toggle("active"); var panel = this.nextElementSibling; if (panel.style.maxHeight){; panel.style.maxHeight = null; } else {; panel.style.maxHeight = panel.scrollHeight + "px"; }; }); }; </script>
 </div>
 </div>
+</div>
+<div id="postamble" class="status">
+<span style="color:#596a73;font-size:14px"><div align="right">Last updated: October 06, 2018</div></span>
 </div>
 </body>
 </html>
