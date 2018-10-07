@@ -41,6 +41,24 @@ x %>% mean()
 #+END_SRC
 
 
+As for the pipes, of course, you don't have to use them. It is funny that you find it hard to wrap your head around it as it is supposed to be much more intuitive in that it uses the way we (humans) think.
+
+I do that, THEN (with the output) I do this, THEN (with the new output) I do something else will be:
+
+I do that %>%
+I do this %>%
+I do something else
+
+It makes pipelines linear and very easy to read, one step at a time.
+
+While the classic way of writing functions would look like:
+
+I do something else(I do this(I do that))).
+
+So, with your long-term habits, it might be puzzling. But for a beginner, it is a lot easier to get where you want one step at a time in a linear and human readable way.
+
+
+
 
 In the [[https://prosoitos.github.io/r_resources/functional-programming_with-answers][functional programming]] section, we used some fake bird banding data created by this code:
 
@@ -57,7 +75,7 @@ banding <-
   str()
 #+END_SRC
 
-* %<>%
+* %<>% (compound assignment pipe-operator)
 
 src_R[:eval no]{%<>%} pipes the left expression to the right, and then back to the left. Instead of an arrow going right (as the main pipe is), think of it as an arrow going from left to right and then back left.
 
@@ -81,7 +99,7 @@ banding <-
   modify_if(is.factor, as.character)
 #+END_SRC
 
-* %T%
+* %T% (tee operator)
 
 src_R[:eval no]{%T%} pipes the effect of the left expression to the right, but does not pipe the object itself (so the object is "free" to be used by another pipe). This is very useful when you want to produce to output from one object or produce a side effect (e.g. printing) without interrupting a pipeline. I like to think of the "T" as a branching which represents the 2 outputs produced by a single object.
 
@@ -95,5 +113,5 @@ Can you explain it?
 src_R[:eval no]{magrittr} has other pipes and [[https://github.com/tidyverse/magrittr][you should explore them at your own time]]!
 #+END_RED
 
-* %$%
+* %$% (exposition pipe-operator)
 
