@@ -20,57 +20,52 @@
 library(magrittr)
 #+END_SRC
 
-* %>%
+* %>% (forward-pipe operator)
 
-src_R[:eval no]{%>%}, or "forward-pipe operator", is the default R pipe. Several src_R[:eval no]{tidyverse} packages include it, which is why, even though src_R[:eval no]{magrittr} is not one of the core packages, you do not have to load src_R[:eval no]{magrittr} to use it in src_R[:eval no]{dplyr}, src_R[:eval no]{tidyr}, src_R[:eval no]{forcats}, src_R[:eval no]{rvest}, src_R[:eval no]{stringr}, src_R[:eval no]{purrr}, or src_R[:eval no]{modelr}.
+src_R[:eval no]{%>%} is the default pipe in R, equivalent to the pipe represented by src_R[:eval no]{|} in other languages. Several src_R[:eval no]{tidyverse} packages (e.g. src_R[:eval no]{dplyr}, src_R[:eval no]{tidyr}, src_R[:eval no]{forcats}, src_R[:eval no]{rvest}, src_R[:eval no]{stringr}, src_R[:eval no]{purrr}, or src_R[:eval no]{modelr}) include it, which is why you do not have to load src_R[:eval no]{magrittr} to use it.
 
-src_R[:eval no]{%>%} represents an arrow going right and pipes the left expression to the right.
+src_R[:eval no]{%>%} (an arrow pointing to the right) passes the left-hand side expression to the right-hand side one, allowing for the creating of pipelines, or chains of actions applied to an object. It also makes for more human readable code since you read it from left to right and from top to bottom.
 
-In R, the object on which a function is applied often is the first argument of that function.
+For instance, "I do this, THEN (with the output) I do that, THEN (with the new output) I do something else" can be represented as:
+
+#+BEGIN_example
+I do this %>%
+I do that %>%
+I do something else
+#+END_example
+
+While the classic way of writing functions would look like:
+
+#+BEGIN_example
+I do something else(I do that(I do this))
+#+END_example
+
+You have to read such nested functions from the inside out and from the bottom right to the top left.
+
+** Examples
 
 For instance, to get the mean of an object src_R[:eval no]{x}, we apply the function src_R[:eval no]{mean()} on it this way:
 
 #+BEGIN_SRC R
 x <- 1:10
-#+END_SRC
 
-#+BEGIN_SRC R
+## classic way
 mean(x)
-#+END_SRC
 
-#+BEGIN_SRC R
+## with the pipe
 x %>% mean()
 #+END_SRC
 
+In such a situation, the advantages of the pipes are not obvious.
 
-I do that, THEN (with the output) I do this, THEN (with the new output) I do something else will be:
+But now, consider this:
 
-I do that %>%
-I do this %>%
-I do something else
+#+BEGIN_src R
 
-It makes pipelines linear and very easy to read, one step at a time.
-
-While the classic way of writing functions would look like:
-
-I do something else(I do this(I do that))).
+#+END_src
 
 
 
-In the [[https://prosoitos.github.io/r_resources/functional-programming_with-answers][functional programming]] section, we used some fake bird banding data created by this code:
-
-#+BEGIN_SRC R
-banding <-
-  tibble(
-    bird = paste0("bird", 1:50),
-    sex = sample(c("F", "M"), 50, replace = T),
-    population = sample(LETTERS[1:3], 50, replace = T),
-    mass = rnorm(50, 43, 4) %>% round(1),
-    tarsus = rnorm(50, 27, 1) %>% round(1),
-    wing = rnorm(50, 112, 3) %>% round(0)
-  ) %T>% 
-  str()
-#+END_SRC
 
 * %<>% (compound assignment pipe-operator)
 
@@ -100,15 +95,25 @@ banding <-
 
 src_R[:eval no]{%T%} pipes the effect of the left expression to the right, but does not pipe the object itself (so the object is "free" to be used by another pipe). This is very useful when you want to produce to output from one object or produce a side effect (e.g. printing) without interrupting a pipeline. I like to think of the "T" as a branching which represents the 2 outputs produced by a single object.
 
+In the [[https://prosoitos.github.io/r_resources/functional-programming_with-answers][functional programming]] section, we used some fake bird banding data created by this code:
+
+#+BEGIN_SRC R
+banding <-
+  tibble(
+    bird = paste0("bird", 1:50),
+    sex = sample(c("F", "M"), 50, replace = T),
+    population = sample(LETTERS[1:3], 50, replace = T),
+    mass = rnorm(50, 43, 4) %>% round(1),
+    tarsus = rnorm(50, 27, 1) %>% round(1),
+    wing = rnorm(50, 112, 3) %>% round(0)
+  ) %T>% 
+  str()
+#+END_SRC
+
 #+BEGIN_vertbar
-Try replacing src_R[:eval no]{%T%} with the regular pipe src_R[:eval no]{%>%} in our code at the top of this page.
-What happens?
+Try replacing src_R[:eval no]{%T%} with the forward pipe (src_R[:eval no]{%>%}) in this code and see what happens.
 Can you explain it?
 #+END_vertbar
-
-#+BEGIN_red
-src_R[:eval no]{magrittr} has other pipes and [[https://github.com/tidyverse/magrittr][you should explore them at your own time]]!
-#+END_red
 
 * %$% (exposition pipe-operator)
 
