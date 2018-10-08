@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2018-08-31 Fri 13:49 -->
+<!-- 2018-10-08 Mon 13:17 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Magrittr less used "piping" treasures</title>
@@ -208,7 +208,7 @@
     line-height: 25px;
   }
   h5 {
-    line-height: 20px;    
+    line-height: 25px;    
   }
   h6 {
     line-height: 15px;
@@ -230,56 +230,38 @@
     padding: 1em;
   } 
   a {
-    color: #b58900;
+    color: #db4000;
+    text-decoration: none;
   }
   a:visited {
-    color: #cb4b16;
+    color: #8a5640;
   }
   a:hover {
-    color: #e65719;
+    background-color: #fbc7b1;
+    color: #211d1b;
   }
   h1 {
     color: #890c0c;
   }
   h2 {
-    color: #19334d;
+    color: #9c4949;
   }
   h3 {
-    color: #336699;
+    color: #19334d;
   }
   h4 {
-    color: #6699cc;
+    color: #3c80c3;
   }
   h5 {
-    color: #666666;
+    color: #262626;
   }
   h6 {
-    color: #808080;
+    color: #4d4d4d;
   }
-  pre[class="src src-R"] {	/*for blocks src R*/
-    background-color: #f1f1f1;
-    color: #262626;
-    padding: 0.8em;
-    font-size: 95%;
-    line-height: 22px;
-    border: 0.5pt solid #d9d9d9;
-    border-radius: 5px;
-    box-shadow: 0pt 0pt 0pt #eee8d5;
-  }
-  pre[class="src src-sh"] {	/*for blocks src sh*/
-    background-color: #f1f1f1;
-    color: #262626;
-    padding: 0.8em;
-    font-size: 95%;
-    line-height: 22px;
-    border: 0.5pt solid #d9d9d9;
-    border-radius: 5px;
-    box-shadow: 0pt 0pt 0pt #eee8d5;
-  }
-  .accordion {			/*for the button of the box that can hide/appear*/
+  .accordion {			/*button of the accordeon box*/
     background-color: #c2d6d6;
     color: #262626;
-    padding: 0 0.8em;
+    padding: 0em 0.8em;
     font-size: 95%;
     line-height: 22px;
     border: 0.5pt solid #b3cccc;
@@ -289,12 +271,12 @@
     cursor: pointer;
     outline: none;
   }
-  .active, .accordion:hover {	/*for the button of the box while hover*/
+  .active, .accordion:hover {	/*button of the accordeon box while hover*/
     background-color: #94b8b8;
     border: 0.5pt solid #85adad;
     /* color: white; */
   }
-  .panel {			/*for the box that can hide/appear*/
+  .panel {			/*accordeon box*/
     padding: 0em 1em;
     margin: 0.7em 0 0 0;
     background-color: #c2d6d6;
@@ -304,17 +286,17 @@
     overflow: hidden;
     transition: max-height 0.2s ease-out;
   }
-  code {			/*for inline code*/
+  code {			/*inline code*/
     background-color: #f1f1f1;
     color: #262626;
-    padding: 0em 0.2em 0em 0.2em;
+    padding: 0em 0.2em;
     font-size: 95%;
     line-height: 22px;
     border: 0.5pt solid #e6e6e6;
     border-radius: 3px;
     box-shadow: 0pt 0pt 0pt #eee8d5;
   }
-  blockquote {			/*for block quote*/
+  blockquote {			/*quote*/
     /* font: 14px/22px normal helvetica, sans-serif; /\*original line*\/ */
     line-height: 22px;
     font-style: italic;
@@ -322,55 +304,105 @@
     padding-left: 15px;
     border-left: 3px solid #ccc;
   }
-  pre[class="example"] {	/*for block example*/
+  pre[class="src src-R"] {	/*src r*/
+    background-color: #f1f1f1;
+    color: #262626;
+    padding: 0.4em 0.8em;
+    font-size: 95%;
+    line-height: 22px;
+    border: 0.5pt solid #d9d9d9;
+    border-radius: 5px;
+    box-shadow: 0pt 0pt 0pt #eee8d5;
+  }
+  pre[class="src src-sh"] {	/*src sh*/
+    background-color: #f1f1f1;
+    color: #262626;
+    padding: 0.4em 0.8em;
+    font-size: 95%;
+    line-height: 22px;
+    border: 0.5pt solid #d9d9d9;
+    border-radius: 5px;
+    box-shadow: 0pt 0pt 0pt #eee8d5;
+  }
+  pre[class="src src-tex"] {	/*src latex*/
+    background-color: #f1f1f1;
+    color: #262626;
+    padding: 0.4em 0.8em;
+    font-size: 95%;
+    line-height: 22px;
+    border: 0.5pt solid #d9d9d9;
+    border-radius: 5px;
+    box-shadow: 0pt 0pt 0pt #eee8d5;
+  }
+  pre[class="src src-html"] {	/*src html*/
+    background-color: #f1f1f1;
+    color: #262626;
+    padding: 0.4em 0.8em;
+    font-size: 95%;
+    line-height: 22px;
+    border: 0.5pt solid #d9d9d9;
+    border-radius: 5px;
+    box-shadow: 0pt 0pt 0pt #eee8d5;
+  }
+  div[class="box"] {	/*mono font framed by subtle gray border*/
+    padding: 0em 0.8em;
+    line-height: 22px;
+    border: 0.5pt solid #d9d9d9;
+    border-radius: 5px;
+    box-shadow: 0pt 0pt 0pt #eee8d5;
+  }
+  div[class="definition"] {	/*small font in dull gray box*/
     background-color: #f0efe7;
     font-family: 'Rokkitt';
     width: max-content;
     color: #3e3e3e;
-    padding: 0.6em 0.8em 0.6em 0.8em;
+    /* padding: 0.6em 0.8em 0.6em 0.8em; */
+    padding: 0em 0.8em;
     /* font-size: 95%; */
     line-height: 22px;
     border: 0.5pt solid #ebeae0;
     border-radius: 5px;
     box-shadow: 0pt 0pts 0pt #eee8d5;
   }
-  p[class="verse"] {		/*for block verse*/
+  p[class="verse"] {		/*verse*/
     color: #262626;
     font-family: 'IM Fell English';
     font-size: 110%;
     font-style: italic;
-    /* margin-left: 30px;		/\*keep this line to have the verses indented*\/ */
+    margin-left: 30px;		/*keep this line to have the verses indented*/
     line-height: 25px;
   }
-  div[class="org-center"] {	/*for block center*/
+  div[class="org-center"] {	/*center*/
     margin: auto;
     line-height: 22px;
     width: max-content;
   }
-  div[class="right"] {	/*for block right-aligned*/
+  div[class="right"] {	/*right-aligned*/
     text-align: right;
     line-height: 22px;
   }
-  div[class="HAND"] {		/*for block with handwriting font*/
+  div[class="handwriting"] {		/*handwriting font*/
     font-family: 'Montez';
     line-height: 26px;
     font-size: 130%;
   }
-  div[class="MONO"] {	/*for block with monospace font*/
-    /* font-family: 'Anonymous Pro'; */
-    font-family: 'Roboto Slab Thin';
+  div[class="monofont"] {	/*monospace font*/
     margin: auto;
     width: max-content;
+    /* font-family: 'anonymous pro'; */
+    font-family: 'Slabo';
+    width: max-content;
     color: #000000;
-    padding: 0.3 0.8em 0.3 0.8em;
+    /* padding: 0.3 0.8em 0.3 0.8em; */
+    padding: 0em 0.8em;
     font-size: 95%;
     line-height: 20px;
     /* margin: 0 0 0 5px; */
-    /* border: 0.5pt solid #d9d9d9; */
-    /* border-radius: 5px; */
+    border: 0.5pt solid #999999;
+    border-radius: 5px;
     /* font-size: 95%; */
   }
-  div[class="RED"] {	/*for block with monospace font*/
+  div[class="red"] {	/*with monospace font*/
     /* font-family: 'Anonymous Pro'; */
     /* font-family: 'Roboto Slab Thin'; */
     /* margin: auto; */
@@ -395,14 +427,14 @@
     /* transition: max-height 0.2s ease-out; */
     /* background-color: #f1f1f1; */
     color: #262626;
-    /* padding: 0.8em; */
+    /* padding: 0.4em 0.8em; */
     font-size: 92%;
     /* line-height: 22px; */
     /* border: 0.5pt solid #d9d9d9; */
     border-radius: 5px;
     box-shadow: 0pt 0pt 0pt #eee8d5;
   }
-  div[class="VERBATIM"] {	/*for block verbatim*/
+  div[class="vertbar"] {	/*vertical-bar and big margin for questions or emphasis*/
     /* background-color: #f4faff; */
     line-height: 27px;
     font-family: 'Linden Hill';
@@ -414,16 +446,18 @@
     color: #303b52;
     padding: 0 0 0 15px;
     border-left: 0.5px solid #425170;
-    width: max-content;
+    width: max-content;    
   }
-  div[class="EMPHASIS"] {	/*for block verbatim*/
+  div[class="emphasis"] {
     line-height: 27px;
+    font-family: 'Montserrat';
     /* font-weight: bold; */
-    margin: 45px 0px 45px 150px;
+    margin: 30px 100px;
     /* padding-left: 10px; */
     /* border-left: 3px solid #890c0c; */
-    font-size: 135%;
-    color: #7c6262;
+    /* font-size: 135%; */
+    /* color: #8f7070; */
+    color: #911808;
   }
   .org-ess-numbers {
     color: #e28200; 
@@ -454,23 +488,23 @@
     color: #0b5e56;
   }  
   h1 {
-    font-size: 2.2em;
+    font-size: 2.1em;
     text-align: center;
   }
   h2 {
     font-size: 1.6em;
   }
   h3 {
-    font-size: 1.5em;
-  }
-  h4 {
     font-size: 1.4em;
   }
+  h4 {
+    font-size: 1.2em;
+  }
   h5 {
-    font-size: 1.3em;
+    font-size: 1.15em;
   }
   h6 {
-    font-size: 1.2em;
+    font-size: 1.05em;
   }
   .tag {
     background-color: #eee8d5;
@@ -545,21 +579,21 @@
     right: 0em;
     top: 0em;
     background: #faf9f1;
-    color: #596a73;
+    color: #336699;
     /* -webkit-box-shadow: 0 0 1em #777777; */
     /* -moz-box-shadow: 0 0 1em #777777; */
     /* -webkit-border-bottom-left-radius: 10px; */
     /* -moz-border-radius-bottomleft: 10px; */
     text-align: right;
     /* ensure doesn't flow off the screen when expanded */
-    max-height: 80%;
+    max-height: 100%;
     overflow: auto;
   }
   #table-of-contents h2 {
     font-size: 12pt;
     max-width: 25em;
     font-weight: bold;
-    color: #596a73;
+    color: #336699;
     padding-right: 3em;
     padding-left: 0.8em;
     padding-top: 1em;
@@ -591,7 +625,7 @@
   #table-of-contents {
     float: right;
     border: 0px solid #CCC;
-    max-width: 25%;
+    max-width: 40%;
     overflow: auto;
   }
 } /* END OF @media screen */
@@ -646,7 +680,7 @@ for the JavaScript code in this tag.
 </head>
 <body>
 <div id="preamble" class="status">
-<span style="color:#596a73; font-size:17px"><b>Marie-Hélène Burle</b></span><br><span style="color:#8a8a8a; font-size:15px"><b>Simon Fraser University, Research Commons</b></span><br><span style="color:#596a73; font-size:15px"><img src="./favicons/email.ico" alt="email" height="16" width="16"> <a href="mailto:msb2@sfu.ca">msb2@sfu.ca</a>&nbsp;&nbsp;<img src="./favicons/twitter.ico" alt="twitter" height="17" width="17"> <a href="https://twitter.com/MHBurle">@MHBurle</a>&nbsp;&nbsp;<img src="./favicons/gh.ico" alt="github" height="15" width="15"> <a href="https://github.com/prosoitos">prosoitos</a></span><br><span style="color:#596a73; font-size:16px">August 31, 2018</span>
+<span style="color:#596a73;font-size:17px"><b>Marie-Hélène Burle</b></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#002b80; font-size:17px"><b><img src="./favicons/rc_no_bg.png" height="22" width="22"> SFU Research Commons</b></span><br><span style="color:#596a73;font-size:14px"><img src="./favicons/email.ico" alt="email" height="15" width="15"> <a href="mailto:msb2@sfu.ca">msb2@sfu.ca</a><br><img src="./favicons/twitter.ico" alt="twitter" height="16" width="16"><a href="https://twitter.com/MHBurle"> MHBurle</a><br><img src="./favicons/gh.ico" alt="github" height="14" width="14"><a href="https://github.com/prosoitos"> prosoitos</a></span>
 </div>
 <div id="content">
 <h1 class="title">Magrittr less used "piping" treasures</h1>
@@ -654,18 +688,21 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgf530373">Requirements</a></li>
-<li><a href="#org0ad3651">%&gt;%</a></li>
-<li><a href="#org52010ef">%&lt;&gt;%</a></li>
-<li><a href="#org58f7bd3">%T%</a></li>
-<li><a href="#orgca579b4">%$%</a></li>
+<li><a href="#org36bdbf7">Requirements</a></li>
+<li><a href="#org6f2e749">%&gt;%</a></li>
+<li><a href="#org76189f9">%&lt;&gt;% (compound assignment pipe-operator)</a></li>
+<li><a href="#orgb0fb47d">%T% (tee operator)</a></li>
+<li><a href="#org43f3aa6">%$% (exposition pipe-operator)</a></li>
 </ul>
 </div>
 </div>
+<p>
+<i>Note: This page is still under construction.</i><br />
+</p>
 
-<div id="outline-container-orgf530373" class="outline-2">
-<h2 id="orgf530373">Requirements</h2>
-<div class="outline-text-2" id="text-orgf530373">
+<div id="outline-container-org36bdbf7" class="outline-2">
+<h2 id="org36bdbf7">Requirements</h2>
+<div class="outline-text-2" id="text-org36bdbf7">
 <div class="org-src-container">
 <pre class="src src-R"><span class="org-ess-modifiers">library</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-1">(</span></span>magrittr<span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-1">)</span></span>
 </pre>
@@ -673,15 +710,15 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-org0ad3651" class="outline-2">
-<h2 id="org0ad3651">%&gt;%</h2>
-<div class="outline-text-2" id="text-org0ad3651">
+<div id="outline-container-org6f2e749" class="outline-2">
+<h2 id="org6f2e749">%&gt;%</h2>
+<div class="outline-text-2" id="text-org6f2e749">
 <p>
-<code class="src src-R"><span class="org-ess-XopX">%&gt;%</span></code>, or "forward-pipe operator", is the default R pipe. Several <code class="src src-R">tidyverse</code> packages include it, which is why, even though <code class="src src-R">magrittr</code> is not one of the core packages, you do not have to load <code class="src src-R">magrittr</code> to use it in <code class="src src-R">dplyr</code>, <code class="src src-R">tidyr</code>, <code class="src src-R">forcats</code>, <code class="src src-R">rvest</code>, <code class="src src-R">stringr</code>, <code class="src src-R">purrr</code>, or <code class="src src-R">modelr</code>.<br />
+<code class="src src-R"><span class="org-default">%&gt;%</span></code>, or "forward-pipe operator", is the default R pipe. Several <code class="src src-R">tidyverse</code> packages include it, which is why, even though <code class="src src-R">magrittr</code> is not one of the core packages, you do not have to load <code class="src src-R">magrittr</code> to use it in <code class="src src-R">dplyr</code>, <code class="src src-R">tidyr</code>, <code class="src src-R">forcats</code>, <code class="src src-R">rvest</code>, <code class="src src-R">stringr</code>, <code class="src src-R">purrr</code>, or <code class="src src-R">modelr</code>.<br />
 </p>
 
 <p>
-<code class="src src-R"><span class="org-ess-XopX">%&gt;%</span></code> represents an arrow going right and pipes the left expression to the right.<br />
+<code class="src src-R"><span class="org-default">%&gt;%</span></code> represents an arrow going right and pipes the left expression to the right.<br />
 </p>
 
 <p>
@@ -703,9 +740,32 @@ For instance, to get the mean of an object <code class="src src-R">x</code>, we 
 </div>
 
 <div class="org-src-container">
-<pre class="src src-R">x <span class="org-ess-XopX">%&gt;%</span> <span class="org-ess-function-call">mean</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-1">()</span></span>
+<pre class="src src-R">x <span class="org-default">%&gt;%</span> <span class="org-ess-function-call">mean</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-1">()</span></span>
 </pre>
 </div>
+
+
+<p>
+I do that, THEN (with the output) I do this, THEN (with the new output) I do something else will be:<br />
+</p>
+
+<p>
+I do that %&gt;%<br />
+I do this %&gt;%<br />
+I do something else<br />
+</p>
+
+<p>
+It makes pipelines linear and very easy to read, one step at a time.<br />
+</p>
+
+<p>
+While the classic way of writing functions would look like:<br />
+</p>
+
+<p>
+I do something else(I do this(I do that))).<br />
+</p>
 
 
 
@@ -719,24 +779,24 @@ In the <a href="https://prosoitos.github.io/r_resources/functional-programming_w
     bird <span class="org-ess-operator">=</span> <span class="org-ess-function-call">paste0</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-2">(</span></span><span class="org-string">"bird"</span>, <span class="org-ess-numbers">1</span>:<span class="org-ess-numbers">50</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-2">)</span></span>,
     sex <span class="org-ess-operator">=</span> <span class="org-ess-function-call">sample</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-2">(</span></span><span class="org-ess-function-call">c</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-3">(</span></span><span class="org-string">"F"</span>, <span class="org-string">"M"</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-3">)</span></span>, <span class="org-ess-numbers">50</span>, replace <span class="org-ess-operator">=</span> <span class="org-ess-constant">T</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-2">)</span></span>,
     population <span class="org-ess-operator">=</span> <span class="org-ess-function-call">sample</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-2">(</span></span>LETTERS<span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-3">[</span></span><span class="org-ess-numbers">1</span>:<span class="org-ess-numbers">3</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-3">]</span></span>, <span class="org-ess-numbers">50</span>, replace <span class="org-ess-operator">=</span> <span class="org-ess-constant">T</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-2">)</span></span>,
-    mass <span class="org-ess-operator">=</span> <span class="org-ess-function-call">rnorm</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-2">(</span></span><span class="org-ess-numbers">50</span>, <span class="org-ess-numbers">43</span>, <span class="org-ess-numbers">4</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-2">)</span></span> <span class="org-ess-XopX">%&gt;%</span> <span class="org-ess-function-call">round</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-2">(</span></span><span class="org-ess-numbers">1</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-2">)</span></span>,
-    tarsus <span class="org-ess-operator">=</span> <span class="org-ess-function-call">rnorm</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-2">(</span></span><span class="org-ess-numbers">50</span>, <span class="org-ess-numbers">27</span>, <span class="org-ess-numbers">1</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-2">)</span></span> <span class="org-ess-XopX">%&gt;%</span> <span class="org-ess-function-call">round</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-2">(</span></span><span class="org-ess-numbers">1</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-2">)</span></span>,
-    wing <span class="org-ess-operator">=</span> <span class="org-ess-function-call">rnorm</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-2">(</span></span><span class="org-ess-numbers">50</span>, <span class="org-ess-numbers">112</span>, <span class="org-ess-numbers">3</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-2">)</span></span> <span class="org-ess-XopX">%&gt;%</span> <span class="org-ess-function-call">round</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-2">(</span></span><span class="org-ess-numbers">0</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-2">)</span></span>
-  <span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-1">)</span></span> <span class="org-ess-XopX">%T&gt;%</span> 
+    mass <span class="org-ess-operator">=</span> <span class="org-ess-function-call">rnorm</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-2">(</span></span><span class="org-ess-numbers">50</span>, <span class="org-ess-numbers">43</span>, <span class="org-ess-numbers">4</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-2">)</span></span> <span class="org-default">%&gt;%</span> <span class="org-ess-function-call">round</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-2">(</span></span><span class="org-ess-numbers">1</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-2">)</span></span>,
+    tarsus <span class="org-ess-operator">=</span> <span class="org-ess-function-call">rnorm</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-2">(</span></span><span class="org-ess-numbers">50</span>, <span class="org-ess-numbers">27</span>, <span class="org-ess-numbers">1</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-2">)</span></span> <span class="org-default">%&gt;%</span> <span class="org-ess-function-call">round</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-2">(</span></span><span class="org-ess-numbers">1</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-2">)</span></span>,
+    wing <span class="org-ess-operator">=</span> <span class="org-ess-function-call">rnorm</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-2">(</span></span><span class="org-ess-numbers">50</span>, <span class="org-ess-numbers">112</span>, <span class="org-ess-numbers">3</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-2">)</span></span> <span class="org-default">%&gt;%</span> <span class="org-ess-function-call">round</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-2">(</span></span><span class="org-ess-numbers">0</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-2">)</span></span>
+  <span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-1">)</span></span> <span class="org-default">%T&gt;%</span> 
   <span class="org-ess-function-call">str</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-1">()</span></span>
 </pre>
 </div>
 </div>
 </div>
 
-<div id="outline-container-org52010ef" class="outline-2">
-<h2 id="org52010ef">%&lt;&gt;%</h2>
-<div class="outline-text-2" id="text-org52010ef">
+<div id="outline-container-org76189f9" class="outline-2">
+<h2 id="org76189f9">%&lt;&gt;% (compound assignment pipe-operator)</h2>
+<div class="outline-text-2" id="text-org76189f9">
 <p>
-<code class="src src-R"><span class="org-ess-XopX">%&lt;&gt;%</span></code> pipes the left expression to the right, and then back to the left. Instead of an arrow going right (as the main pipe is), think of it as an arrow going from left to right and then back left.<br />
+<code class="src src-R"><span class="org-default">%&lt;&gt;%</span></code> pipes the left expression to the right, and then back to the left. Instead of an arrow going right (as the main pipe is), think of it as an arrow going from left to right and then back left.<br />
 </p>
 
-<div class="RED">
+<div class="red">
 <p>
 Basically, it replaces the variable to the left, after having been transformed by the expression to the right.<br />
 </p>
@@ -752,7 +812,7 @@ The code:<br />
 </p>
 
 <div class="org-src-container">
-<pre class="src src-R">banding <span class="org-ess-XopX">%&lt;&gt;%</span> <span class="org-ess-function-call">modify_if</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-1">(</span></span>is.factor, as.character<span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-1">)</span></span>
+<pre class="src src-R">banding <span class="org-default">%&lt;&gt;%</span> <span class="org-ess-function-call">modify_if</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-1">(</span></span>is.factor, as.character<span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-1">)</span></span>
 </pre>
 </div>
 
@@ -762,30 +822,30 @@ is equivalent to:<br />
 
 <div class="org-src-container">
 <pre class="src src-R">banding <span class="org-ess-assignment">&lt;-</span>
-  banding <span class="org-ess-XopX">%&gt;%</span>
+  banding <span class="org-default">%&gt;%</span>
   <span class="org-ess-function-call">modify_if</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-1">(</span></span>is.factor, as.character<span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-1">)</span></span>
 </pre>
 </div>
 </div>
 </div>
 
-<div id="outline-container-org58f7bd3" class="outline-2">
-<h2 id="org58f7bd3">%T%</h2>
-<div class="outline-text-2" id="text-org58f7bd3">
+<div id="outline-container-orgb0fb47d" class="outline-2">
+<h2 id="orgb0fb47d">%T% (tee operator)</h2>
+<div class="outline-text-2" id="text-orgb0fb47d">
 <p>
-<code class="src src-R"><span class="org-ess-XopX">%T%</span></code> pipes the effect of the left expression to the right, but does not pipe the object itself (so the object is "free" to be used by another pipe). This is very useful when you want to produce to output from one object or produce a side effect (e.g. printing) without interrupting a pipeline. I like to think of the "T" as a branching which represents the 2 outputs produced by a single object.<br />
+<code class="src src-R"><span class="org-default">%T%</span></code> pipes the effect of the left expression to the right, but does not pipe the object itself (so the object is "free" to be used by another pipe). This is very useful when you want to produce to output from one object or produce a side effect (e.g. printing) without interrupting a pipeline. I like to think of the "T" as a branching which represents the 2 outputs produced by a single object.<br />
 </p>
 
-<div class="VERBATIM">
+<div class="vertbar">
 <p>
-Try replacing <code class="src src-R"><span class="org-ess-XopX">%T%</span></code> with the regular pipe <code class="src src-R"><span class="org-ess-XopX">%&gt;%</span></code> in our code at the top of this page.<br />
+Try replacing <code class="src src-R"><span class="org-default">%T%</span></code> with the regular pipe <code class="src src-R"><span class="org-default">%&gt;%</span></code> in our code at the top of this page.<br />
 What happens?<br />
 Can you explain it?<br />
 </p>
 
 </div>
 
-<div class="RED">
+<div class="red">
 <p>
 <code class="src src-R">magrittr</code> has other pipes and <a href="https://github.com/tidyverse/magrittr">you should explore them at your own time</a>!<br />
 </p>
@@ -794,9 +854,12 @@ Can you explain it?<br />
 </div>
 </div>
 
-<div id="outline-container-orgca579b4" class="outline-2">
-<h2 id="orgca579b4">%$%</h2>
+<div id="outline-container-org43f3aa6" class="outline-2">
+<h2 id="org43f3aa6">%$% (exposition pipe-operator)</h2>
 </div>
+</div>
+<div id="postamble" class="status">
+<span style="color:#596a73;font-size:14px"><div align="right">Last updated: October 08, 2018</div></span>
 </div>
 </body>
 </html>

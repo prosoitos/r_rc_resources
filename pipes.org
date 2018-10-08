@@ -2,15 +2,17 @@
 #+OPTIONS: toc:t h:6 num:nil |:t todo:nil
 #+OPTIONS: *:t -:t ::t <:t \n:t e:t creator:nil
 #+OPTIONS: f:t inline:t tasks:t tex:t timestamp:t
-#+OPTIONS: html-preamble:t html-postamble:nil
+#+OPTIONS: html-preamble:t html-postamble:t
 
 #+PROPERTY: header-args:R :session R:purrr :eval no :exports code :tangle yes :comments link
 
 #+TITLE:   Magrittr less used "piping" treasures
 #+DATE:	  {{{time(%B %d\, %Y)}}}
 #+AUTHOR:  Marie-Hélène Burle
-#+CREATOR: Simon Fraser University, Research Commons
 #+EMAIL:   msb2@sfu.ca
+#+CREATOR: <img src="./favicons/rc_no_bg.png" height="22" width="22"> SFU Research Commons
+
+/Note: This page is still under construction./
 
 * Requirements
 
@@ -41,8 +43,6 @@ x %>% mean()
 #+END_SRC
 
 
-As for the pipes, of course, you don't have to use them. It is funny that you find it hard to wrap your head around it as it is supposed to be much more intuitive in that it uses the way we (humans) think.
-
 I do that, THEN (with the output) I do this, THEN (with the new output) I do something else will be:
 
 I do that %>%
@@ -54,9 +54,6 @@ It makes pipelines linear and very easy to read, one step at a time.
 While the classic way of writing functions would look like:
 
 I do something else(I do this(I do that))).
-
-So, with your long-term habits, it might be puzzling. But for a beginner, it is a lot easier to get where you want one step at a time in a linear and human readable way.
-
 
 
 
@@ -79,11 +76,11 @@ banding <-
 
 src_R[:eval no]{%<>%} pipes the left expression to the right, and then back to the left. Instead of an arrow going right (as the main pipe is), think of it as an arrow going from left to right and then back left.
 
-#+BEGIN_RED
+#+BEGIN_red
 Basically, it replaces the variable to the left, after having been transformed by the expression to the right.
 
 This is extremely convenient, but also dangerous: each time you run such line of code, your variable changes. To rerun the script, you need to first rerun the code that created the initial variable with that name.
-#+END_RED
+#+END_red
 
 The code:
 
@@ -103,15 +100,15 @@ banding <-
 
 src_R[:eval no]{%T%} pipes the effect of the left expression to the right, but does not pipe the object itself (so the object is "free" to be used by another pipe). This is very useful when you want to produce to output from one object or produce a side effect (e.g. printing) without interrupting a pipeline. I like to think of the "T" as a branching which represents the 2 outputs produced by a single object.
 
-#+BEGIN_VERBATIM
+#+BEGIN_vertbar
 Try replacing src_R[:eval no]{%T%} with the regular pipe src_R[:eval no]{%>%} in our code at the top of this page.
 What happens?
 Can you explain it?
-#+END_VERBATIM
+#+END_vertbar
 
-#+BEGIN_RED
+#+BEGIN_red
 src_R[:eval no]{magrittr} has other pipes and [[https://github.com/tidyverse/magrittr][you should explore them at your own time]]!
-#+END_RED
+#+END_red
 
 * %$% (exposition pipe-operator)
 
