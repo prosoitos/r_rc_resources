@@ -10,7 +10,7 @@
 #+DATE:	   {{{time(%B %d\, %Y)}}}
 #+AUTHOR:  Marie-Hélène Burle
 #+EMAIL:   msb2@sfu.ca
-#+CREATOR: <img src="./favicons/rc.png" height="18" width="18"> SFU Research Commons
+#+CREATOR: <img src="./favicons/rc_no_bg.png" height="22" width="22"> SFU Research Commons
 
 * Projects
 
