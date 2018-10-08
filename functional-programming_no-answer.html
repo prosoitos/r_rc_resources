@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2018-10-06 Sat 18:34 -->
+<!-- 2018-10-08 Mon 13:10 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Functional programming in R (with <i>purrr</i>)</title>
@@ -208,7 +208,7 @@
     line-height: 25px;
   }
   h5 {
-    line-height: 20px;    
+    line-height: 25px;    
   }
   h6 {
     line-height: 15px;
@@ -244,19 +244,19 @@
     color: #890c0c;
   }
   h2 {
-    color: #19334d;
+    color: #9c4949;
   }
   h3 {
-    color: #336699;
+    color: #19334d;
   }
   h4 {
-    color: #6699cc;
+    color: #3c80c3;
   }
   h5 {
-    color: #666666;
+    color: #262626;
   }
   h6 {
-    color: #808080;
+    color: #4d4d4d;
   }
   .accordion {			/*button of the accordeon box*/
     background-color: #c2d6d6;
@@ -344,8 +344,8 @@
     border-radius: 5px;
     box-shadow: 0pt 0pt 0pt #eee8d5;
   }
-  pre[class="example"] {	/*mono font framed by subtle gray border*/
-    padding: 0.4em 0.8em;
+  div[class="box"] {	/*mono font framed by subtle gray border*/
+    padding: 0em 0.8em;
     line-height: 22px;
     border: 0.5pt solid #d9d9d9;
     border-radius: 5px;
@@ -353,7 +353,7 @@
   }
   div[class="definition"] {	/*small font in dull gray box*/
     background-color: #f0efe7;
-    font-family: 'rokkitt';
+    font-family: 'Rokkitt';
     width: max-content;
     color: #3e3e3e;
     /* padding: 0.6em 0.8em 0.6em 0.8em; */
@@ -366,7 +366,7 @@
   }
   p[class="verse"] {		/*verse*/
     color: #262626;
-    font-family: 'im fell english';
+    font-family: 'IM Fell English';
     font-size: 110%;
     font-style: italic;
     margin-left: 30px;		/*keep this line to have the verses indented*/
@@ -382,7 +382,7 @@
     line-height: 22px;
   }
   div[class="handwriting"] {		/*handwriting font*/
-    font-family: 'montez';
+    font-family: 'Montez';
     line-height: 26px;
     font-size: 130%;
   }
@@ -403,8 +403,8 @@
     /* font-size: 95%; */
   }
   div[class="red"] {	/*with monospace font*/
-    /* font-family: 'anonymous pro'; */
-    /* font-family: 'roboto slab thin'; */
+    /* font-family: 'Anonymous Pro'; */
+    /* font-family: 'Roboto Slab Thin'; */
     /* margin: auto; */
     /* width: max-content; */
     /* color: #a52a2a; */
@@ -437,7 +437,7 @@
   div[class="vertbar"] {	/*vertical-bar and big margin for questions or emphasis*/
     /* background-color: #f4faff; */
     line-height: 27px;
-    font-family: 'linden hill';
+    font-family: 'Linden Hill';
     /* font-weight: bold; */
     margin: 45px 50px 45px 100px;
     /* padding-left: 10px; */
@@ -447,175 +447,175 @@
     padding: 0 0 0 15px;
     border-left: 0.5px solid #425170;
     width: max-content;    
-  }    
-    div[class="emphasis"] {
-      line-height: 27px;
-      font-family: 'Montserrat';
-      /* font-weight: bold; */
-      margin: 30px 0px 45px 100px;
-      /* padding-left: 10px; */
-      /* border-left: 3px solid #890c0c; */
-      /* font-size: 135%; */
-      /* color: #8f7070; */
-      color: #911808;
-    }
-    .org-ess-numbers {
-      color: #e28200; 
-    }
-    .org-comment-delimiter {
-      color: #8c8c8c;
-    }
-    .org-comment {
-      color: #8c8c8c;
-    }
-    .org-string {
-      color: #013b6d;
-    }
-    .org-ess-function-call {
-      color: #bf4040;
-      /* font-weight: bolder; */
-    }
-    .org-ess-operator {
-      color: #0b5e56;
-    }
-    .org-ess-assignment {
-      color: #0b5e56;
-    }
-    .org-ess-paren {
-      color: #0b5e56;
-    }
-    .org-ess-XopX {
-      color: #0b5e56;
-    }  
-    h1 {
-      font-size: 2.1em;
-      text-align: center;
-    }
-    h2 {
-      font-size: 1.6em;
-    }
-    h3 {
-      font-size: 1.5em;
-    }
-    h4 {
-      font-size: 1.4em;
-    }
-    h5 {
-      font-size: 1.3em;
-    }
-    h6 {
-      font-size: 1.2em;
-    }
-    .tag {
-      background-color: #eee8d5;
-      color: #d33682;
-      padding: 0 0.2em;
-    }
-    .todo,
-    .next,
-    .done {
-      color: #faf9f1;
-      background-color: #dc322f;
-      padding: 0 0.2em;
-    }
-    .tag {
-      -webkit-border-radius: 0.35em;
-      -moz-border-radius: 0.35em;
-      border-radius: 0.35em;
-    }
-    .TODO {
-      -webkit-border-radius: 0.2em;
-      -moz-border-radius: 0.2em;
-      border-radius: 0.2em;
-      background-color: #2aa198;
-    }
-    .NEXT {
-      -webkit-border-radius: 0.2em;
-      -moz-border-radius: 0.2em;
-      border-radius: 0.2em;
-      background-color: #268bd2;
-    }
-    .ACTIVE {
-      -webkit-border-radius: 0.2em;
-      -moz-border-radius: 0.2em;
-      border-radius: 0.2em;
-      background-color: #268bd2;
-    }
-    .DONE {
-      -webkit-border-radius: 0.2em;
-      -moz-border-radius: 0.2em;
-      border-radius: 0.2em;
-      background-color: #859900;
-    }
-    .WAITING {
-      -webkit-border-radius: 0.2em;
-      -moz-border-radius: 0.2em;
-      border-radius: 0.2em;
-      background-color: #cb4b16;
-    }
-    .HOLD {
-      -webkit-border-radius: 0.2em;
-      -moz-border-radius: 0.2em;
-      border-radius: 0.2em;
-      background-color: #d33682;
-    }
-    .NOTE {
-      -webkit-border-radius: 0.2em;
-      -moz-border-radius: 0.2em;
-      border-radius: 0.2em;
-      background-color: #d33682;
-    }
-    .CANCELLED {
-      -webkit-border-radius: 0.2em;
-      -moz-border-radius: 0.2em;
-      border-radius: 0.2em;
-      background-color: #859900;
-    }
+  }
+  div[class="emphasis"] {
+    line-height: 27px;
+    font-family: 'Montserrat';
+    /* font-weight: bold; */
+    margin: 30px 100px;
+    /* padding-left: 10px; */
+    /* border-left: 3px solid #890c0c; */
+    /* font-size: 135%; */
+    /* color: #8f7070; */
+    color: #911808;
+  }
+  .org-ess-numbers {
+    color: #e28200; 
+  }
+  .org-comment-delimiter {
+    color: #8c8c8c;
+  }
+  .org-comment {
+    color: #8c8c8c;
+  }
+  .org-string {
+    color: #013b6d;
+  }
+  .org-ess-function-call {
+    color: #bf4040;
+    /* font-weight: bolder; */
+  }
+  .org-ess-operator {
+    color: #0b5e56;
+  }
+  .org-ess-assignment {
+    color: #0b5e56;
+  }
+  .org-ess-paren {
+    color: #0b5e56;
+  }
+  .org-ess-XopX {
+    color: #0b5e56;
+  }  
+  h1 {
+    font-size: 2.1em;
+    text-align: center;
+  }
+  h2 {
+    font-size: 1.6em;
+  }
+  h3 {
+    font-size: 1.4em;
+  }
+  h4 {
+    font-size: 1.2em;
+  }
+  h5 {
+    font-size: 1.15em;
+  }
+  h6 {
+    font-size: 1.05em;
+  }
+  .tag {
+    background-color: #eee8d5;
+    color: #d33682;
+    padding: 0 0.2em;
+  }
+  .todo,
+  .next,
+  .done {
+    color: #faf9f1;
+    background-color: #dc322f;
+    padding: 0 0.2em;
+  }
+  .tag {
+    -webkit-border-radius: 0.35em;
+    -moz-border-radius: 0.35em;
+    border-radius: 0.35em;
+  }
+  .TODO {
+    -webkit-border-radius: 0.2em;
+    -moz-border-radius: 0.2em;
+    border-radius: 0.2em;
+    background-color: #2aa198;
+  }
+  .NEXT {
+    -webkit-border-radius: 0.2em;
+    -moz-border-radius: 0.2em;
+    border-radius: 0.2em;
+    background-color: #268bd2;
+  }
+  .ACTIVE {
+    -webkit-border-radius: 0.2em;
+    -moz-border-radius: 0.2em;
+    border-radius: 0.2em;
+    background-color: #268bd2;
+  }
+  .DONE {
+    -webkit-border-radius: 0.2em;
+    -moz-border-radius: 0.2em;
+    border-radius: 0.2em;
+    background-color: #859900;
+  }
+  .WAITING {
+    -webkit-border-radius: 0.2em;
+    -moz-border-radius: 0.2em;
+    border-radius: 0.2em;
+    background-color: #cb4b16;
+  }
+  .HOLD {
+    -webkit-border-radius: 0.2em;
+    -moz-border-radius: 0.2em;
+    border-radius: 0.2em;
+    background-color: #d33682;
+  }
+  .NOTE {
+    -webkit-border-radius: 0.2em;
+    -moz-border-radius: 0.2em;
+    border-radius: 0.2em;
+    background-color: #d33682;
+  }
+  .CANCELLED {
+    -webkit-border-radius: 0.2em;
+    -moz-border-radius: 0.2em;
+    border-radius: 0.2em;
+    background-color: #859900;
+  }
 
-    /* TOC inspired by http://jashkenas.github.com/coffee-script */
-    #table-of-contents {
-      font-size: 10pt;
-      position: fixed;
-      right: 0em;
-      top: 0em;
-      background: #faf9f1;
-      color: #336699;
-      /* -webkit-box-shadow: 0 0 1em #777777; */
-      /* -moz-box-shadow: 0 0 1em #777777; */
-      /* -webkit-border-bottom-left-radius: 10px; */
-      /* -moz-border-radius-bottomleft: 10px; */
-      text-align: right;
-      /* ensure doesn't flow off the screen when expanded */
-      max-height: 100%;
-      overflow: auto;
-    }
-    #table-of-contents h2 {
-      font-size: 12pt;
-      max-width: 25em;
-      font-weight: bold;
-      color: #336699;
-      padding-right: 3em;
-      padding-left: 0.8em;
-      padding-top: 1em;
-      padding-bottom: 0em;
-      text-align: left;
-    }
-    #table-of-contents #text-table-of-contents {
-      display: none;
-      text-align: left;
-    }
-    #table-of-contents:hover #text-table-of-contents {
-      display: block;
-      padding: 0.5em;
-      margin-top: -1.5em;
-    }
+  /* TOC inspired by http://jashkenas.github.com/coffee-script */
+  #table-of-contents {
+    font-size: 10pt;
+    position: fixed;
+    right: 0em;
+    top: 0em;
+    background: #faf9f1;
+    color: #336699;
+    /* -webkit-box-shadow: 0 0 1em #777777; */
+    /* -moz-box-shadow: 0 0 1em #777777; */
+    /* -webkit-border-bottom-left-radius: 10px; */
+    /* -moz-border-radius-bottomleft: 10px; */
+    text-align: right;
+    /* ensure doesn't flow off the screen when expanded */
+    max-height: 100%;
+    overflow: auto;
+  }
+  #table-of-contents h2 {
+    font-size: 12pt;
+    max-width: 25em;
+    font-weight: bold;
+    color: #336699;
+    padding-right: 3em;
+    padding-left: 0.8em;
+    padding-top: 1em;
+    padding-bottom: 0em;
+    text-align: left;
+  }
+  #table-of-contents #text-table-of-contents {
+    display: none;
+    text-align: left;
+  }
+  #table-of-contents:hover #text-table-of-contents {
+    display: block;
+    padding: 0.5em;
+    margin-top: -1.5em;
+  }
 
-    .rss_box {}
-    .rss_title, rss_title a {}
-    .rss_items {}
-    .rss_item a:link, .rss_item a:visited, .rss_item a:active {}
-    .rss_item a:hover {}
-    .rss_date {}
+  .rss_box {}
+  .rss_title, rss_title a {}
+  .rss_items {}
+  .rss_item a:link, .rss_item a:visited, .rss_item a:active {}
+  .rss_item a:hover {}
+  .rss_date {}
 
 } /* END OF @media all */
 
@@ -680,8 +680,7 @@ for the JavaScript code in this tag.
 </head>
 <body>
 <div id="preamble" class="status">
-
-<span style="color:#596a73;font-size:17px"><b>Marie-Hélène Burle</b></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#002b80; font-size:17px"><b><img src="./favicons/rc.png" height="18" width="18"> SFU Research Commons</b></span><br><span style="color:#596a73;font-size:14px"><img src="./favicons/email.ico" alt="email" height="15" width="15"> <a href="mailto:msb2@sfu.ca">msb2@sfu.ca</a><br><img src="./favicons/twitter.ico" alt="twitter" height="16" width="16"><a href="https://twitter.com/MHBurle"> MHBurle</a><br><img src="./favicons/gh.ico" alt="github" height="14" width="14"><a href="https://github.com/prosoitos"> prosoitos</a></span>
+<span style="color:#596a73;font-size:17px"><b>Marie-Hélène Burle</b></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#002b80; font-size:17px"><b><img src="./favicons/rc_no_bg.png" height="22" width="22"> SFU Research Commons</b></span><br><span style="color:#596a73;font-size:14px"><img src="./favicons/email.ico" alt="email" height="15" width="15"> <a href="mailto:msb2@sfu.ca">msb2@sfu.ca</a><br><img src="./favicons/twitter.ico" alt="twitter" height="16" width="16"><a href="https://twitter.com/MHBurle"> MHBurle</a><br><img src="./favicons/gh.ico" alt="github" height="14" width="14"><a href="https://github.com/prosoitos"> prosoitos</a></span>
 </div>
 <div id="content">
 <h1 class="title">Functional programming in R (with <i>purrr</i>)</h1>
@@ -689,71 +688,71 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orge0f3817">Introduction</a>
+<li><a href="#org00b4575">Introduction</a>
 <ul>
-<li><a href="#org0ca3f30">What is functional programming?</a></li>
-<li><a href="#org01d1c19">Iterations</a></li>
-<li><a href="#org7c8aa79">The purrr package</a>
+<li><a href="#org7b09e9c">What is functional programming?</a></li>
+<li><a href="#org155c6c0">Iterations</a></li>
+<li><a href="#orge55a435">The purrr package</a>
 <ul>
-<li><a href="#orgc5db5ef">Goal</a></li>
-<li><a href="#org73d21aa">Logistics</a></li>
+<li><a href="#orge20af8e">Goal</a></li>
+<li><a href="#org3121d7f">Logistics</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#orgf8f34cd">Let's dive in</a>
+<li><a href="#org226e5f4">Let's dive in</a>
 <ul>
-<li><a href="#org3e7514a">Load packages</a></li>
-<li><a href="#org3418936">Create some fake banding data</a></li>
-<li><a href="#org3ea393b">Map: apply functions to elements of a list</a>
+<li><a href="#org06bfcbd">Load packages</a></li>
+<li><a href="#org6679abf">Create some fake banding data</a></li>
+<li><a href="#org5b648e4">Map: apply functions to elements of a list</a>
 <ul>
-<li><a href="#org4ea0444">Usage</a></li>
-<li><a href="#orgf7617ef">In our example</a></li>
-<li><a href="#orga4d4904">Stepping things up</a></li>
-<li><a href="#org4506b04">Formulas</a>
+<li><a href="#orgcc601e9">Usage</a></li>
+<li><a href="#org024a30e">In our example</a></li>
+<li><a href="#orgaefaa14">Stepping things up</a></li>
+<li><a href="#orgec52c24">Formulas</a>
 <ul>
-<li><a href="#org88380a3">With one element</a></li>
-<li><a href="#org8f94227">With 2 elements</a></li>
-<li><a href="#org9ed4169">Referring to elements</a></li>
+<li><a href="#orga5bbd8a">With one element</a></li>
+<li><a href="#org15ddf27">With 2 elements</a></li>
+<li><a href="#org1271c91">Referring to elements</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#orga0a7045"><code class="src src-R">map_if</code>/<code class="src src-R">modify_if</code> and <code class="src src-R">map_at</code>/<code class="src src-R">modify_at</code></a>
+<li><a href="#orge3d7499"><code class="src src-R">map_if</code>/<code class="src src-R">modify_if</code> and <code class="src src-R">map_at</code>/<code class="src src-R">modify_at</code></a>
 <ul>
-<li><a href="#orge73c854">Usage</a></li>
+<li><a href="#org6be949f">Usage</a></li>
 </ul>
 </li>
-<li><a href="#org5147126">Walk: apply side effects to elements of a list</a>
+<li><a href="#org69c8320">Walk: apply side effects to elements of a list</a>
 <ul>
-<li><a href="#org094836a">Usage</a></li>
-<li><a href="#org93c8950">Apply to our example</a></li>
+<li><a href="#org2c8fffd">Usage</a></li>
+<li><a href="#org1a052e1">Apply to our example</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#org11264c5">Summary of the map and walk functions family</a></li>
-<li><a href="#org4c0dcd8">Conclusion</a></li>
+<li><a href="#org32ba998">Summary of the map and walk functions family</a></li>
+<li><a href="#orgbcc1979">Conclusion</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orge0f3817" class="outline-2">
-<h2 id="orge0f3817">Introduction</h2>
-<div class="outline-text-2" id="text-orge0f3817">
+<div id="outline-container-org00b4575" class="outline-2">
+<h2 id="org00b4575">Introduction</h2>
+<div class="outline-text-2" id="text-org00b4575">
 </div>
-<div id="outline-container-org0ca3f30" class="outline-3">
-<h3 id="org0ca3f30">What is functional programming?</h3>
-<div class="outline-text-3" id="text-org0ca3f30">
+<div id="outline-container-org7b09e9c" class="outline-3">
+<h3 id="org7b09e9c">What is functional programming?</h3>
+<div class="outline-text-3" id="text-org7b09e9c">
 <p>
 It is a programming paradigm based on the evaluation of functions. This is opposed to <i>imperative  programming</i>. While some languages are based strictly on functional programming (e.g. Haskell), R allows both imperative code (e.g. loops) and functional code (e.g. many base functions, the <code class="src src-R"><span class="org-ess-function-call">apply</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-1">()</span></span></code> family, <code class="src src-R">purrr</code>).<br />
 </p>
 </div>
 </div>
 
-<div id="outline-container-org01d1c19" class="outline-3">
-<h3 id="org01d1c19">Iterations</h3>
-<div class="outline-text-3" id="text-org01d1c19">
+<div id="outline-container-org155c6c0" class="outline-3">
+<h3 id="org155c6c0">Iterations</h3>
+<div class="outline-text-3" id="text-org155c6c0">
 <p>
 Iterations are the repetition of a process (e.g. applying the same function to several variables, several datasets, or several files).<br />
 </p>
@@ -769,17 +768,17 @@ The classic methods in R are:<br />
 </div>
 </div>
 
-<div id="outline-container-org7c8aa79" class="outline-3">
-<h3 id="org7c8aa79">The purrr package</h3>
-<div class="outline-text-3" id="text-org7c8aa79">
+<div id="outline-container-orge55a435" class="outline-3">
+<h3 id="orge55a435">The purrr package</h3>
+<div class="outline-text-3" id="text-orge55a435">
 <p>
 One of the <code class="src src-R">tidyverse</code> core packages, <code class="src src-R">purrr</code> was written in 2015 by <a href="https://github.com/lionel-">Lionel Henry</a> (also the maintainer), <a href="http://hadley.nz/">Hadley Wickham</a>, and <a href="https://www.rstudio.com/">RStudio inc.</a> <br />
 </p>
 </div>
 
-<div id="outline-container-orgc5db5ef" class="outline-4">
-<h4 id="orgc5db5ef">Goal</h4>
-<div class="outline-text-4" id="text-orgc5db5ef">
+<div id="outline-container-orge20af8e" class="outline-4">
+<h4 id="orge20af8e">Goal</h4>
+<div class="outline-text-4" id="text-orge20af8e">
 <p>
 <code class="src src-R">Purrr</code> is a set of tools allowing consistent functional programming in R in a <code class="src src-R">tidyverse</code> style (using <code class="src src-R">magrittr</code> pipes and following the same naming conventions found in other <code class="src src-R">tidyverse</code> packages).<br />
 </p>
@@ -790,9 +789,9 @@ As Hadley Wickham says, in many ways, <code class="src src-R">purrr</code> is th
 </div>
 </div>
 
-<div id="outline-container-org73d21aa" class="outline-4">
-<h4 id="org73d21aa">Logistics</h4>
-<div class="outline-text-4" id="text-org73d21aa">
+<div id="outline-container-org3121d7f" class="outline-4">
+<h4 id="org3121d7f">Logistics</h4>
+<div class="outline-text-4" id="text-org3121d7f">
 <p>
 Install it with:<br />
 </p>
@@ -839,13 +838,13 @@ and on any of its functions with:<br />
 </div>
 </div>
 
-<div id="outline-container-orgf8f34cd" class="outline-2">
-<h2 id="orgf8f34cd">Let's dive in</h2>
-<div class="outline-text-2" id="text-orgf8f34cd">
+<div id="outline-container-org226e5f4" class="outline-2">
+<h2 id="org226e5f4">Let's dive in</h2>
+<div class="outline-text-2" id="text-org226e5f4">
 </div>
-<div id="outline-container-org3e7514a" class="outline-3">
-<h3 id="org3e7514a">Load packages</h3>
-<div class="outline-text-3" id="text-org3e7514a">
+<div id="outline-container-org06bfcbd" class="outline-3">
+<h3 id="org06bfcbd">Load packages</h3>
+<div class="outline-text-3" id="text-org06bfcbd">
 <p>
 First, let's load the packages that we will use. It is always a good idea to write all the packages that you will be using at the top of the script. This will help others, using your script, to know what is required to run it.<br />
 </p>
@@ -858,9 +857,9 @@ First, let's load the packages that we will use. It is always a good idea to wri
 </div>
 </div>
 
-<div id="outline-container-org3418936" class="outline-3">
-<h3 id="org3418936">Create some fake banding data</h3>
-<div class="outline-text-3" id="text-org3418936">
+<div id="outline-container-org6679abf" class="outline-3">
+<h3 id="org6679abf">Create some fake banding data</h3>
+<div class="outline-text-3" id="text-org6679abf">
 <p>
 Let's create some imaginary bird banding data:<br />
 </p>
@@ -881,9 +880,9 @@ banding
 </div>
 </div>
 
-<div id="outline-container-org3ea393b" class="outline-3">
-<h3 id="org3ea393b">Map: apply functions to elements of a list</h3>
-<div class="outline-text-3" id="text-org3ea393b">
+<div id="outline-container-org5b648e4" class="outline-3">
+<h3 id="org5b648e4">Map: apply functions to elements of a list</h3>
+<div class="outline-text-3" id="text-org5b648e4">
 <p>
 Imagine that you want to calculate the mean for each of the morphometric measurements (mass, tarsus, and wing).<br />
 </p>
@@ -901,9 +900,9 @@ To apply functions to elements of a list, you can use <code class="src src-R">ma
 </p>
 </div>
 
-<div id="outline-container-org4ea0444" class="outline-4">
-<h4 id="org4ea0444">Usage</h4>
-<div class="outline-text-4" id="text-org4ea0444">
+<div id="outline-container-orgcc601e9" class="outline-4">
+<h4 id="orgcc601e9">Usage</h4>
+<div class="outline-text-4" id="text-orgcc601e9">
 <div class="org-src-container">
 <pre class="src src-R"><span class="org-ess-function-call">map</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-1">(</span></span>.x, .f, ...<span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-1">)</span></span>
 </pre>
@@ -933,9 +932,9 @@ What we have, in the simplest case, is:<br />
 </div>
 </div>
 
-<div id="outline-container-orgf7617ef" class="outline-4">
-<h4 id="orgf7617ef">In our example</h4>
-<div class="outline-text-4" id="text-orgf7617ef">
+<div id="outline-container-org024a30e" class="outline-4">
+<h4 id="org024a30e">In our example</h4>
+<div class="outline-text-4" id="text-org024a30e">
 <div class="vertbar">
 <p>
 How could we use <code class="src src-R"><span class="org-ess-function-call">map</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-1">()</span></span></code> to calculate the means of all 3 measurement types?<br />
@@ -984,9 +983,9 @@ Spend 2 min writing codes for these.<br />
 </div>
 </div>
 
-<div id="outline-container-orga4d4904" class="outline-4">
-<h4 id="orga4d4904">Stepping things up</h4>
-<div class="outline-text-4" id="text-orga4d4904">
+<div id="outline-container-orgaefaa14" class="outline-4">
+<h4 id="orgaefaa14">Stepping things up</h4>
+<div class="outline-text-4" id="text-orgaefaa14">
 <p>
 Now, imagine that you would like to plot the relationship between tarsus and mass for each population.<br />
 </p>
@@ -1002,9 +1001,9 @@ And feel free to chat.<br />
 </div>
 </div>
 
-<div id="outline-container-org4506b04" class="outline-4">
-<h4 id="org4506b04">Formulas</h4>
-<div class="outline-text-4" id="text-org4506b04">
+<div id="outline-container-orgec52c24" class="outline-4">
+<h4 id="orgec52c24">Formulas</h4>
+<div class="outline-text-4" id="text-orgec52c24">
 <div class="red">
 <p>
 Formulas = a shorter notation for anonymous functions<br />
@@ -1013,9 +1012,9 @@ Formulas = a shorter notation for anonymous functions<br />
 </div>
 </div>
 
-<div id="outline-container-org88380a3" class="outline-5">
-<h5 id="org88380a3">With one element</h5>
-<div class="outline-text-5" id="text-org88380a3">
+<div id="outline-container-orga5bbd8a" class="outline-5">
+<h5 id="orga5bbd8a">With one element</h5>
+<div class="outline-text-5" id="text-orga5bbd8a">
 <p>
 The code:<br />
 </p>
@@ -1052,9 +1051,9 @@ Your turn: write the following anonymous function as a formula.<br />
 </div>
 </div>
 
-<div id="outline-container-org8f94227" class="outline-5">
-<h5 id="org8f94227">With 2 elements</h5>
-<div class="outline-text-5" id="text-org8f94227">
+<div id="outline-container-org15ddf27" class="outline-5">
+<h5 id="org15ddf27">With 2 elements</h5>
+<div class="outline-text-5" id="text-org15ddf27">
 <p>
 The code:<br />
 </p>
@@ -1075,9 +1074,9 @@ can be shortened to:<br />
 </div>
 </div>
 
-<div id="outline-container-org9ed4169" class="outline-5">
-<h5 id="org9ed4169">Referring to elements</h5>
-<div class="outline-text-5" id="text-org9ed4169">
+<div id="outline-container-org1271c91" class="outline-5">
+<h5 id="org1271c91">Referring to elements</h5>
+<div class="outline-text-5" id="text-org1271c91">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -1148,9 +1147,9 @@ Your turn: write the following anonymous function as a formula.<br />
 </div>
 </div>
 
-<div id="outline-container-orga0a7045" class="outline-3">
-<h3 id="orga0a7045"><code class="src src-R">map_if</code>/<code class="src src-R">modify_if</code> and <code class="src src-R">map_at</code>/<code class="src src-R">modify_at</code></h3>
-<div class="outline-text-3" id="text-orga0a7045">
+<div id="outline-container-orge3d7499" class="outline-3">
+<h3 id="orge3d7499"><code class="src src-R">map_if</code>/<code class="src src-R">modify_if</code> and <code class="src src-R">map_at</code>/<code class="src src-R">modify_at</code></h3>
+<div class="outline-text-3" id="text-orge3d7499">
 <p>
 We built our data frame with <code class="src src-R"><span class="org-ess-function-call">tibble</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-1">()</span></span></code> which, as is the norm in the <code class="src src-R">tidyverse</code>, does not transform strings into factors:<br />
 </p>
@@ -1259,9 +1258,9 @@ But the <code class="src src-R"><span class="org-ess-function-call">map</span><s
 </div>
 </div>
 
-<div id="outline-container-orge73c854" class="outline-4">
-<h4 id="orge73c854">Usage</h4>
-<div class="outline-text-4" id="text-orge73c854">
+<div id="outline-container-org6be949f" class="outline-4">
+<h4 id="org6be949f">Usage</h4>
+<div class="outline-text-4" id="text-org6be949f">
 <div class="org-src-container">
 <pre class="src src-R"><span class="org-ess-function-call">modify</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-1">(</span></span>.x, .f, ...<span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-1">)</span></span>
 <span class="org-ess-function-call">modify_if</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-1">(</span></span>.x, .p, .f, ...<span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-1">)</span></span>
@@ -1298,9 +1297,9 @@ So basically, in its simplest form, we have:<br />
 </div>
 </div>
 
-<div id="outline-container-org5147126" class="outline-3">
-<h3 id="org5147126">Walk: apply side effects to elements of a list</h3>
-<div class="outline-text-3" id="text-org5147126">
+<div id="outline-container-org69c8320" class="outline-3">
+<h3 id="org69c8320">Walk: apply side effects to elements of a list</h3>
+<div class="outline-text-3" id="text-org69c8320">
 <p>
 Now, we want to save the 3 graphs we previously drew into 3 files.<br />
 </p>
@@ -1318,9 +1317,9 @@ To apply side effects to elements of a list, we use the <code class="src src-R">
 </p>
 </div>
 
-<div id="outline-container-org094836a" class="outline-4">
-<h4 id="org094836a">Usage</h4>
-<div class="outline-text-4" id="text-org094836a">
+<div id="outline-container-org2c8fffd" class="outline-4">
+<h4 id="org2c8fffd">Usage</h4>
+<div class="outline-text-4" id="text-org2c8fffd">
 <div class="org-src-container">
 <pre class="src src-R"><span class="org-ess-function-call">walk</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-1">(</span></span>.x, .f, ...<span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-1">)</span></span>
 </pre>
@@ -1337,9 +1336,9 @@ To apply side effects to elements of a list, we use the <code class="src src-R">
 </div>
 </div>
 
-<div id="outline-container-org93c8950" class="outline-4">
-<h4 id="org93c8950">Apply to our example</h4>
-<div class="outline-text-4" id="text-org93c8950">
+<div id="outline-container-org1a052e1" class="outline-4">
+<h4 id="org1a052e1">Apply to our example</h4>
+<div class="outline-text-4" id="text-org1a052e1">
 <p>
 We already have a list of graphs: <code class="src src-R">graphs</code>. Now, we can create a list of paths where we want to save them:<br />
 </p>
@@ -1389,9 +1388,9 @@ Don't hesitate to look up the help file for <code class="src src-R">ggsave</code
 </div>
 </div>
 
-<div id="outline-container-org11264c5" class="outline-2">
-<h2 id="org11264c5">Summary of the map and walk functions family</h2>
-<div class="outline-text-2" id="text-org11264c5">
+<div id="outline-container-org32ba998" class="outline-2">
+<h2 id="org32ba998">Summary of the map and walk functions family</h2>
+<div class="outline-text-2" id="text-org32ba998">
 <p>
 We will use different <code class="src src-R">map</code> (or <code class="src src-R">walk</code>, if we want the side effects) function depending on:<br />
 </p>
@@ -1594,9 +1593,9 @@ Results are returned predictably and consistently, which is <a href="https://blo
 </div>
 </div>
 
-<div id="outline-container-org4c0dcd8" class="outline-2">
-<h2 id="org4c0dcd8">Conclusion</h2>
-<div class="outline-text-2" id="text-org4c0dcd8">
+<div id="outline-container-orgbcc1979" class="outline-2">
+<h2 id="orgbcc1979">Conclusion</h2>
+<div class="outline-text-2" id="text-orgbcc1979">
 <p>
 These are some of the most important <code class="src src-R">purrr</code> functions. But there are many others and I encourage you to explore them by yourself.<br />
 </p>
@@ -1621,7 +1620,7 @@ Have fun!!!<br />
 </div>
 </div>
 <div id="postamble" class="status">
-<span style="color:#596a73;font-size:14px"><div align="right">Last updated: October 06, 2018</div></span>
+<span style="color:#596a73;font-size:14px"><div align="right">Last updated: October 08, 2018</div></span>
 </div>
 </body>
 </html>
