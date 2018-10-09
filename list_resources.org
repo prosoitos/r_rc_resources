@@ -2,15 +2,17 @@
 #+OPTIONS: toc:t h:6 num:nil |:t todo:nil
 #+OPTIONS: *:t -:t ::t <:t \n:t e:t creator:nil
 #+OPTIONS: f:t inline:t tasks:t tex:t timestamp:t
-#+OPTIONS: html-preamble:t html-postamble:nil
+#+OPTIONS: html-preamble:t html-postamble:t
 
 #+TITLE:   Key R resources that will change your R life...
 #+DATE:	  {{{time(%B %d\, %Y)}}}
 #+AUTHOR:  Marie-Hélène Burle
-#+CREATOR: Simon Fraser University, Research Commons
 #+EMAIL:   msb2@sfu.ca
+#+CREATOR: <img src="./favicons/rc_no_bg.png" height="22" width="22"> SFU Research Commons
 
 ... and that you *really* should use.
+
+/Note: This page is still under construction./
 
 * Learning R
 
@@ -26,17 +28,17 @@ The book [[http://r4ds.had.co.nz/index.html][R for Data Science by Garrett Grole
 
 *** Writing readable and well-formatted code
 
-http://adv-r.had.co.nz/Style.html
+While syntax matters greatly in code execution (e.g. missing quotes, commas, or parenthesis will affect the meaning of your code), R will equally run formatted and non-formatted code.
 
-https://google.github.io/styleguide/Rguide.xml
+Code, however, should not simply be written for the machine and should be made as human readable as possible. This is key, for instance, for code sharing and code review. While there are no official R formatting guidelines, [[http://style.tidyverse.org/][Hadley Wickham wrote a short book on R formatting]]. [[https://google.github.io/styleguide/Rguide.xml][Google's R Style Guide]] offers another popular (and quite similar) set of recommendations. Whichever formatting rules you choose, it is important that you commit to them for the sake of *formatting consistency*.
 
-[[http://style.tidyverse.org/][the tidyverse style guide]]
+Of note, when you work on someone else's code, you should adopt their style, again, for the sake of consistency.
 
 *** Understanding R as a programming language
 
 The book [[https://adv-r.hadley.nz/][Advanced R by Hadley Wickham]] will give you a better understanding of R as a programming language and help you get to the next level of R writing.
 
-[[http://adv-r.had.co.nz/][The first edition]] of that book was more focuses on base R and less on the tidyverse and is also worth a read.
+[[http://adv-r.had.co.nz/][The first edition]] of that book, which focuses on base R rather than on the tidyverse, is also well worth a read.
 
 *** Writing your own packages
 
@@ -48,28 +50,33 @@ The on-line manual [[https://cran.r-project.org/doc/manuals/R-exts.html][Writing
 
 The tutorials [[https://data.cdrc.ac.uk/tutorial/an-introduction-to-spatial-data-analysis-and-visualisation-in-r][An Introduction to Spatial Data Analysis and Visualisation in R by Guy Lansley and James Cheshire]] as well as the book [[https://geocompr.robinlovelace.net/][Geocomputation with R by Robin Lovelace, Jakub Nowosad, and Jannes Muenchow]] will teach you how to map data and conduct spacial data analysis in R or how to bridge R and [[https://www.qgis.org/en/site/][QGIS]].
 
+*** Other online resources
+
+https://resources.rstudio.com/
+
+https://resources.rstudio.com/webinars
+
+check linda. mention datacamp.
+
 ** Resources at SFU
 
-- rc service
-- workshops
-- books
+*** The Research Commons
 
-[[https://software-carpentry.org/][Software Carpentry]] and [[http://www.datacarpentry.org/][Data Carpentry]], now merged under [[http://carpentries.org/][the Carpentries]]
+The SFU Research Commons offers [[https://www.lib.sfu.ca/about/branches-depts/rc/services/consultations#r-help-and-consultations][consultations]], [[https://www.lib.sfu.ca/about/branches-depts/rc/services/workshops#r-software][workshops]], and online resources for R.
 
-[[http://sciprog.ca/][SciProg]] is 
+The Research Commons is also a partner of [[https://software-carpentry.org/][Software Carpentry]] and [[http://www.datacarpentry.org/][Data Carpentry]], now merged under [[http://carpentries.org/][the Carpentries]]. The Carpentries organize workshops-including workshops on R-regularly. You can find their upcoming workshops on their [[https://carpentries.org/][website]].
 
-For students in the department of biology, 
+*** Library
 
-[[][Research Commons R peers].
+The SFU library owns several classic books on R. Don't hesitate to talk to a librarian if you need help finding them. And remember that you can also suggest new book acquisitions if important books are missing from the collection.
+
+*** The Scientific Programming Study Group
+
+[[http://sciprog.ca/][SciProg]], short for Scientific Programming Study Group, is an SFU student lead group open to anyone interested in learning or sharing programming resources through workshops, hackathons, and other events. R workshops are regularly offered. If you are interested in learning about a particular topic (or if you are interested in giving workshops), get in touch!
 
 * Getting help
 
-Where can you find help if you cannot figure out how to do something
-link to other section
-
-- rc
-- sites
-
+The Research Commons webpage on [[https://prosoitos.github.io/r_resources/getting_help][getting help with R]] should keep you going if you cannot figure out how to do something in R.
 
 * Getting involved in the R community
 
@@ -79,11 +86,11 @@ link to other section
 
 *** Answering questions
 
-Obviously, 
+xxxxlink to asking question link on other page
 
 *** Contributing code
 
-**** Filling issues and submitting pull request
+**** Filling issues and submitting pull requests
 
 [[https://github.com/][GitHub]]
 
@@ -93,12 +100,10 @@ Obviously,
 
 * Keeping up to date with R
 
-Listing only free resources. Some paid options too.
+R is a relatively new language and it is fast evolving. Here are a few resources to keep up with R changes:
 
-
-** Blogs
-
-Rblogger
-
-
-
+- following the hashtag [[https://twitter.com/search?q=%23rstats&src=typd][#rstats on twitter]]
+- the [[https://www.r-bloggers.com/][R-bloggers site]]
+- the [[https://journal.r-project.org/][official R Journal]]
+- the [[https://ropensci.org/blog/][rOpenSci blog]]
+- the [[https://blog.rstudio.com/][RStudio blog]]
