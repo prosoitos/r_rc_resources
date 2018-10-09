@@ -20,7 +20,7 @@
 library(magrittr)
 #+END_SRC
 
-* %>% (forward-pipe operator)
+* %>% (forward pipe)
 
 src_R[:eval no]{%>%} is the default pipe in R, equivalent to the pipe represented by src_R[:eval no]{|} in other languages. Several src_R[:eval no]{tidyverse} packages (e.g. src_R[:eval no]{dplyr}, src_R[:eval no]{tidyr}, src_R[:eval no]{forcats}, src_R[:eval no]{rvest}, src_R[:eval no]{stringr}, src_R[:eval no]{purrr}, or src_R[:eval no]{modelr}) include it, which is why you do not have to load src_R[:eval no]{magrittr} to use it.
 
@@ -67,7 +67,7 @@ But now, consider this:
 
 
 
-* %<>% (compound assignment pipe-operator)
+* %<>% (compound assignment pipe)
 
 src_R[:eval no]{%<>%} pipes the left expression to the right, and then back to the left. Instead of an arrow going right (as the main pipe is), think of it as an arrow going from left to right and then back left.
 
@@ -91,7 +91,7 @@ banding <-
   modify_if(is.factor, as.character)
 #+END_SRC
 
-* %T% (tee operator)
+* %T% (tee pipe)
 
 src_R[:eval no]{%T%} pipes the effect of the left expression to the right, but does not pipe the object itself (so the object is "free" to be used by another pipe). This is very useful when you want to produce to output from one object or produce a side effect (e.g. printing) without interrupting a pipeline. I like to think of the "T" as a branching which represents the 2 outputs produced by a single object.
 
@@ -115,5 +115,5 @@ Try replacing src_R[:eval no]{%T%} with the forward pipe (src_R[:eval no]{%>%}) 
 Can you explain it?
 #+END_vertbar
 
-* %$% (exposition pipe-operator)
+* %$% (exposition pipe)
 

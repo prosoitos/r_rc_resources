@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2018-10-08 Mon 15:37 -->
+<!-- 2018-10-09 Tue 03:54 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Magrittr less used "piping" treasures</title>
@@ -272,14 +272,14 @@
     outline: none;
   }
   .active, .accordion:hover {	/*button of the accordeon box while hover*/
-    background-color: #94b8b8;
-    border: 0.5pt solid #85adad;
+    background-color: #a3c2c2;
+    border: 0.5pt solid #94b8b8;
     /* color: white; */
   }
   .panel {			/*accordeon box*/
     padding: 0em 1em;
     margin: 0.7em 0 0 0;
-    background-color: #c2d6d6;
+    background-color: #e0ebeb;
     /* border: 0.5pt solid #d9d9d9; */
     border-radius: 5px;
     max-height: 0;
@@ -691,15 +691,15 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org585121a">Requirements</a></li>
-<li><a href="#org917f4b4">%&gt;% (forward-pipe operator)</a>
+<li><a href="#org19d2708">Requirements</a></li>
+<li><a href="#orge110769">%&gt;% (forward pipe)</a>
 <ul>
-<li><a href="#orgbdc78f2">Examples</a></li>
+<li><a href="#org0c8c4ba">Examples</a></li>
 </ul>
 </li>
-<li><a href="#org3254c7f">%&lt;&gt;% (compound assignment pipe-operator)</a></li>
-<li><a href="#org81f86dd">%T% (tee operator)</a></li>
-<li><a href="#org85aaefe">%$% (exposition pipe-operator)</a></li>
+<li><a href="#org1830253">%&lt;&gt;% (compound assignment pipe)</a></li>
+<li><a href="#orgb791d01">%T% (tee pipe)</a></li>
+<li><a href="#org7eaa856">%$% (exposition pipe)</a></li>
 </ul>
 </div>
 </div>
@@ -707,9 +707,9 @@ for the JavaScript code in this tag.
 <i>Note: This page is still under construction.</i><br />
 </p>
 
-<div id="outline-container-org585121a" class="outline-2">
-<h2 id="org585121a">Requirements</h2>
-<div class="outline-text-2" id="text-org585121a">
+<div id="outline-container-org19d2708" class="outline-2">
+<h2 id="org19d2708">Requirements</h2>
+<div class="outline-text-2" id="text-org19d2708">
 <div class="org-src-container">
 <pre class="src src-R"><span class="org-ess-modifiers">library</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-1">(</span></span>magrittr<span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-1">)</span></span>
 </pre>
@@ -717,9 +717,9 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-org917f4b4" class="outline-2">
-<h2 id="org917f4b4">%&gt;% (forward-pipe operator)</h2>
-<div class="outline-text-2" id="text-org917f4b4">
+<div id="outline-container-orge110769" class="outline-2">
+<h2 id="orge110769">%&gt;% (forward pipe)</h2>
+<div class="outline-text-2" id="text-orge110769">
 <p>
 <code class="src src-R"><span class="org-default">%&gt;%</span></code> is the default pipe in R, equivalent to the pipe represented by <code class="src src-R">|</code> in other languages. Several <code class="src src-R">tidyverse</code> packages (e.g. <code class="src src-R">dplyr</code>, <code class="src src-R">tidyr</code>, <code class="src src-R">forcats</code>, <code class="src src-R">rvest</code>, <code class="src src-R">stringr</code>, <code class="src src-R">purrr</code>, or <code class="src src-R">modelr</code>) include it, which is why you do not have to load <code class="src src-R">magrittr</code> to use it.<br />
 </p>
@@ -751,9 +751,9 @@ You have to read such nested functions from the inside out and from the bottom r
 </p>
 </div>
 
-<div id="outline-container-orgbdc78f2" class="outline-3">
-<h3 id="orgbdc78f2">Examples</h3>
-<div class="outline-text-3" id="text-orgbdc78f2">
+<div id="outline-container-org0c8c4ba" class="outline-3">
+<h3 id="org0c8c4ba">Examples</h3>
+<div class="outline-text-3" id="text-org0c8c4ba">
 <p>
 For instance, to get the mean of an object <code class="src src-R">x</code>, we apply the function <code class="src src-R"><span class="org-ess-function-call">mean</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-1">()</span></span></code> on it this way:<br />
 </p>
@@ -788,9 +788,9 @@ But now, consider this:<br />
 
 
 
-<div id="outline-container-org3254c7f" class="outline-2">
-<h2 id="org3254c7f">%&lt;&gt;% (compound assignment pipe-operator)</h2>
-<div class="outline-text-2" id="text-org3254c7f">
+<div id="outline-container-org1830253" class="outline-2">
+<h2 id="org1830253">%&lt;&gt;% (compound assignment pipe)</h2>
+<div class="outline-text-2" id="text-org1830253">
 <p>
 <code class="src src-R"><span class="org-default">%&lt;&gt;%</span></code> pipes the left expression to the right, and then back to the left. Instead of an arrow going right (as the main pipe is), think of it as an arrow going from left to right and then back left.<br />
 </p>
@@ -828,9 +828,9 @@ is equivalent to:<br />
 </div>
 </div>
 
-<div id="outline-container-org81f86dd" class="outline-2">
-<h2 id="org81f86dd">%T% (tee operator)</h2>
-<div class="outline-text-2" id="text-org81f86dd">
+<div id="outline-container-orgb791d01" class="outline-2">
+<h2 id="orgb791d01">%T% (tee pipe)</h2>
+<div class="outline-text-2" id="text-orgb791d01">
 <p>
 <code class="src src-R"><span class="org-default">%T%</span></code> pipes the effect of the left expression to the right, but does not pipe the object itself (so the object is "free" to be used by another pipe). This is very useful when you want to produce to output from one object or produce a side effect (e.g. printing) without interrupting a pipeline. I like to think of the "T" as a branching which represents the 2 outputs produced by a single object.<br />
 </p>
@@ -863,12 +863,12 @@ Can you explain it?<br />
 </div>
 </div>
 
-<div id="outline-container-org85aaefe" class="outline-2">
-<h2 id="org85aaefe">%$% (exposition pipe-operator)</h2>
+<div id="outline-container-org7eaa856" class="outline-2">
+<h2 id="org7eaa856">%$% (exposition pipe)</h2>
 </div>
 </div>
 <div id="postamble" class="status">
-<span style="color:#596a73;font-size:14px"><div align="right">Last updated: October 08, 2018</div></span>
+<span style="color:#596a73;font-size:14px"><div align="right">Last updated: October 09, 2018</div></span>
 </div>
 </body>
 </html>
