@@ -2,21 +2,23 @@
 #+OPTIONS: toc:t h:6 num:nil |:t todo:nil
 #+OPTIONS: *:t -:t ::t <:t \n:t e:t creator:nil
 #+OPTIONS: f:t inline:t tasks:t tex:t timestamp:t
-#+OPTIONS: html-preamble:t html-postamble:nil
+#+OPTIONS: html-preamble:t html-postamble:t
 
 #+PROPERTY: header-args:R :session R:help :eval no :results output :exports code :tangle yes :comments link
 
 #+TITLE:   Getting help with R
-#+DATE:	   {{{time(%B %d\, %Y)}}}
+#+DATE:	  {{{time(%B %d\, %Y)}}}
 #+AUTHOR:  Marie-Hélène Burle
-#+CREATOR: Simon Fraser University, Research Commons
 #+EMAIL:   msb2@sfu.ca
+#+CREATOR: <img src="./favicons/rc_no_bg.png" height="22" width="22"> SFU Research Commons
+
+/Note: This page is still under construction./
 
 * Where to ask for help
 
-** Ask R!
+** Ask R
 
-R, as well as any package you have installed, contain a lot of documentation. This can be invaluable if you do not have internet access.
+R, as well as any package you have installed, comes with a lot of documentation. This can be invaluable if you do not have internet access.
 
 *** Manuals
 
@@ -28,13 +30,13 @@ help.start()
 
 *** Packages
 
-To get information on a package, you can run:
+To get information on a package called package-name, you can run:
 
 #+BEGIN_SRC R
 package?package-name
 #+END_SRC
 
-For instancesrc_R[:eval no]{package?data.table}.
+For instance src_R[:eval no]{package?data.table}.
 
 And to get a list of the functions in a package, run:
 
@@ -46,11 +48,13 @@ For instance src_R[:eval no]{help(package = data.table)}.
 
 Note that, for this to work, the package doesn't need to be loaded. But of course, it does need to be installed on your machine.
 
+In the case of packages hosted on CRAN, a pdf containing the information for all the package functions can also be download from the web. Such package manuals are easy to find by googling "CRAN package-name".
+
 *** Functions
 
-R and any serious package contain the documentation of every function in help files.
+Any serious package contains the documentation of every function in help files.
 
-You can get a detailed description of a function by running:
+You can get a detailed description of a function called function-name by running:
 
 #+BEGIN_SRC R
 ?function-name
@@ -62,11 +66,11 @@ For this to work, the package containing this function needs to be loaded. So th
 
 *** Vignettes
 
-Packages also often contain additional information in "vignettes". These are the references to use when you aren't sure how to use a function.
+Packages also sometime contain additional information in "vignettes": tutorials on how to use the package.
 
 **** List vignettes
 
-To list all the vignettes for a package, run:
+To list all the vignettes for a package called package-name, run:
 
 #+BEGIN_SRC R
 vignette(package = "package-name")
@@ -98,14 +102,9 @@ vignette("vignette-name")
 
 For instance src_R[:eval no]{vignette("two-table")}.
 
-** Ask Google!
+** Ask Google
 
-You can also download the pdf manuals of packages on CRAN by googling "CRAN package-name".
-
-
-On-line
-
-community
+R has a wonderful community.
 
 - so
 - rsc
@@ -113,46 +112,54 @@ community
 - slack r4ds
 - mailing lists
 
+** Cheatsheets
+
+Who doesn't love cheatsheets? Good news: RStudio and others created [[https://www.rstudio.com/resources/cheatsheets/][great cheatsheets]] on the tidyverse and a few other packages. If you use the tidyverse, those are absolute must have.
+
 ** At SFU
+
+The SFU Research Commons offers one-on-one [[https://www.lib.sfu.ca/about/branches-depts/rc/services/consultations#r-help-and-consultations][consultations]] to help you with your R code.
 
 * How to ask for help
 
-1. makes sense without being run
+** The golden rules
 
-So includes input and output. Not everybody wants to run the code.
+The R community is full of people keen to help you: you will be amazed. But if you want to receive good help, you need to do your part. In order for others to understand your issue and be able to help you, the code that you post online needs to follow 4 (even better 5) rules, which are that it:
 
-2. can be run
+#+BEGIN_red
+1. makes sense without being run,
+2. can be run,
+3. does not contain sensitive or personal data,
+4. does not use data which needs to be downloaded,
+5. (optionally) does not contain more than is necessary to reproduce the problem.
+#+END_red
 
-The essence of "reproducible" and a necessity to test suggested solutions.
+Let's go over each point. The posted code...
 
-3. does not contain sensitive or personal data
+*** 1. makes sense without being run
 
-Those should be anonymised or fake data of similar structure should be created.
+This means that it includes the code and its output: not everybody wants to run your code and they may be able to see what is going on just by looking at this.
 
-4. does not use data which needs to be downloaded
+*** 2. can be run
 
-The data should be created from the script text, either from code producing it or from dput() output.
+Anyone copying your code and running it on their machine should get output you got. This is necessary for others to test potential solutions without having to do the work of first making up data that looks like yours.
 
-5. (optionally) does not contain more than is necessary to reproduce the error
+*** 3. does not contain sensitive or personal data
 
-For the added sleekness of a minimal reproducible example. But that is more sophisticated and not necessary.
+If your data is sensitive, it needs to be [[id:h:5fa991db-3c7d-4e83-a5bc-de6ac1000ee7][anonymised]] or you need to make up fake data of a similar structure.
 
+*** 4. does not use data which needs to be downloaded
 
-** (Minimal) reproducible example
+If your code uses, for instance, data from a .csv file, the code alone will not run. Uploading your .csv file for others to download is tedious and many people will not be keen to download it. The [[id:h:b409126d-9278-4647-aff2-1f18fe600857][data should be recreated from the code you post]].
 
-The best way to get help with R is to make a minimal reproducible example: https://www.tidyverse.org/help/#where-to-ask
+*** 5. (optionally) does not contain more than is necessary to reproduce the problem
 
- ("reprex" in R jargon).
-[[https://stackoverflow.com/questions/tagged/r][Stack Overflow]]
+While not absolutely necessary, reducing your code to the simplest and smallest sample necessary to reproduce your problem will make it easier for others to pinpoint what is going on. Additionally, it is likely that you will find the problem yourself in the process of producing this "minimal reproducible example".
 
-[[https://stackoverflow.com/help/tagging][tags]]
+** How do I follow the golden rules?
 
 Hadley Wickham [[http://adv-r.had.co.nz/Reproducibility.html][How to write a reproducible example]] 
 Stack Overflow [[https://stackoverflow.com/questions/5963269/how-to-make-a-great-r-reproducible-example][How to make a great R reproducible example?]]
-
-https://community.rstudio.com/t/welcome-to-the-rstudio-community/
-
-https://community.rstudio.com/guidelines
 
 https://support.rstudio.com/hc/en-us/articles/200552336
 
@@ -160,7 +167,7 @@ https://www.dummies.com/programming/r/r-for-dummies-cheat-sheet/
 
 https://www.r-bloggers.com/three-tips-for-posting-good-questions-to-r-help-and-stack-overflow/
 
-https://www.youtube.com/watch?v=MmTPhGQWPUo
+https://resources.rstudio.com/webinars/help-me-help-you-creating-reproducible-examples-jenny-bryan
 
 https://swcarpentry.github.io/r-novice-gapminder/03-seeking-help/
 
@@ -168,4 +175,15 @@ https://masalmon.eu/2018/07/22/wheretogethelp/
 
 http://www.cookbook-r.com/
 
-** Data anonymization
+** Data anonymisation
+:PROPERTIES:
+:ID:       h:5fa991db-3c7d-4e83-a5bc-de6ac1000ee7
+:END:
+
+** Recreating data
+:PROPERTIES:
+:ID:       h:b409126d-9278-4647-aff2-1f18fe600857
+:END:
+
+
+ dput() output.

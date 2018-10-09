@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2018-09-19 Wed 22:24 -->
+<!-- 2018-10-09 Tue 03:55 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Getting help with R</title>
@@ -208,7 +208,7 @@
     line-height: 25px;
   }
   h5 {
-    line-height: 20px;    
+    line-height: 25px;    
   }
   h6 {
     line-height: 15px;
@@ -244,44 +244,24 @@
     color: #890c0c;
   }
   h2 {
-    color: #19334d;
+    color: #9c4949;
   }
   h3 {
-    color: #336699;
+    color: #19334d;
   }
   h4 {
-    color: #6699cc;
+    color: #3c80c3;
   }
   h5 {
-    color: #666666;
+    color: #262626;
   }
   h6 {
-    color: #808080;
+    color: #4d4d4d;
   }
-  pre[class="src src-R"] {	/*for blocks src R*/
-    background-color: #f1f1f1;
-    color: #262626;
-    padding: 0.4em 0.8em;
-    font-size: 95%;
-    line-height: 22px;
-    border: 0.5pt solid #d9d9d9;
-    border-radius: 5px;
-    box-shadow: 0pt 0pt 0pt #eee8d5;
-  }
-  pre[class="src src-sh"] {	/*for blocks src sh*/
-    background-color: #f1f1f1;
-    color: #262626;
-    padding: 0.8em;
-    font-size: 95%;
-    line-height: 22px;
-    border: 0.5pt solid #d9d9d9;
-    border-radius: 5px;
-    box-shadow: 0pt 0pt 0pt #eee8d5;
-  }
-  .accordion {			/*for the button of the box that can hide/appear*/
+  .accordion {			/*button of the accordeon box*/
     background-color: #c2d6d6;
     color: #262626;
-    padding: 0 0.8em;
+    padding: 0em 0.8em;
     font-size: 95%;
     line-height: 22px;
     border: 0.5pt solid #b3cccc;
@@ -291,32 +271,32 @@
     cursor: pointer;
     outline: none;
   }
-  .active, .accordion:hover {	/*for the button of the box while hover*/
-    background-color: #94b8b8;
-    border: 0.5pt solid #85adad;
+  .active, .accordion:hover {	/*button of the accordeon box while hover*/
+    background-color: #a3c2c2;
+    border: 0.5pt solid #94b8b8;
     /* color: white; */
   }
-  .panel {			/*for the box that can hide/appear*/
+  .panel {			/*accordeon box*/
     padding: 0em 1em;
     margin: 0.7em 0 0 0;
-    background-color: #c2d6d6;
+    background-color: #e0ebeb;
     /* border: 0.5pt solid #d9d9d9; */
     border-radius: 5px;
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.2s ease-out;
   }
-  code {			/*for inline code*/
+  code {			/*inline code*/
     background-color: #f1f1f1;
     color: #262626;
-    padding: 0em 0.2em 0em 0.2em;
+    padding: 0em 0.2em;
     font-size: 95%;
     line-height: 22px;
     border: 0.5pt solid #e6e6e6;
     border-radius: 3px;
     box-shadow: 0pt 0pt 0pt #eee8d5;
   }
-  blockquote {			/*for block quote*/
+  blockquote {			/*quote*/
     /* font: 14px/22px normal helvetica, sans-serif; /\*original line*\/ */
     line-height: 22px;
     font-style: italic;
@@ -324,55 +304,108 @@
     padding-left: 15px;
     border-left: 3px solid #ccc;
   }
-  pre[class="example"] {	/*for block example*/
+  pre[class="src src-R"] {	/*src r*/
+    background-color: #f1f1f1;
+    color: #262626;
+    padding: 0.4em 0.8em;
+    font-size: 95%;
+    line-height: 22px;
+    border: 0.5pt solid #d9d9d9;
+    border-radius: 5px;
+    box-shadow: 0pt 0pt 0pt #eee8d5;
+  }
+  pre[class="src src-sh"] {	/*src sh*/
+    background-color: #f1f1f1;
+    color: #262626;
+    padding: 0.4em 0.8em;
+    font-size: 95%;
+    line-height: 22px;
+    border: 0.5pt solid #d9d9d9;
+    border-radius: 5px;
+    box-shadow: 0pt 0pt 0pt #eee8d5;
+  }
+  pre[class="src src-tex"] {	/*src latex*/
+    background-color: #f1f1f1;
+    color: #262626;
+    padding: 0.4em 0.8em;
+    font-size: 95%;
+    line-height: 22px;
+    border: 0.5pt solid #d9d9d9;
+    border-radius: 5px;
+    box-shadow: 0pt 0pt 0pt #eee8d5;
+  }
+  pre[class="src src-html"] {	/*src html*/
+    background-color: #f1f1f1;
+    color: #262626;
+    padding: 0.4em 0.8em;
+    font-size: 95%;
+    line-height: 22px;
+    border: 0.5pt solid #d9d9d9;
+    border-radius: 5px;
+    box-shadow: 0pt 0pt 0pt #eee8d5;
+  }
+  pre[class="example"] {	/*mono font framed by subtle gray border*/
+    padding: 0em 1.5em;
+  }
+  div[class="box"] {	/*mono font framed by subtle gray border*/
+    padding: 0em 0.8em;
+    line-height: 22px;
+    border: 0.5pt solid #d9d9d9;
+    border-radius: 5px;
+    box-shadow: 0pt 0pt 0pt #eee8d5;
+  }
+  div[class="definition"] {	/*small font in dull gray box*/
     background-color: #f0efe7;
     font-family: 'Rokkitt';
     width: max-content;
     color: #3e3e3e;
-    padding: 0.6em 0.8em 0.6em 0.8em;
+    /* padding: 0.6em 0.8em 0.6em 0.8em; */
+    padding: 0em 0.8em;
     /* font-size: 95%; */
     line-height: 22px;
     border: 0.5pt solid #ebeae0;
     border-radius: 5px;
     box-shadow: 0pt 0pts 0pt #eee8d5;
   }
-  p[class="verse"] {		/*for block verse*/
+  p[class="verse"] {		/*verse*/
     color: #262626;
     font-family: 'IM Fell English';
     font-size: 110%;
     font-style: italic;
-    /* margin-left: 30px;		/\*keep this line to have the verses indented*\/ */
+    margin-left: 30px;		/*keep this line to have the verses indented*/
     line-height: 25px;
   }
-  div[class="org-center"] {	/*for block center*/
+  div[class="org-center"] {	/*center*/
     margin: auto;
     line-height: 22px;
     width: max-content;
   }
-  div[class="right"] {	/*for block right-aligned*/
+  div[class="right"] {	/*right-aligned*/
     text-align: right;
     line-height: 22px;
   }
-  div[class="HAND"] {		/*for block with handwriting font*/
+  div[class="handwriting"] {		/*handwriting font*/
     font-family: 'Montez';
     line-height: 26px;
     font-size: 130%;
   }
-  div[class="MONO"] {	/*for block with monospace font*/
-    /* font-family: 'Anonymous Pro'; */
-    font-family: 'Roboto Slab Thin';
+  div[class="monofont"] {	/*monospace font*/
     margin: auto;
     width: max-content;
+    /* font-family: 'anonymous pro'; */
+    font-family: 'Slabo';
+    width: max-content;
     color: #000000;
-    padding: 0.3 0.8em 0.3 0.8em;
+    /* padding: 0.3 0.8em 0.3 0.8em; */
+    padding: 0em 0.8em;
     font-size: 95%;
     line-height: 20px;
     /* margin: 0 0 0 5px; */
-    /* border: 0.5pt solid #d9d9d9; */
-    /* border-radius: 5px; */
+    border: 0.5pt solid #999999;
+    border-radius: 5px;
     /* font-size: 95%; */
   }
-  div[class="RED"] {	/*for block with monospace font*/
+  div[class="red"] {	/*with monospace font*/
     /* font-family: 'Anonymous Pro'; */
     /* font-family: 'Roboto Slab Thin'; */
     /* margin: auto; */
@@ -397,14 +430,14 @@
     /* transition: max-height 0.2s ease-out; */
     /* background-color: #f1f1f1; */
     color: #262626;
-    /* padding: 0.8em; */
+    /* padding: 0.4em 0.8em; */
     font-size: 92%;
     /* line-height: 22px; */
     /* border: 0.5pt solid #d9d9d9; */
     border-radius: 5px;
     box-shadow: 0pt 0pt 0pt #eee8d5;
   }
-  div[class="VERBATIM"] {	/*for block verbatim*/
+  div[class="vertbar"] {	/*vertical-bar and big margin for questions or emphasis*/
     /* background-color: #f4faff; */
     line-height: 27px;
     font-family: 'Linden Hill';
@@ -416,16 +449,18 @@
     color: #303b52;
     padding: 0 0 0 15px;
     border-left: 0.5px solid #425170;
-    width: max-content;
+    width: max-content;    
   }
-  div[class="EMPHASIS"] {	/*for block verbatim*/
+  div[class="emphasis"] {
     line-height: 27px;
+    font-family: 'Montserrat';
     /* font-weight: bold; */
-    margin: 45px 0px 45px 150px;
+    margin: 30px 100px;
     /* padding-left: 10px; */
     /* border-left: 3px solid #890c0c; */
-    font-size: 135%;
-    color: #7c6262;
+    /* font-size: 135%; */
+    /* color: #8f7070; */
+    color: #911808;
   }
   .org-ess-numbers {
     color: #e28200; 
@@ -456,23 +491,23 @@
     color: #0b5e56;
   }  
   h1 {
-    font-size: 2.2em;
+    font-size: 2.1em;
     text-align: center;
   }
   h2 {
     font-size: 1.6em;
   }
   h3 {
-    font-size: 1.5em;
-  }
-  h4 {
     font-size: 1.4em;
   }
+  h4 {
+    font-size: 1.2em;
+  }
   h5 {
-    font-size: 1.3em;
+    font-size: 1.15em;
   }
   h6 {
-    font-size: 1.2em;
+    font-size: 1.05em;
   }
   .tag {
     background-color: #eee8d5;
@@ -527,7 +562,7 @@
     border-radius: 0.2em;
     background-color: #d33682;
   }
-  .NOTE {
+  .note {
     -webkit-border-radius: 0.2em;
     -moz-border-radius: 0.2em;
     border-radius: 0.2em;
@@ -547,21 +582,21 @@
     right: 0em;
     top: 0em;
     background: #faf9f1;
-    color: #596a73;
+    color: #336699;
     /* -webkit-box-shadow: 0 0 1em #777777; */
     /* -moz-box-shadow: 0 0 1em #777777; */
     /* -webkit-border-bottom-left-radius: 10px; */
     /* -moz-border-radius-bottomleft: 10px; */
     text-align: right;
     /* ensure doesn't flow off the screen when expanded */
-    max-height: 80%;
+    max-height: 100%;
     overflow: auto;
   }
   #table-of-contents h2 {
     font-size: 12pt;
     max-width: 25em;
     font-weight: bold;
-    color: #596a73;
+    color: #336699;
     padding-right: 3em;
     padding-left: 0.8em;
     padding-top: 1em;
@@ -593,7 +628,7 @@
   #table-of-contents {
     float: right;
     border: 0px solid #CCC;
-    max-width: 25%;
+    max-width: 40%;
     overflow: auto;
   }
 } /* END OF @media screen */
@@ -648,7 +683,7 @@ for the JavaScript code in this tag.
 </head>
 <body>
 <div id="preamble" class="status">
-<span style="color:#596a73; font-size:17px"><b>Marie-Hélène Burle</b></span><br><span style="color:#8a8a8a; font-size:15px"><b>Simon Fraser University, Research Commons</b></span><br><span style="color:#596a73; font-size:15px"><img src="./favicons/email.ico" alt="email" height="16" width="16"> <a href="mailto:msb2@sfu.ca">msb2@sfu.ca</a>&nbsp;&nbsp;<img src="./favicons/twitter.ico" alt="twitter" height="17" width="17"> <a href="https://twitter.com/MHBurle">@MHBurle</a>&nbsp;&nbsp;<img src="./favicons/gh.ico" alt="github" height="15" width="15"> <a href="https://github.com/prosoitos">prosoitos</a></span><br><span style="color:#596a73; font-size:16px">September 19, 2018</span>
+<span style="color:#596a73;font-size:17px"><b>Marie-Hélène Burle</b></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#002b80; font-size:17px"><b><img src="./favicons/rc_no_bg.png" height="22" width="22"> SFU Research Commons</b></span><br><span style="color:#596a73;font-size:14px"><img src="./favicons/email.ico" alt="email" height="15" width="15"> <a href="mailto:msb2@sfu.ca">msb2@sfu.ca</a><br><img src="./favicons/twitter.ico" alt="twitter" height="16" width="16"><a href="https://twitter.com/MHBurle"> MHBurle</a><br><img src="./favicons/gh.ico" alt="github" height="14" width="14"><a href="https://github.com/prosoitos"> prosoitos</a></span>
 </div>
 <div id="content">
 <h1 class="title">Getting help with R</h1>
@@ -656,45 +691,68 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org9630ea5">Where to ask for help</a>
+<li><a href="#org1187abd">Where to ask for help</a>
 <ul>
-<li><a href="#orgd5d0274">Ask R!</a>
+<li><a href="#org70c7d5e">Ask R</a>
 <ul>
-<li><a href="#orgd2eb155">Manuals</a></li>
-<li><a href="#orgd461cbe">Packages</a></li>
-<li><a href="#orgf91060a">Functions</a></li>
-<li><a href="#orgf71570c">Vignettes</a>
+<li><a href="#org394e530">Manuals</a></li>
+<li><a href="#orgfc6ea10">Packages</a></li>
+<li><a href="#orgce4273a">Functions</a></li>
+<li><a href="#org0a6c23a">Vignettes</a>
 <ul>
-<li><a href="#org635c9fb">List vignettes</a></li>
-<li><a href="#org0965cfa">Open a vignette</a></li>
+<li><a href="#org478fcd6">List vignettes</a></li>
+<li><a href="#orgd7a0bb7">Open a vignette</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#orgb46efef">Ask Google!</a></li>
-<li><a href="#org6aaab80">At SFU</a></li>
+<li><a href="#org80f577e">Ask Google</a></li>
+<li><a href="#orga595cc8">Cheatsheets</a></li>
+<li><a href="#org8dca8ce">At SFU</a></li>
 </ul>
 </li>
-<li><a href="#orgd2cea61">How to ask for help</a>
+<li><a href="#orge6fc9b1">How to ask for help</a>
 <ul>
-<li><a href="#org18d4693">(Minimal) reproducible example</a></li>
+<li><a href="#orga5d2e5e">The golden rules</a>
+<ul>
+<li><a href="#org9fa0391">1. makes sense without being run</a></li>
+<li><a href="#org05a6276">2. can be run</a></li>
+<li><a href="#org7fc2d6c">3. does not contain sensitive or personal data</a></li>
+<li><a href="#org44fd123">4. does not use data which needs to be downloaded</a></li>
+<li><a href="#orge10f36e">5. (optionally) does not contain more than is necessary to reproduce the problem</a></li>
+</ul>
+</li>
+<li><a href="#org23b0d54">How do I follow the golden rules?</a></li>
+<li><a href="#org2d77e84">Data anonymisation</a></li>
+<li><a href="#org32dbd47">Recreating data</a></li>
 </ul>
 </li>
 </ul>
 </div>
+</div>
+<p>
+<i>Note: This page is still under construction.</i><br />
+</p>
+
+<div id="outline-container-org1187abd" class="outline-2">
+<h2 id="org1187abd">Where to ask for help</h2>
+<div class="outline-text-2" id="text-org1187abd">
+</div>
+<div id="outline-container-org70c7d5e" class="outline-3">
+<h3 id="org70c7d5e">Ask R</h3>
+<div class="outline-text-3" id="text-org70c7d5e">
+<p>
+R, as well as any package you have installed, comes with a lot of documentation. This can be invaluable if you do not have internet access.<br />
+</p>
 </div>
 
-<div id="outline-container-org9630ea5" class="outline-2">
-<h2 id="org9630ea5">Where to ask for help</h2>
-<div class="outline-text-2" id="text-org9630ea5">
-</div>
-<div id="outline-container-orgd5d0274" class="outline-3">
-<h3 id="orgd5d0274">Ask R!</h3>
-<div class="outline-text-3" id="text-orgd5d0274">
-</div>
-<div id="outline-container-orgd2eb155" class="outline-4">
-<h4 id="orgd2eb155">Manuals</h4>
-<div class="outline-text-4" id="text-orgd2eb155">
+<div id="outline-container-org394e530" class="outline-4">
+<h4 id="org394e530">Manuals</h4>
+<div class="outline-text-4" id="text-org394e530">
+<p>
+General manuals on R can be found by running:<br />
+</p>
+
 <div class="org-src-container">
 <pre class="src src-R"><span class="org-ess-function-call">help.start</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-1">()</span></span>
 </pre>
@@ -702,11 +760,11 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-orgd461cbe" class="outline-4">
-<h4 id="orgd461cbe">Packages</h4>
-<div class="outline-text-4" id="text-orgd461cbe">
+<div id="outline-container-orgfc6ea10" class="outline-4">
+<h4 id="orgfc6ea10">Packages</h4>
+<div class="outline-text-4" id="text-orgfc6ea10">
 <p>
-To get<br />
+To get information on a package called package-name, you can run:<br />
 </p>
 
 <div class="org-src-container">
@@ -715,7 +773,7 @@ To get<br />
 </div>
 
 <p>
-e.g. <code class="src src-R">package?data.table</code><br />
+For instance <code class="src src-R">package?data.table</code>.<br />
 </p>
 
 <p>
@@ -728,29 +786,28 @@ And to get a list of the functions in a package, run:<br />
 </div>
 
 <p>
-e.g.<br />
+For instance <code class="src src-R"><span class="org-ess-function-call">help</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-1">(</span></span>package <span class="org-ess-operator">=</span> data.table<span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-1">)</span></span></code>.<br />
 </p>
-
-<div class="org-src-container">
-<pre class="src src-R"><span class="org-ess-function-call">help</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-1">(</span></span>package <span class="org-ess-operator">=</span> data.table<span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-1">)</span></span>
-</pre>
-</div>
 
 <p>
 Note that, for this to work, the package doesn't need to be loaded. But of course, it does need to be installed on your machine.<br />
 </p>
+
+<p>
+In the case of packages hosted on CRAN, a pdf containing the information for all the package functions can also be download from the web. Such package manuals are easy to find by googling "CRAN package-name".<br />
+</p>
 </div>
 </div>
 
-<div id="outline-container-orgf91060a" class="outline-4">
-<h4 id="orgf91060a">Functions</h4>
-<div class="outline-text-4" id="text-orgf91060a">
+<div id="outline-container-orgce4273a" class="outline-4">
+<h4 id="orgce4273a">Functions</h4>
+<div class="outline-text-4" id="text-orgce4273a">
 <p>
-R and any serious package contain the documentation of every function in help files.<br />
+Any serious package contains the documentation of every function in help files.<br />
 </p>
 
 <p>
-You can get a detailed description of a function by running:<br />
+You can get a detailed description of a function called function-name by running:<br />
 </p>
 
 <div class="org-src-container">
@@ -759,13 +816,8 @@ You can get a detailed description of a function by running:<br />
 </div>
 
 <p>
-e.g.<br />
+For instance <code class="src src-R">?map</code>.<br />
 </p>
-
-<div class="org-src-container">
-<pre class="src src-R">?map
-</pre>
-</div>
 
 <p>
 For this to work, the package containing this function needs to be loaded. So the above line will only work if you have previously loaded the package <code class="src src-R">purrr</code>. Alternatively, you can run <code class="src src-R">?purrr::map</code>.<br />
@@ -773,19 +825,19 @@ For this to work, the package containing this function needs to be loaded. So th
 </div>
 </div>
 
-<div id="outline-container-orgf71570c" class="outline-4">
-<h4 id="orgf71570c">Vignettes</h4>
-<div class="outline-text-4" id="text-orgf71570c">
+<div id="outline-container-org0a6c23a" class="outline-4">
+<h4 id="org0a6c23a">Vignettes</h4>
+<div class="outline-text-4" id="text-org0a6c23a">
 <p>
-Packages also often contain additional information in "vignettes". These are the references to use when you aren't sure how to use a function.<br />
+Packages also sometime contain additional information in "vignettes": tutorials on how to use the package.<br />
 </p>
 </div>
 
-<div id="outline-container-org635c9fb" class="outline-5">
-<h5 id="org635c9fb">List vignettes</h5>
-<div class="outline-text-5" id="text-org635c9fb">
+<div id="outline-container-org478fcd6" class="outline-5">
+<h5 id="org478fcd6">List vignettes</h5>
+<div class="outline-text-5" id="text-org478fcd6">
 <p>
-To list all the vignettes for a package, run:<br />
+To list all the vignettes for a package called package-name, run:<br />
 </p>
 
 <div class="org-src-container">
@@ -794,13 +846,8 @@ To list all the vignettes for a package, run:<br />
 </div>
 
 <p>
-e.g.<br />
+For instance <code class="src src-R"><span class="org-ess-function-call">vignette</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-1">(</span></span>package <span class="org-ess-operator">=</span> <span class="org-string">"dplyr"</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-1">)</span></span></code>.<br />
 </p>
-
-<div class="org-src-container">
-<pre class="src src-R"><span class="org-ess-function-call">vignette</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-1">(</span></span>package <span class="org-ess-operator">=</span> <span class="org-string">"dplyr"</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-1">)</span></span>
-</pre>
-</div>
 
 <p>
 Note that, for this to work, the package doesn't need to be loaded. But of course, it does need to be installed on your machine.<br />
@@ -826,9 +873,9 @@ To list all the vignettes from all <b>installed</b> packages:<br />
 </div>
 </div>
 
-<div id="outline-container-org0965cfa" class="outline-5">
-<h5 id="org0965cfa">Open a vignette</h5>
-<div class="outline-text-5" id="text-org0965cfa">
+<div id="outline-container-orgd7a0bb7" class="outline-5">
+<h5 id="orgd7a0bb7">Open a vignette</h5>
+<div class="outline-text-5" id="text-orgd7a0bb7">
 <p>
 Once you have found the name of a vignette pertaining to the topic you are interested in, you can open it with:<br />
 </p>
@@ -839,27 +886,18 @@ Once you have found the name of a vignette pertaining to the topic you are inter
 </div>
 
 <p>
-e.g.<br />
+For instance <code class="src src-R"><span class="org-ess-function-call">vignette</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-1">(</span></span><span class="org-string">"two-table"</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-1">)</span></span></code>.<br />
 </p>
-
-<div class="org-src-container">
-<pre class="src src-R"><span class="org-ess-function-call">vignette</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-1">(</span></span><span class="org-string">"two-table"</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-1">)</span></span>
-</pre>
-</div>
 </div>
 </div>
 </div>
 </div>
 
-<div id="outline-container-orgb46efef" class="outline-3">
-<h3 id="orgb46efef">Ask Google!</h3>
-<div class="outline-text-3" id="text-orgb46efef">
+<div id="outline-container-org80f577e" class="outline-3">
+<h3 id="org80f577e">Ask Google</h3>
+<div class="outline-text-3" id="text-org80f577e">
 <p>
-On-line<br />
-</p>
-
-<p>
-community<br />
+R has a wonderful community.<br />
 </p>
 
 <ul class="org-ul">
@@ -872,50 +910,154 @@ community<br />
 </div>
 </div>
 
-<div id="outline-container-org6aaab80" class="outline-3">
-<h3 id="org6aaab80">At SFU</h3>
+<div id="outline-container-orga595cc8" class="outline-3">
+<h3 id="orga595cc8">Cheatsheets</h3>
+<div class="outline-text-3" id="text-orga595cc8">
+<p>
+Who doesn't love cheatsheets? Good news: RStudio and others created <a href="https://www.rstudio.com/resources/cheatsheets/">great cheatsheets</a> on the tidyverse and a few other packages. If you use the tidyverse, those are absolute must have.<br />
+</p>
 </div>
 </div>
 
-<div id="outline-container-orgd2cea61" class="outline-2">
-<h2 id="orgd2cea61">How to ask for help</h2>
-<div class="outline-text-2" id="text-orgd2cea61">
+<div id="outline-container-org8dca8ce" class="outline-3">
+<h3 id="org8dca8ce">At SFU</h3>
+<div class="outline-text-3" id="text-org8dca8ce">
+<p>
+The SFU Research Commons offers one-on-one <a href="https://www.lib.sfu.ca/about/branches-depts/rc/services/consultations#r-help-and-consultations">consultations</a> to help you with your R code.<br />
+</p>
 </div>
-<div id="outline-container-org18d4693" class="outline-3">
-<h3 id="org18d4693">(Minimal) reproducible example</h3>
-<div class="outline-text-3" id="text-org18d4693">
+</div>
+</div>
+
+<div id="outline-container-orge6fc9b1" class="outline-2">
+<h2 id="orge6fc9b1">How to ask for help</h2>
+<div class="outline-text-2" id="text-orge6fc9b1">
+</div>
+<div id="outline-container-orga5d2e5e" class="outline-3">
+<h3 id="orga5d2e5e">The golden rules</h3>
+<div class="outline-text-3" id="text-orga5d2e5e">
 <p>
-The best way to get help with R is to make a minimal reproducible example: <a href="https://www.tidyverse.org/help/#where-to-ask">https://www.tidyverse.org/help/#where-to-ask</a><br />
+The R community is full of people keen to help you: you will be amazed. But if you want to receive good help, you need to do your part. In order for others to understand your issue and be able to help you, the code that you post online needs to follow 4 (even better 5) rules, which are that it:<br />
 </p>
 
-<p>
-("reprex" in R jargon).<br />
-<a href="https://stackoverflow.com/questions/tagged/r">Stack Overflow</a><br />
-</p>
+<div class="red">
+<ol class="org-ol">
+<li>makes sense without being run,<br /></li>
+<li>can be run,<br /></li>
+<li>does not contain sensitive or personal data,<br /></li>
+<li>does not use data which needs to be downloaded,<br /></li>
+<li>(optionally) does not contain more than is necessary to reproduce the problem.<br /></li>
+</ol>
+
+</div>
 
 <p>
-<a href="https://stackoverflow.com/help/tagging">tags</a><br />
+Let's go over each point. The posted code&#x2026;<br />
 </p>
+</div>
 
+<div id="outline-container-org9fa0391" class="outline-4">
+<h4 id="org9fa0391">1. makes sense without being run</h4>
+<div class="outline-text-4" id="text-org9fa0391">
+<p>
+This means that it includes the code and its output: not everybody wants to run your code and they may be able to see what is going on just by looking at this.<br />
+</p>
+</div>
+</div>
+
+<div id="outline-container-org05a6276" class="outline-4">
+<h4 id="org05a6276">2. can be run</h4>
+<div class="outline-text-4" id="text-org05a6276">
+<p>
+Anyone copying your code and running it on their machine should get output you got. This is necessary for others to test potential solutions without having to do the work of first making up data that looks like yours.<br />
+</p>
+</div>
+</div>
+
+<div id="outline-container-org7fc2d6c" class="outline-4">
+<h4 id="org7fc2d6c">3. does not contain sensitive or personal data</h4>
+<div class="outline-text-4" id="text-org7fc2d6c">
+<p>
+If your data is sensitive, it needs to be <a href="#org2d77e84">anonymised</a> or you need to make up fake data of a similar structure.<br />
+</p>
+</div>
+</div>
+
+<div id="outline-container-org44fd123" class="outline-4">
+<h4 id="org44fd123">4. does not use data which needs to be downloaded</h4>
+<div class="outline-text-4" id="text-org44fd123">
+<p>
+If your code uses, for instance, data from a .csv file, the code alone will not run. Uploading your .csv file for others to download is tedious and many people will not be keen to download it. The <a href="#org32dbd47">data should be recreated from the code you post</a>.<br />
+</p>
+</div>
+</div>
+
+<div id="outline-container-orge10f36e" class="outline-4">
+<h4 id="orge10f36e">5. (optionally) does not contain more than is necessary to reproduce the problem</h4>
+<div class="outline-text-4" id="text-orge10f36e">
+<p>
+While not absolutely necessary, reducing your code to the simplest and smallest sample necessary to reproduce your problem will make it easier for others to pinpoint what is going on. Additionally, it is likely that you will find the problem yourself in the process of producing this "minimal reproducible example".<br />
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org23b0d54" class="outline-3">
+<h3 id="org23b0d54">How do I follow the golden rules?</h3>
+<div class="outline-text-3" id="text-org23b0d54">
 <p>
 Hadley Wickham <a href="http://adv-r.had.co.nz/Reproducibility.html">How to write a reproducible example</a> <br />
 Stack Overflow <a href="https://stackoverflow.com/questions/5963269/how-to-make-a-great-r-reproducible-example">How to make a great R reproducible example?</a><br />
 </p>
 
 <p>
-<a href="https://community.rstudio.com/t/welcome-to-the-rstudio-community/8">https://community.rstudio.com/t/welcome-to-the-rstudio-community/8</a><br />
-</p>
-
-<p>
-<a href="https://community.rstudio.com/guidelines">https://community.rstudio.com/guidelines</a><br />
-</p>
-
-<p>
 <a href="https://support.rstudio.com/hc/en-us/articles/200552336">https://support.rstudio.com/hc/en-us/articles/200552336</a><br />
 </p>
+
+<p>
+<a href="https://www.dummies.com/programming/r/r-for-dummies-cheat-sheet/">https://www.dummies.com/programming/r/r-for-dummies-cheat-sheet/</a><br />
+</p>
+
+<p>
+<a href="https://www.r-bloggers.com/three-tips-for-posting-good-questions-to-r-help-and-stack-overflow/">https://www.r-bloggers.com/three-tips-for-posting-good-questions-to-r-help-and-stack-overflow/</a><br />
+</p>
+
+<p>
+<a href="https://resources.rstudio.com/webinars/help-me-help-you-creating-reproducible-examples-jenny-bryan">https://resources.rstudio.com/webinars/help-me-help-you-creating-reproducible-examples-jenny-bryan</a><br />
+</p>
+
+<p>
+<a href="https://swcarpentry.github.io/r-novice-gapminder/03-seeking-help/">https://swcarpentry.github.io/r-novice-gapminder/03-seeking-help/</a><br />
+</p>
+
+<p>
+<a href="https://masalmon.eu/2018/07/22/wheretogethelp/">https://masalmon.eu/2018/07/22/wheretogethelp/</a><br />
+</p>
+
+<p>
+<a href="http://www.cookbook-r.com/">http://www.cookbook-r.com/</a><br />
+</p>
+</div>
+</div>
+
+<div id="outline-container-org2d77e84" class="outline-3">
+<h3 id="org2d77e84"><a id="h:5fa991db-3c7d-4e83-a5bc-de6ac1000ee7"></a>Data anonymisation</h3>
+<div class="outline-text-3" id="text-org2d77e84">
+</div>
+</div>
+
+<div id="outline-container-org32dbd47" class="outline-3">
+<h3 id="org32dbd47"><a id="h:b409126d-9278-4647-aff2-1f18fe600857"></a>Recreating data</h3>
+<div class="outline-text-3" id="text-org32dbd47">
+<p>
+dput() output.<br />
+</p>
 </div>
 </div>
 </div>
+</div>
+<div id="postamble" class="status">
+<span style="color:#596a73;font-size:14px"><div align="right">Last updated: October 09, 2018</div></span>
 </div>
 </body>
 </html>
