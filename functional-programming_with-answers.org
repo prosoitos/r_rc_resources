@@ -137,7 +137,7 @@ A data frame is a list! It is a list of vectors.
 
 Without running it in your computer, try to guess what the result of the following will be:
 
-#+BEGIN_SRC R
+#+BEGIN_SRC
 length(banding)
 #+END_SRC
 
@@ -147,7 +147,7 @@ Now, run it. What do you get? Why?
 So, back to our example, we do have a list: a list of vectors. That's what our banding data frame is! So no problem about applying src_R[:eval no]{map()} to it.
 
 #+BEGIN_accordion
-Answer
+Answer @@html:<span style="font-size: 70%;">@@(click to expand) @@html:</span>@@
 #+END_accordion
 
 #+HTML: <div class="panel">
