@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2018-10-21 Sun 18:39 -->
+<!-- 2018-11-03 Sat 09:31 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Tips on best practices in R</title>
@@ -691,28 +691,28 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgc758a3c">Projects</a>
+<li><a href="#org6f2b735">Projects</a>
 <ul>
-<li><a href="#org519e981">Example possible project structure</a></li>
+<li><a href="#org38f13ab">Example possible project structure</a></li>
 </ul>
 </li>
-<li><a href="#orgae503cc">Paths</a>
+<li><a href="#org04133dd">Paths</a>
 <ul>
-<li><a href="#orga0eaf0e">The problem with absolute paths</a></li>
-<li><a href="#org634f3a0">Solution: use paths relative to your project root</a></li>
-<li><a href="#org8e8813c">Package <code class="src src-R">here</code></a></li>
+<li><a href="#orgc6668b2">The problem with absolute paths</a></li>
+<li><a href="#org4c39414">Solution: use paths relative to your project root</a></li>
+<li><a href="#org9baafb1">Package <code class="src src-R">here</code></a></li>
 </ul>
 </li>
-<li><a href="#orgf16108d">Clean session</a></li>
-<li><a href="#org6a4ac47">Formatting</a></li>
-<li><a href="#org7917826">Things you do not want in a script</a></li>
+<li><a href="#org4c42088">Clean session</a></li>
+<li><a href="#orge20132c">Formatting</a></li>
+<li><a href="#orgfbad97d">Things you do not want in a script</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgc758a3c" class="outline-2">
-<h2 id="orgc758a3c">Projects</h2>
-<div class="outline-text-2" id="text-orgc758a3c">
+<div id="outline-container-org6f2b735" class="outline-2">
+<h2 id="org6f2b735">Projects</h2>
+<div class="outline-text-2" id="text-org6f2b735">
 <div class="vertbar">
 <p>
 Work in self-contained projects<br />
@@ -746,9 +746,9 @@ If you use RStudio, create RStudio projects.<br />
 </p>
 </div>
 
-<div id="outline-container-org519e981" class="outline-3">
-<h3 id="org519e981">Example possible project structure</h3>
-<div class="outline-text-3" id="text-org519e981">
+<div id="outline-container-org38f13ab" class="outline-3">
+<h3 id="org38f13ab">Example possible project structure</h3>
+<div class="outline-text-3" id="text-org38f13ab">
 <p>
 This would be a rather standard project structure:<br />
 </p>
@@ -773,13 +773,13 @@ You are free to organize your projects in a way that works for you. But followin
 </div>
 </div>
 
-<div id="outline-container-orgae503cc" class="outline-2">
-<h2 id="orgae503cc">Paths</h2>
-<div class="outline-text-2" id="text-orgae503cc">
+<div id="outline-container-org04133dd" class="outline-2">
+<h2 id="org04133dd">Paths</h2>
+<div class="outline-text-2" id="text-org04133dd">
 </div>
-<div id="outline-container-orga0eaf0e" class="outline-3">
-<h3 id="orga0eaf0e">The problem with absolute paths</h3>
-<div class="outline-text-3" id="text-orga0eaf0e">
+<div id="outline-container-orgc6668b2" class="outline-3">
+<h3 id="orgc6668b2">The problem with absolute paths</h3>
+<div class="outline-text-3" id="text-orgc6668b2">
 <p>
 If this is how your script starts:<br />
 </p>
@@ -818,9 +818,9 @@ If you move your project to another machine, the links will equally get broken. 
 </div>
 </div>
 
-<div id="outline-container-org634f3a0" class="outline-3">
-<h3 id="org634f3a0">Solution: use paths relative to your project root</h3>
-<div class="outline-text-3" id="text-org634f3a0">
+<div id="outline-container-org4c39414" class="outline-3">
+<h3 id="org4c39414">Solution: use paths relative to your project root</h3>
+<div class="outline-text-3" id="text-org4c39414">
 <p>
 <b>Once your entire project lives within one directory</b> (the project root), as we saw in the previous section, make sure that:<br />
 </p>
@@ -862,9 +862,9 @@ How?<br />
 </div>
 </div>
 
-<div id="outline-container-org8e8813c" class="outline-3">
-<h3 id="org8e8813c">Package <code class="src src-R">here</code></h3>
-<div class="outline-text-3" id="text-org8e8813c">
+<div id="outline-container-org9baafb1" class="outline-3">
+<h3 id="org9baafb1">Package <code class="src src-R">here</code></h3>
+<div class="outline-text-3" id="text-org9baafb1">
 <p>
 There are various methods, but a wonderfully easy one is:<br />
 </p>
@@ -901,9 +901,9 @@ my_plot <span class="org-ess-assignment">&lt;-</span> <span class="org-ess-funct
 </div>
 </div>
 
-<div id="outline-container-orgf16108d" class="outline-2">
-<h2 id="orgf16108d">Clean session</h2>
-<div class="outline-text-2" id="text-orgf16108d">
+<div id="outline-container-org4c42088" class="outline-2">
+<h2 id="org4c42088">Clean session</h2>
+<div class="outline-text-2" id="text-org4c42088">
 <div class="vertbar">
 <p>
 Never set anything that might change how your code runs<br />
@@ -923,9 +923,9 @@ In particular:<br />
 </div>
 </div>
 
-<div id="outline-container-org6a4ac47" class="outline-2">
-<h2 id="org6a4ac47">Formatting</h2>
-<div class="outline-text-2" id="text-org6a4ac47">
+<div id="outline-container-orge20132c" class="outline-2">
+<h2 id="orge20132c">Formatting</h2>
+<div class="outline-text-2" id="text-orge20132c">
 <p>
 There is no official R formatting. <a href="http://hadley.nz/">Hadley Wickham</a> wrote a <a href="http://style.tidyverse.org/">short book</a> on R formatting and this can be a great template to follow. A growing number of people are following his guidelines and it would be a good idea to familiarize yourself with them.<br />
 </p>
@@ -951,9 +951,9 @@ follow the style used by your collaborators, particularly if you edit their scri
 </div>
 </div>
 
-<div id="outline-container-org7917826" class="outline-2">
-<h2 id="org7917826">Things you do not want in a script</h2>
-<div class="outline-text-2" id="text-org7917826">
+<div id="outline-container-orgfbad97d" class="outline-2">
+<h2 id="orgfbad97d">Things you do not want in a script</h2>
+<div class="outline-text-2" id="text-orgfbad97d">
 <div class="vertbar">
 <p>
 Avoid anything that will make changes to a computer<br />
@@ -980,7 +980,7 @@ I owe these better coding habits to <a href="https://github.com/jennybc">Jenny B
 </div>
 </div>
 <div id="postamble" class="status">
-<span style="color:#596a73;font-size:14px"><div align="right">Last updated: October 21, 2018</div></span>
+<span style="color:#596a73;font-size:14px"><div align="right">Last updated: November 03, 2018</div></span>
 </div>
 </body>
 </html>
