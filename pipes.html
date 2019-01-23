@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2018-10-09 Tue 03:54 -->
+<!-- 2018-11-03 Sat 09:30 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Magrittr less used "piping" treasures</title>
@@ -683,7 +683,7 @@ for the JavaScript code in this tag.
 </head>
 <body>
 <div id="preamble" class="status">
-<span style="color:#596a73;font-size:17px"><b>Marie-Hélène Burle</b></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#002b80; font-size:17px"><b><img src="./favicons/rc_no_bg.png" height="22" width="22"> SFU Research Commons</b></span><br><span style="color:#596a73;font-size:14px"><img src="./favicons/email.ico" alt="email" height="15" width="15"> <a href="mailto:msb2@sfu.ca">msb2@sfu.ca</a><br><img src="./favicons/twitter.ico" alt="twitter" height="16" width="16"><a href="https://twitter.com/MHBurle"> MHBurle</a><br><img src="./favicons/gh.ico" alt="github" height="14" width="14"><a href="https://github.com/prosoitos"> prosoitos</a></span>
+<span style="color:#596a73;font-size:17px"><b>Marie-Hélène Burle</b></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#002b80; font-size:17px"><b></b></span><br><span style="color:#596a73;font-size:14px"><img src="./favicons/email.ico" alt="email" height="15" width="15"> <a href="mailto:msb2@sfu.ca">msb2@sfu.ca</a><br><img src="./favicons/twitter.ico" alt="twitter" height="16" width="16"><a href="https://twitter.com/MHBurle"> MHBurle</a><br><img src="./favicons/gh.ico" alt="github" height="14" width="14"><a href="https://github.com/prosoitos"> prosoitos</a></span>
 </div>
 <div id="content">
 <h1 class="title">Magrittr less used "piping" treasures</h1>
@@ -691,15 +691,15 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org19d2708">Requirements</a></li>
-<li><a href="#orge110769">%&gt;% (forward pipe)</a>
+<li><a href="#org91c090f">Requirements</a></li>
+<li><a href="#org7f7eae0">%&gt;% (forward pipe)</a>
 <ul>
-<li><a href="#org0c8c4ba">Examples</a></li>
+<li><a href="#org995d01f">Examples</a></li>
 </ul>
 </li>
-<li><a href="#org1830253">%&lt;&gt;% (compound assignment pipe)</a></li>
-<li><a href="#orgb791d01">%T% (tee pipe)</a></li>
-<li><a href="#org7eaa856">%$% (exposition pipe)</a></li>
+<li><a href="#org291c06b">%&lt;&gt;% (compound assignment pipe)</a></li>
+<li><a href="#orga1f5565">%T% (tee pipe)</a></li>
+<li><a href="#org62b9bda">%$% (exposition pipe)</a></li>
 </ul>
 </div>
 </div>
@@ -707,9 +707,9 @@ for the JavaScript code in this tag.
 <i>Note: This page is still under construction.</i><br />
 </p>
 
-<div id="outline-container-org19d2708" class="outline-2">
-<h2 id="org19d2708">Requirements</h2>
-<div class="outline-text-2" id="text-org19d2708">
+<div id="outline-container-org91c090f" class="outline-2">
+<h2 id="org91c090f">Requirements</h2>
+<div class="outline-text-2" id="text-org91c090f">
 <div class="org-src-container">
 <pre class="src src-R"><span class="org-ess-modifiers">library</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-1">(</span></span>magrittr<span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-1">)</span></span>
 </pre>
@@ -717,15 +717,15 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-orge110769" class="outline-2">
-<h2 id="orge110769">%&gt;% (forward pipe)</h2>
-<div class="outline-text-2" id="text-orge110769">
+<div id="outline-container-org7f7eae0" class="outline-2">
+<h2 id="org7f7eae0">%&gt;% (forward pipe)</h2>
+<div class="outline-text-2" id="text-org7f7eae0">
 <p>
-<code class="src src-R"><span class="org-default">%&gt;%</span></code> is the default pipe in R, equivalent to the pipe represented by <code class="src src-R">|</code> in other languages. Several <code class="src src-R">tidyverse</code> packages (e.g. <code class="src src-R">dplyr</code>, <code class="src src-R">tidyr</code>, <code class="src src-R">forcats</code>, <code class="src src-R">rvest</code>, <code class="src src-R">stringr</code>, <code class="src src-R">purrr</code>, or <code class="src src-R">modelr</code>) include it, which is why you do not have to load <code class="src src-R">magrittr</code> to use it.<br />
+<code class="src src-R"><span class="org-ess-XopX">%&gt;%</span></code> is the default pipe in R, equivalent to the pipe represented by <code class="src src-R">|</code> in other languages. Several <code class="src src-R">tidyverse</code> packages (e.g. <code class="src src-R">dplyr</code>, <code class="src src-R">tidyr</code>, <code class="src src-R">forcats</code>, <code class="src src-R">rvest</code>, <code class="src src-R">stringr</code>, <code class="src src-R">purrr</code>, or <code class="src src-R">modelr</code>) include it, which is why you do not have to load <code class="src src-R">magrittr</code> to use it.<br />
 </p>
 
 <p>
-<code class="src src-R"><span class="org-default">%&gt;%</span></code> (an arrow pointing to the right) passes the left-hand side expression to the right-hand side one, allowing for the creating of pipelines, or chains of actions applied to an object. It also makes for more human readable code since you read it from left to right and from top to bottom.<br />
+<code class="src src-R"><span class="org-ess-XopX">%&gt;%</span></code> (an arrow pointing to the right) passes the left-hand side expression to the right-hand side one, allowing for the creating of pipelines, or chains of actions applied to an object. It also makes for more human readable code since you read it from left to right and from top to bottom.<br />
 </p>
 
 <p>
@@ -751,9 +751,9 @@ You have to read such nested functions from the inside out and from the bottom r
 </p>
 </div>
 
-<div id="outline-container-org0c8c4ba" class="outline-3">
-<h3 id="org0c8c4ba">Examples</h3>
-<div class="outline-text-3" id="text-org0c8c4ba">
+<div id="outline-container-org995d01f" class="outline-3">
+<h3 id="org995d01f">Examples</h3>
+<div class="outline-text-3" id="text-org995d01f">
 <p>
 For instance, to get the mean of an object <code class="src src-R">x</code>, we apply the function <code class="src src-R"><span class="org-ess-function-call">mean</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-1">()</span></span></code> on it this way:<br />
 </p>
@@ -765,7 +765,7 @@ For instance, to get the mean of an object <code class="src src-R">x</code>, we 
 <span class="org-ess-function-call">mean</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-1">(</span></span>x<span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-1">)</span></span>
 
 <span class="org-comment-delimiter">## </span><span class="org-comment">with the pipe</span>
-x <span class="org-default">%&gt;%</span> <span class="org-ess-function-call">mean</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-1">()</span></span>
+x <span class="org-ess-XopX">%&gt;%</span> <span class="org-ess-function-call">mean</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-1">()</span></span>
 </pre>
 </div>
 
@@ -788,11 +788,11 @@ But now, consider this:<br />
 
 
 
-<div id="outline-container-org1830253" class="outline-2">
-<h2 id="org1830253">%&lt;&gt;% (compound assignment pipe)</h2>
-<div class="outline-text-2" id="text-org1830253">
+<div id="outline-container-org291c06b" class="outline-2">
+<h2 id="org291c06b">%&lt;&gt;% (compound assignment pipe)</h2>
+<div class="outline-text-2" id="text-org291c06b">
 <p>
-<code class="src src-R"><span class="org-default">%&lt;&gt;%</span></code> pipes the left expression to the right, and then back to the left. Instead of an arrow going right (as the main pipe is), think of it as an arrow going from left to right and then back left.<br />
+<code class="src src-R"><span class="org-ess-XopX">%&lt;&gt;%</span></code> pipes the left expression to the right, and then back to the left. Instead of an arrow going right (as the main pipe is), think of it as an arrow going from left to right and then back left.<br />
 </p>
 
 <div class="red">
@@ -811,7 +811,7 @@ The code:<br />
 </p>
 
 <div class="org-src-container">
-<pre class="src src-R">banding <span class="org-default">%&lt;&gt;%</span> <span class="org-ess-function-call">modify_if</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-1">(</span></span>is.factor, as.character<span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-1">)</span></span>
+<pre class="src src-R">banding <span class="org-ess-XopX">%&lt;&gt;%</span> <span class="org-ess-function-call">modify_if</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-1">(</span></span>is.factor, as.character<span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-1">)</span></span>
 </pre>
 </div>
 
@@ -821,18 +821,18 @@ is equivalent to:<br />
 
 <div class="org-src-container">
 <pre class="src src-R">banding <span class="org-ess-assignment">&lt;-</span>
-  banding <span class="org-default">%&gt;%</span>
+  banding <span class="org-ess-XopX">%&gt;%</span>
   <span class="org-ess-function-call">modify_if</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-1">(</span></span>is.factor, as.character<span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-1">)</span></span>
 </pre>
 </div>
 </div>
 </div>
 
-<div id="outline-container-orgb791d01" class="outline-2">
-<h2 id="orgb791d01">%T% (tee pipe)</h2>
-<div class="outline-text-2" id="text-orgb791d01">
+<div id="outline-container-orga1f5565" class="outline-2">
+<h2 id="orga1f5565">%T% (tee pipe)</h2>
+<div class="outline-text-2" id="text-orga1f5565">
 <p>
-<code class="src src-R"><span class="org-default">%T%</span></code> pipes the effect of the left expression to the right, but does not pipe the object itself (so the object is "free" to be used by another pipe). This is very useful when you want to produce to output from one object or produce a side effect (e.g. printing) without interrupting a pipeline. I like to think of the "T" as a branching which represents the 2 outputs produced by a single object.<br />
+<code class="src src-R"><span class="org-ess-XopX">%T%</span></code> pipes the effect of the left expression to the right, but does not pipe the object itself (so the object is "free" to be used by another pipe). This is very useful when you want to produce to output from one object or produce a side effect (e.g. printing) without interrupting a pipeline. I like to think of the "T" as a branching which represents the 2 outputs produced by a single object.<br />
 </p>
 
 <p>
@@ -845,17 +845,17 @@ In the <a href="https://prosoitos.github.io/r_resources/functional-programming_w
     bird <span class="org-ess-operator">=</span> <span class="org-ess-function-call">paste0</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-2">(</span></span><span class="org-string">"bird"</span>, <span class="org-ess-numbers">1</span>:<span class="org-ess-numbers">50</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-2">)</span></span>,
     sex <span class="org-ess-operator">=</span> <span class="org-ess-function-call">sample</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-2">(</span></span><span class="org-ess-function-call">c</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-3">(</span></span><span class="org-string">"F"</span>, <span class="org-string">"M"</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-3">)</span></span>, <span class="org-ess-numbers">50</span>, replace <span class="org-ess-operator">=</span> <span class="org-ess-constant">T</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-2">)</span></span>,
     population <span class="org-ess-operator">=</span> <span class="org-ess-function-call">sample</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-2">(</span></span>LETTERS<span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-3">[</span></span><span class="org-ess-numbers">1</span>:<span class="org-ess-numbers">3</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-3">]</span></span>, <span class="org-ess-numbers">50</span>, replace <span class="org-ess-operator">=</span> <span class="org-ess-constant">T</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-2">)</span></span>,
-    mass <span class="org-ess-operator">=</span> <span class="org-ess-function-call">rnorm</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-2">(</span></span><span class="org-ess-numbers">50</span>, <span class="org-ess-numbers">43</span>, <span class="org-ess-numbers">4</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-2">)</span></span> <span class="org-default">%&gt;%</span> <span class="org-ess-function-call">round</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-2">(</span></span><span class="org-ess-numbers">1</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-2">)</span></span>,
-    tarsus <span class="org-ess-operator">=</span> <span class="org-ess-function-call">rnorm</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-2">(</span></span><span class="org-ess-numbers">50</span>, <span class="org-ess-numbers">27</span>, <span class="org-ess-numbers">1</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-2">)</span></span> <span class="org-default">%&gt;%</span> <span class="org-ess-function-call">round</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-2">(</span></span><span class="org-ess-numbers">1</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-2">)</span></span>,
-    wing <span class="org-ess-operator">=</span> <span class="org-ess-function-call">rnorm</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-2">(</span></span><span class="org-ess-numbers">50</span>, <span class="org-ess-numbers">112</span>, <span class="org-ess-numbers">3</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-2">)</span></span> <span class="org-default">%&gt;%</span> <span class="org-ess-function-call">round</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-2">(</span></span><span class="org-ess-numbers">0</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-2">)</span></span>
-  <span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-1">)</span></span> <span class="org-default">%T&gt;%</span> 
+    mass <span class="org-ess-operator">=</span> <span class="org-ess-function-call">rnorm</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-2">(</span></span><span class="org-ess-numbers">50</span>, <span class="org-ess-numbers">43</span>, <span class="org-ess-numbers">4</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-2">)</span></span> <span class="org-ess-XopX">%&gt;%</span> <span class="org-ess-function-call">round</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-2">(</span></span><span class="org-ess-numbers">1</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-2">)</span></span>,
+    tarsus <span class="org-ess-operator">=</span> <span class="org-ess-function-call">rnorm</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-2">(</span></span><span class="org-ess-numbers">50</span>, <span class="org-ess-numbers">27</span>, <span class="org-ess-numbers">1</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-2">)</span></span> <span class="org-ess-XopX">%&gt;%</span> <span class="org-ess-function-call">round</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-2">(</span></span><span class="org-ess-numbers">1</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-2">)</span></span>,
+    wing <span class="org-ess-operator">=</span> <span class="org-ess-function-call">rnorm</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-2">(</span></span><span class="org-ess-numbers">50</span>, <span class="org-ess-numbers">112</span>, <span class="org-ess-numbers">3</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-2">)</span></span> <span class="org-ess-XopX">%&gt;%</span> <span class="org-ess-function-call">round</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-2">(</span></span><span class="org-ess-numbers">0</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-2">)</span></span>
+  <span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-1">)</span></span> <span class="org-ess-XopX">%T&gt;%</span> 
   <span class="org-ess-function-call">str</span><span class="org-ess-paren"><span class="org-rainbow-delimiters-depth-1">()</span></span>
 </pre>
 </div>
 
 <div class="vertbar">
 <p>
-Try replacing <code class="src src-R"><span class="org-default">%T%</span></code> with the forward pipe (<code class="src src-R"><span class="org-default">%&gt;%</span></code>) in this code and see what happens.<br />
+Try replacing <code class="src src-R"><span class="org-ess-XopX">%T%</span></code> with the forward pipe (<code class="src src-R"><span class="org-ess-XopX">%&gt;%</span></code>) in this code and see what happens.<br />
 Can you explain it?<br />
 </p>
 
@@ -863,12 +863,12 @@ Can you explain it?<br />
 </div>
 </div>
 
-<div id="outline-container-org7eaa856" class="outline-2">
-<h2 id="org7eaa856">%$% (exposition pipe)</h2>
+<div id="outline-container-org62b9bda" class="outline-2">
+<h2 id="org62b9bda">%$% (exposition pipe)</h2>
 </div>
 </div>
 <div id="postamble" class="status">
-<span style="color:#596a73;font-size:14px"><div align="right">Last updated: October 09, 2018</div></span>
+<span style="color:#596a73;font-size:14px"><div align="right">Last updated: November 03, 2018</div></span>
 </div>
 </body>
 </html>
